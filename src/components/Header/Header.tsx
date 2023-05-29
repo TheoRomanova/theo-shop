@@ -1,5 +1,6 @@
 import "./styles.scss";
 import "./media.scss";
+
 export const Header = () => {
   return (
     <header className="app-header">

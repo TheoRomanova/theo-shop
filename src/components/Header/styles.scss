@@ -1,4 +1,4 @@
-@use "../../colors/colors.scss" as colors;
+// @import "./styles/variables.scss";
 
 .app-header {
   .promotion {
@@ -89,7 +89,7 @@
         cursor: pointer;
       }
       .pages li:hover {
-        color: rgb(52, 143, 189);
+        color: rgb(80, 133, 248);
       }
       .pages li:not(:last-child) {
         margin-right: 25px;
