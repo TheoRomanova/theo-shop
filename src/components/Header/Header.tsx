@@ -1,4 +1,5 @@
 import "./styles.scss";
+import "./media.scss";
 export const Header = () => {
   return (
     <header className="app-header">
@@ -32,6 +33,9 @@ export const Header = () => {
             <input placeholder="Поиск"></input>
             <div className="search-btn">
               <span className="search-img"></span>
+            </div>
+            <div className="menu-btn">
+              <span className="menu-img">Меню</span>
             </div>
           </div>
         </div>

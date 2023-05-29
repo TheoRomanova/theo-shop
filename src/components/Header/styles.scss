@@ -1,3 +1,5 @@
+@use "../../colors/colors.scss" as colors;
+
 .app-header {
   .promotion {
     padding: 2px;
@@ -19,6 +21,7 @@
       justify-content: space-between;
       margin-bottom: 44px;
       .contacts {
+        font-size: 12px;
         li:nth-of-type(1):before {
           position: relative;
           top: 5px;
@@ -43,6 +46,7 @@
         li {
           width: 44px;
           height: 44px;
+
           cursor: pointer;
         }
         li:not(:last-child) {
@@ -67,6 +71,10 @@
           height: 22px;
           background: no-repeat url(../../assets/header/bag.png);
         }
+      }
+      .profile li:hover {
+        background-color: #67c1f5;
+        border-radius: 18px;
       }
     }
     .navigation {
@@ -111,16 +119,17 @@
           width: 95px;
           height: 54px;
           background-color: #29292d;
+          .search-img {
+            position: absolute;
+            right: 30px;
+            top: 15px;
+            width: 28px;
+            height: 28px;
+            background-image: url(../../assets/header/search.png);
+          }
         }
-
-        .search-img {
-          position: absolute;
-          right: 30px;
-          top: 15px;
-          width: 28px;
-          height: 28px;
-
-          background-image: url(../../assets/header/search.png);
+        .menu-btn {
+          display: none;
         }
       }
       .search-btn:hover {

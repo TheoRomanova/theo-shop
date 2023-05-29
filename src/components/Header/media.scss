@@ -1,0 +1,131 @@
+// X-Small devices (portrait phones, less than 576px)
+
+// Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+// @media (min-width: 992px) { ... }
+
+// X-Large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }
+
+// XX-Large devices (larger desktops, 1400px and up)
+// @media (min-width: 1400px) { ... }
+
+// для смартфонов — 320 px, 480 px и выше;
+//  для планшетов — 768 px и выше;
+//  для нетбуков — 1024 px и выше; для мониторов — 1280 px, 1600 px, 1920 px и выше.
+
+@media (max-width: 1200px) {
+  .app-header .header .navigation {
+    flex-direction: column;
+  }
+
+  .app-header .header .navigation .pages {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    position: relative;
+    .header {
+      padding-left: 5px;
+      padding-right: 5px;
+      .navigation {
+        position: absolute;
+        top: 80px;
+
+        .pages {
+          display: none;
+        }
+        .search {
+          width: 100vw;
+          input {
+            display: none;
+          }
+          .search-btn {
+            background-color: rgb(128, 181, 110);
+          }
+          .menu-btn {
+            display: block;
+            width: 95px;
+            height: 54px;
+            position: absolute;
+            background-color: rgb(68, 155, 217);
+          }
+          .menu-img {
+            color: white;
+            padding-left: 10px;
+            line-height: 38px;
+            font-size: 20px;
+          }
+        }
+      }
+
+      .main {
+        flex-direction: column;
+        .contacts {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 20px;
+
+          li:nth-of-type(1):before {
+            content: none;
+          }
+          li:nth-of-type(1) {
+            margin-right: 20px;
+          }
+          li:nth-of-type(2):before {
+            content: none;
+          }
+        }
+        .logo {
+          position: absolute;
+          top: 0;
+          left: 20px;
+          width: 60px;
+          height: 60px;
+          background-size: cover;
+        }
+        .profile {
+          position: absolute;
+          top: 80px;
+          left: 35%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .app-header {
+    .promotion {
+      font-size: 15px;
+    }
+
+    .header {
+      .main {
+        .contacts {
+          display: none;
+        }
+        .profile {
+          li {
+            margin-right: 0 !important;
+          }
+        }
+
+        .logo {
+          top: 20px;
+          left: 40%;
+        }
+        .profile {
+          left: 31%;
+        }
+      }
+    }
+  }
+}
