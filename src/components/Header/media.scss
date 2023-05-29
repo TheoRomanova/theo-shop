@@ -50,12 +50,25 @@
           .search-btn {
             background-color: rgb(128, 181, 110);
           }
+          .search-btn:hover {
+            background-color: rgb(104, 152, 89);
+          }
           .menu-btn {
             display: block;
             width: 95px;
             height: 54px;
             position: absolute;
             background-color: rgb(68, 155, 217);
+          }
+          .menu-btn {
+            display: block;
+            width: 95px;
+            height: 54px;
+            position: absolute;
+            background-color: rgb(68, 155, 217);
+          }
+          .menu-btn:hover {
+            background-color: rgb(60, 136, 190);
           }
           .menu-img {
             color: white;
