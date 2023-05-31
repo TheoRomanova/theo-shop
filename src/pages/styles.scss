@@ -1,5 +1,133 @@
 .main-page {
-  width: 1275px;
-  margin: 0 auto;
-  background-color: aqua;
+  .big-reclam {
+    display: flex;
+    position: relative;
+    margin-bottom: 150px;
+
+    .big-info {
+      //   padding-top: 139px;
+      width: 40%;
+      p:nth-of-type(1) {
+        padding-top: 80px;
+        font-weight: 900;
+
+        color: #002c6a;
+        margin-bottom: 37px;
+        font-size: 50px;
+      }
+      p:nth-of-type(2) {
+        margin-bottom: 37px;
+        font-size: 30px;
+      }
+      button {
+        color: white;
+        padding: 15px;
+
+        font-size: 20px;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+        background-color: hotpink;
+      }
+      button:hover {
+        background-color: rgb(215, 89, 152);
+      }
+    }
+    .big-shoes {
+      position: relative;
+      right: -110px;
+      bottom: 0;
+      width: 60%;
+      height: 503px;
+      background: no-repeat url(../../src/assets/main/polos.png);
+      background-size: contain;
+      background-position: bottom 0 left 0;
+
+      img {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: url(../../src/assets/main/11.png);
+        width: 549px;
+        height: 447px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .bestsellers {
+    position: relative;
+    background-color: pink;
+    margin-bottom: 50px;
+    p:first-child {
+      font-weight: 700;
+      font-size: 30px;
+      margin-bottom: 70px;
+    }
+    ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .best-item {
+        width: 250px;
+        border-radius: 20px;
+        background-color: #84b0ef;
+        img {
+          width: 100%;
+          height: 150px;
+          margin-bottom: 20px;
+        }
+        box-shadow: 5px 20px 60px rgba(22, 92, 191, 0.1);
+      }
+      .best-item:not(:last-child) {
+        margin-right: 20px;
+      }
+
+      .best-item_description {
+        h3,
+        p,
+        .price {
+          padding: 0 15px 0 15px;
+          margin-bottom: 20px;
+        }
+        .price {
+          font-size: 20px;
+          color: purple;
+          font-weight: bold;
+        }
+        .name {
+          padding: 0 15px 0 15px;
+          height: 50px;
+          font-weight: bold;
+          color: rgb(146, 55, 162);
+        }
+      }
+    }
+
+    .btn {
+      position: absolute;
+      width: 70px;
+      padding: 10px;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      background-color: rgb(109, 154, 154);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:hover {
+      background-color: rgb(87, 132, 132);
+    }
+    .btn-left {
+      top: 50%;
+      left: 0;
+    }
+    .btn-right {
+      top: 50%;
+      right: 0;
+    }
+  }
 }

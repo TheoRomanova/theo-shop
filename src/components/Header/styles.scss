@@ -1,6 +1,7 @@
 // @import "./styles/variables.scss";
 
 .app-header {
+  margin-bottom: 50px;
   .promotion {
     padding: 2px;
     margin-bottom: 20px;
@@ -13,9 +14,6 @@
   }
 
   .header {
-    width: 1275px;
-    margin: 0 auto;
-
     .main {
       display: flex;
       justify-content: space-between;
