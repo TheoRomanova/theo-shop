@@ -1,0 +1,136 @@
+// X-Small devices (portrait phones, less than 576px)
+
+// Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+// @media (min-width: 992px) { ... }
+
+// X-Large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }
+
+// XX-Large devices (larger desktops, 1400px and up)
+// @media (min-width: 1400px) { ... }
+
+// для смартфонов — 320 px, 480 px и выше;
+//  для планшетов — 768 px и выше;
+//  для нетбуков — 1024 px и выше; для мониторов — 1280 px, 1600 px, 1920 px и выше.
+
+@media (max-width: 1300px) {
+  .main-page {
+    .big-reclam {
+      width: 900px;
+      margin: 0 auto 120px auto;
+      .big-info {
+        button {
+          position: relative;
+          width: 250px;
+          padding: 20px;
+          bottom: -100px;
+          left: 65%;
+        }
+      }
+      .big-shoes {
+        width: 50%;
+        height: 403px;
+
+        img {
+          width: 449px;
+          height: 347px;
+        }
+      }
+    }
+    .bestsellers {
+      width: 900px;
+      margin: 0 auto;
+      ul {
+        justify-content: center;
+        align-items: center;
+        .best-item {
+          width: 300px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1130px) {
+  .main-page {
+    .big-reclam {
+      width: 100%;
+
+      .big-info {
+        width: 300px;
+        p:nth-of-type(1) {
+          font-weight: 500;
+          font-size: 40px;
+        }
+        p:nth-of-type(2) {
+          font-size: 20px;
+        }
+        button {
+          bottom: -50px;
+        }
+      }
+
+      .big-shoes {
+        width: 60%;
+        height: 303px;
+        img {
+          width: 349px;
+          height: 247px;
+        }
+      }
+    }
+    .bestsellers {
+      width: 800px;
+      margin: 0;
+
+      ul {
+        .best-item {
+          padding: 20px;
+          width: 35%;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .main-page {
+    .big-reclam {
+      .big-info {
+        width: 300px;
+        p:nth-of-type(1) {
+          font-weight: 400;
+          font-size: 30px;
+        }
+        p:nth-of-type(2) {
+          font-size: 20px;
+        }
+        button {
+          bottom: -50px;
+        }
+      }
+      .big-shoes {
+        margin-left: -100px;
+      }
+    }
+    .bestsellers {
+      width: 700px;
+
+      .best-item_description {
+        .name {
+          font-size: smaller;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 430px) {
+}

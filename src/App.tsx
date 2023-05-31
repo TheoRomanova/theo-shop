@@ -1,7 +1,7 @@
 import "./App.scss";
 import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
-import { MainPage } from "./pages/Main";
+import { MainPage } from "./pages/Main/Main";
 
 export const App = () => {
   return (

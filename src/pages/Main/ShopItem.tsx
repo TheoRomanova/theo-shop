@@ -1,4 +1,4 @@
-import { ShopItemType } from "../data/data";
+import { ShopItemType } from "../../data/data";
 
 export const ShopItem = ({
   id,

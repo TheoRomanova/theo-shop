@@ -1,5 +1,6 @@
 import "./styles.scss";
-import { clothes } from "../data/data";
+import "./media.scss";
+import { clothes } from "../../data/data";
 import { ShopItem } from "./ShopItem";
 
 import { useState } from "react";
