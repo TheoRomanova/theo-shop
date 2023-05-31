@@ -1,11 +1,16 @@
 import "./App.scss";
+import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
+import { MainPage } from "./pages/Main";
 
 export const App = () => {
   return (
     <div className="app">
       <Header />
-      <footer className="app-footer">FOOTER</footer>
+      {/* router */}
+      <MainPage />
+      {/* router */}
+      <Footer />
     </div>
   );
 };

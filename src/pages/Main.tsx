@@ -1,4 +1,4 @@
 import "./styles.scss";
 export const MainPage = () => {
-  return <div>MainPage</div>;
+  return <div className="main-page">MainPage</div>;
 };

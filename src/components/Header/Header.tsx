@@ -10,8 +10,8 @@ export const Header = () => {
       <div className="header">
         <div className="main">
           <ul className="contacts">
-            <li>+7 777 777 77 77</li>
-            <li>info@theo-shop.by</li>
+            <li> +7 777 777 77 77</li>
+            <li> info@theo-shop.by</li>
           </ul>
           <div className="logo"></div>
           <ul className="profile">
