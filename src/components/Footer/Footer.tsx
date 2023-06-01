@@ -1,4 +1,5 @@
 import "./styles.scss";
+import "./media.scss";
 export const Footer = () => {
   return (
     <footer className="app-footer">

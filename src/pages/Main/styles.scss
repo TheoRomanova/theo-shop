@@ -22,11 +22,8 @@
       button {
         color: white;
         padding: 15px;
-
         font-size: 20px;
         border-radius: 20px;
-        border: none;
-        cursor: pointer;
         background-color: hotpink;
       }
       button:hover {
@@ -57,7 +54,7 @@
 
   .bestsellers {
     position: relative;
-    background-color: rgb(255, 216, 222);
+
     margin-bottom: 100px;
     padding-bottom: 20px;
     p:first-child {
@@ -71,16 +68,23 @@
       flex-wrap: wrap;
 
       .best-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         width: 250px;
         border-radius: 20px;
-        background-color: #84b0ef;
+        padding: 10px;
+        background-color: #a1adf4;
         img {
-          width: 100%;
-
-          margin-bottom: 20px;
+          width: 200px;
+          height: 150px;
+          margin: 0 auto;
         }
-        box-shadow: 5px 20px 60px rgba(22, 92, 191, 0.1);
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+          rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
       }
+
       .best-item:not(:last-child) {
         margin-right: 20px;
       }
@@ -99,7 +103,9 @@
         }
         .name {
           padding: 0 15px 0 15px;
+          margin-bottom: 10px;
           height: 50px;
+
           font-weight: bold;
           color: rgb(146, 55, 162);
         }
@@ -114,13 +120,14 @@
       color: white;
       font-weight: bold;
       font-size: 20px;
-      background-color: rgb(109, 154, 154);
-      cursor: pointer;
-      border: none;
+      background-color: rgb(114, 142, 252);
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     }
 
     .btn:hover {
-      background-color: rgb(87, 132, 132);
+      background-color: rgb(102, 127, 225);
     }
     .btn-left {
       top: 50%;

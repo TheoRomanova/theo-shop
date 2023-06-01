@@ -1,14 +1,11 @@
 .app-footer {
-  padding-left: 100px;
-  padding-right: 100px;
   display: flex;
   justify-content: space-between;
-
+  padding: 50px 100px 20px 100px;
   background-color: #29292d;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-  padding-bottom: 50px;
-  padding-top: 50px;
+
   .contacts-info {
     display: flex;
     margin: auto;
@@ -67,7 +64,7 @@
   .shop-info {
     display: flex;
     width: 50%;
-    background-color: rgb(58, 57, 57);
+
     .info-block {
       flex-grow: 1;
       color: white;
@@ -85,7 +82,6 @@
       flex-direction: column;
       justify-content: center;
       align-items: end;
-      background-color: pink;
 
       .profile-icons {
         display: flex;
@@ -129,7 +125,6 @@
         input {
           border-radius: 50px 0 0 50px;
           padding: 15px;
-          border: none;
           box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
             rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
         }
@@ -138,8 +133,6 @@
           background-color: hotpink;
           color: white;
           border-radius: 0 50px 50px 0;
-          border: none;
-          cursor: pointer;
           box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
             rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
         }
