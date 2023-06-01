@@ -36,7 +36,7 @@ export const Header = () => {
               <span className="search-img"></span>
             </div>
             <div className="menu-btn">
-              <span className="menu-img">Меню</span>
+              Меню <span></span>
             </div>
           </div>
         </div>
