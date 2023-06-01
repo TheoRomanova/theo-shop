@@ -32,9 +32,7 @@ export const Header = () => {
           </ul>
           <div className="search">
             <input placeholder="Поиск"></input>
-            <div className="search-btn">
-              <span className="search-img"></span>
-            </div>
+            <button className="search-btn"></button>
             <div className="menu-btn">
               Меню <span></span>
             </div>

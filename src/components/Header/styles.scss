@@ -114,22 +114,16 @@
           right: 0;
           width: 95px;
           height: 54px;
-          background-color: #29292d;
-          .search-img {
-            position: absolute;
-            right: 30px;
-            top: 15px;
-            width: 28px;
-            height: 28px;
-            background-image: url(../../assets/header/search.png);
-          }
+          background: no-repeat url(../../assets/header/search.png) right 30px
+            top 15px;
+          background-color: #5695d1;
         }
         .menu-btn {
           display: none;
         }
       }
       .search-btn:hover {
-        background-color: #5695d1;
+        background-color: #457bae;
       }
     }
   }
