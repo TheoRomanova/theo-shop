@@ -131,6 +131,72 @@
     }
   }
 }
+@media (max-width: 700px) {
+  .main-page {
+    .big-reclam {
+      .big-info {
+        p:nth-of-type(2) {
+          color: pink;
+          font-weight: bold;
+        }
+      }
+
+      .big-shoes {
+        margin-left: -220px;
+        z-index: -1;
+      }
+    }
+
+    .bestsellers {
+      width: 600px;
+      margin: 0;
+
+      ul {
+        .best-item {
+          padding: 5px;
+          margin-bottom: 20px;
+        }
+      }
+      .btn {
+        width: 30px;
+
+        background-color: rgb(90, 237, 237);
+      }
+    }
+  }
+}
 
 @media (max-width: 430px) {
+  .main-page {
+    .big-reclam {
+      .big-shoes {
+        margin-left: -350px;
+        z-index: -1;
+      }
+
+      .big-info {
+        button {
+          left: 40px;
+        }
+      }
+    }
+
+    .bestsellers {
+      width: 400px;
+
+      ul {
+        .best-item {
+          padding: 0;
+          .best-item_description {
+            .name {
+              font-size: 10px;
+            }
+            p {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
