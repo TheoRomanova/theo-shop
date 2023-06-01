@@ -1,0 +1,152 @@
+.app-footer {
+  padding-left: 100px;
+  padding-right: 100px;
+  display: flex;
+  justify-content: space-between;
+
+  background-color: #29292d;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  .contacts-info {
+    display: flex;
+    margin: auto;
+
+    .logo {
+      width: 150px;
+      height: 150px;
+      background: url(../../assets/header/logo.png) no-repeat;
+    }
+    .contacts {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .social-media {
+        display: flex;
+        justify-content: space-around;
+        position: relative;
+        top: -10px;
+        span {
+          width: 25px;
+          height: 25px;
+          border-radius: 5px;
+          background-color: aqua;
+          cursor: pointer;
+        }
+        span:nth-child(1) {
+          background: url(../../assets/sprite.jpg) left 26px top 27px;
+        }
+        span:nth-child(2) {
+          background: url(../../assets/sprite.jpg) left 57px top 27px;
+        }
+        span:nth-child(3) {
+          background: url(../../assets/sprite.jpg) left 57px top 58px;
+        }
+      }
+
+      .tel-mail {
+        color: white;
+        position: relative;
+        top: -30px;
+        p {
+          text-align: start;
+          white-space: pre;
+        }
+        p:nth-child(1)::before {
+          content: url(../../assets/header/phone2.png);
+          vertical-align: top;
+        }
+        p:nth-child(2)::before {
+          content: url(../../assets/header/mail2.png);
+          vertical-align: top;
+        }
+      }
+    }
+  }
+  .shop-info {
+    display: flex;
+    width: 50%;
+    background-color: rgb(58, 57, 57);
+    .info-block {
+      flex-grow: 1;
+      color: white;
+      margin: auto;
+      p {
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+    }
+
+    .profile {
+      flex-grow: 2;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: end;
+      background-color: pink;
+
+      .profile-icons {
+        display: flex;
+
+        li {
+          width: 30px;
+          height: 30px;
+          border-radius: 20px;
+          padding: 20px;
+          background-color: #7070b9;
+          cursor: pointer;
+        }
+
+        li:first-child {
+          margin-right: 20px;
+        }
+
+        li span {
+          display: block;
+          position: relative;
+          top: -10px;
+          right: 8px;
+          width: 20px;
+          height: 20px;
+          background-size: cover;
+        }
+
+        li:first-child span {
+          background: url(../../assets/header/bag.png) no-repeat;
+        }
+        li:nth-child(2) span {
+          background: url(../../assets/header/user2.png) no-repeat;
+        }
+      }
+
+      .search {
+        display: flex;
+        justify-content: flex-end;
+
+        padding: 10px;
+        input {
+          border-radius: 50px 0 0 50px;
+          padding: 15px;
+          border: none;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+            rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        }
+        button {
+          width: 80px;
+          background-color: hotpink;
+          color: white;
+          border-radius: 0 50px 50px 0;
+          border: none;
+          cursor: pointer;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+            rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        }
+        button:hover {
+          background-color: rgb(223, 84, 154);
+        }
+      }
+    }
+  }
+}
