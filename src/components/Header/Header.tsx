@@ -14,12 +14,16 @@ export const Header = () => {
             <li> info@theo-shop.by</li>
           </ul>
           <div className="logo"></div>
-          <ul className="profile">
+          <ul className="profile-icons">
             <li>
-              <span className="bag"></span>
+              <span></span>
             </li>
-            <li></li>
-            <li></li>
+            <li>
+              <span></span>
+            </li>
+            <li>
+              <span></span>
+            </li>
           </ul>
         </div>
         <div className="navigation">

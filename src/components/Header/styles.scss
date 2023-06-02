@@ -38,40 +38,49 @@
         height: 95px;
         background: no-repeat url(../../assets/header/logo.png);
       }
-      .profile {
+
+      .profile-icons {
         display: flex;
         li {
-          width: 44px;
-          height: 44px;
-
+          width: 30px;
+          height: 30px;
+          padding: 20px;
+          border-radius: 20px;
+          background-color: #8aa3de;
           cursor: pointer;
+          &:hover {
+            background-color: #748cc4;
+          }
         }
         li:not(:last-child) {
           margin-right: 20px;
         }
-        li:nth-of-type(1) {
+
+        li span {
+          display: block;
           position: relative;
-          background: no-repeat url(../../assets/header/circle.png);
+          top: -10px;
+          right: 10px;
+          width: 20px;
+          height: 20px;
         }
-        li:nth-of-type(2) {
-          background: no-repeat url(../../assets/header/profile.png);
-        }
-        li:nth-of-type(3) {
-          background: no-repeat url(../../assets/header/favorites.png);
+        li:first-child span {
+          right: 7px;
         }
 
-        li .bag {
-          position: absolute;
-          top: 10px;
-          left: 13px;
-          width: 22px;
-          height: 22px;
+        li:nth-of-type(1) span {
+          position: relative;
           background: no-repeat url(../../assets/header/bag.png);
+          background-size: contain;
         }
-      }
-      .profile li:hover {
-        background-color: #67c1f5;
-        border-radius: 18px;
+        li:nth-of-type(2) span {
+          background: no-repeat url(../../assets/header/user2.png);
+          background-size: contain;
+        }
+        li:nth-of-type(3) span {
+          background: no-repeat url(../../assets/header/heart.png);
+          background-size: contain;
+        }
       }
     }
     .navigation {
