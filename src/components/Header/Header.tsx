@@ -28,7 +28,7 @@ export const Header = () => {
         </div>
         <div className="navigation">
           <ul className="pages">
-            <li>Кроссовки</li>
+            <li>Обувь</li>
             <li>Одежда</li>
             <li>Аксессуары</li>
             <li>Блог</li>
