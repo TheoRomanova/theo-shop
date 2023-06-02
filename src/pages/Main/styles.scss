@@ -93,15 +93,15 @@
       }
 
       .best-item_description {
-        h3,
+        .name,
         p,
         .price {
           padding: 0 15px 0 15px;
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
         .price {
-          font-size: 20px;
-          color: purple;
+          font-size: 18px;
+          color: rgb(103, 219, 174);
           font-weight: bold;
         }
         .name {

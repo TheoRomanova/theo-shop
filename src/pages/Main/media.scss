@@ -46,6 +46,9 @@
     .bestsellers {
       width: 900px;
       margin: 0 auto;
+      p:first-child {
+        margin-bottom: 40px;
+      }
       ul {
         justify-content: center;
         align-items: center;
@@ -56,6 +59,12 @@
         .best-item:last-child {
           margin-right: 20px;
         }
+      }
+      .btn-left {
+        left: 20px;
+      }
+      .btn-right {
+        right: 40px;
       }
     }
   }
@@ -96,7 +105,7 @@
         .best-item {
           padding: 20px;
           width: 35%;
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
       }
     }
@@ -125,7 +134,12 @@
     }
     .bestsellers {
       width: 700px;
-
+      .btn-left {
+        left: 10px;
+      }
+      .btn-right {
+        right: 30px;
+      }
       .best-item_description {
         .name {
           font-size: smaller;
@@ -139,7 +153,7 @@
     .big-reclam {
       .big-info {
         p:nth-of-type(2) {
-          color: rgb(251, 156, 240);
+          color: rgb(251, 180, 180);
           font-weight: bold;
         }
       }
@@ -157,7 +171,7 @@
       ul {
         .best-item {
           padding: 5px;
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
       }
       .btn {
@@ -169,17 +183,19 @@
 
 @media (max-width: 430px) {
   .main-page {
+    // overflow: hidden;
     .big-reclam {
       .big-info {
         p:nth-of-type(1) {
           font-weight: bold;
+          color: rgb(91, 109, 245);
         }
         button {
           left: 40px;
         }
       }
       .big-shoes {
-        margin-left: -350px;
+        margin-left: -410px;
         z-index: -1;
       }
     }
@@ -187,23 +203,34 @@
     .bestsellers {
       width: 400px;
       .btn {
-        width: 40px;
+        width: 30px;
         height: 40px;
+
+        font-size: 15px;
+      }
+      .btn-left {
+        left: 5px;
+      }
+      .btn-right {
+        right: 15px;
       }
 
       ul {
         .best-item {
-          padding: 0;
+          padding: 2px;
           img {
             width: 100px;
             height: 75px;
           }
           .best-item_description {
             .name {
-              font-size: 10px;
+              font-size: 12px;
             }
             p {
-              font-size: 10px;
+              font-size: 12px;
+            }
+            .price {
+              font-size: 14px;
             }
           }
         }
