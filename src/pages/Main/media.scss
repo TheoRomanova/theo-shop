@@ -134,15 +134,20 @@
     }
     .bestsellers {
       width: 700px;
+
       .btn-left {
         left: 10px;
       }
       .btn-right {
         right: 30px;
       }
-      .best-item_description {
-        .name {
-          font-size: smaller;
+
+      ul {
+        margin: 0 auto;
+        .best-item_description {
+          .name {
+            font-size: smaller;
+          }
         }
       }
     }
@@ -165,10 +170,9 @@
     }
 
     .bestsellers {
-      width: 600px;
-      margin: 0;
-
       ul {
+        position: relative;
+        // left: 30px;
         .best-item {
           padding: 5px;
           margin-bottom: 10px;
@@ -176,6 +180,29 @@
       }
       .btn {
         width: 50px;
+      }
+      .btn-left {
+        left: 0;
+      }
+      .btn-right {
+        right: 25px;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .main-page {
+    .bestsellers {
+      width: 500px;
+
+      ul {
+        .best-item {
+          img {
+            width: 150px;
+            height: 100px;
+          }
+        }
       }
     }
   }
