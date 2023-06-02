@@ -2,7 +2,6 @@ import "./styles.scss";
 import "./media.scss";
 import { clothes } from "../../data/data";
 import { ShopItem } from "./ShopItem";
-
 import { useState } from "react";
 
 export const MainPage = () => {
@@ -26,15 +25,17 @@ export const MainPage = () => {
       <div className="big-reclam">
         <div className="big-info">
           <p>ADIDAS NITE JOGGER</p>
-          <p>Городские кроссовки в ярком стиле 80-х</p>
-          <button>Смотреть все</button>
+          <p>
+            Urban sneakers in a colorful <b>80s</b> style
+          </p>
+          <button>See all</button>
         </div>
         <div className="big-shoes">
           <img />
         </div>
       </div>
       <div className="bestsellers">
-        <p>Лучшие из лучших</p>
+        <p>The best of the best</p>
         {portionStart > 0 && (
           <button className="btn btn-left" onClick={() => onNavigate("-")}>
             {"<"}

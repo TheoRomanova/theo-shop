@@ -47,50 +47,32 @@
         .pages {
           display: none;
         }
-        .search {
+        .filter-search {
           width: 95vw;
 
           input {
             display: none;
           }
-          .search-btn {
-            width: 120px;
-            background-color: rgb(128, 181, 110);
-          }
-          .search-btn:hover {
-            background-color: rgb(104, 152, 89);
-          }
-          .menu-btn {
-            display: block;
-            width: 120px;
-            height: 54px;
-            position: relative;
-            color: white;
-            font-weight: bold;
-            padding-left: 10px;
-            line-height: 38px;
-            font-size: 20px;
-            background-color: rgb(68, 155, 217);
-          }
-          .menu-btn span {
-            display: block;
-            position: relative;
-            top: -47px;
-            right: -50px;
-            width: 50px;
-            height: 50px;
-            background-size: contain;
-            background: no-repeat url(../../assets/header/menu.png);
+          .search-btn.atom-button.semicircle {
+            position: absolute;
+            top: 0;
+            right: 10px;
           }
 
-          .menu-btn:hover {
-            background-color: rgb(60, 136, 190);
+          .menu-btn.atom-button.semicircle {
+            display: block;
+            background-image: url(../../assets/header/menu.png);
+            background-repeat: no-repeat;
+            background-position: left 15px top -8px;
+
+            // border-radius: 0 100px 50px 0;
           }
         }
       }
 
       .main {
         flex-direction: column;
+        margin-bottom: 80px;
         .contacts {
           display: flex;
           justify-content: center;

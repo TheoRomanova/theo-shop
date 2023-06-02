@@ -8,11 +8,12 @@ import ShopPage from "./pages/Shop/Shop";
 export const App = () => {
   return (
     <div className="app">
-      <Header />
       <Router>
+        <Header />
+
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/shop_category" element={<ShopPage />} />
+          <Route path="/shop" element={<ShopPage />} />
         </Routes>
       </Router>
       <Footer />

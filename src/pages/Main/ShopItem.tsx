@@ -14,7 +14,9 @@ export const ShopItem = ({
       <img src={photo} alt="shoes" />
       <div className="best-item_description">
         <div className="name">{name}</div>
-        <p>Артикул: {articul}</p>
+        <p>
+          <b>item number:</b> {articul}
+        </p>
         <span className="price">{price}$</span>
       </div>
     </li>

@@ -1,17 +1,21 @@
 import "./styles.scss";
 import "./media.scss";
+import { NavLink, useLocation } from "react-router-dom";
+import { Button } from "../../atoms/Button/Button";
 
 export const Header = () => {
+  const location = useLocation();
+
   return (
     <header className="app-header">
       <div className="promotion">
-        Только три дня скидка <span> -30% </span>на всё!
+        Only three days - <span> 30% </span> discount on everything!
       </div>
       <div className="header container">
         <div className="main">
           <ul className="contacts">
             <li> +7 777 777 77 77</li>
-            <li> info@theo-shop.by</li>
+            <li> info@pika-shop.by</li>
           </ul>
           <div className="logo"></div>
           <ul className="profile-icons">
@@ -28,18 +32,23 @@ export const Header = () => {
         </div>
         <div className="navigation">
           <ul className="pages">
-            <li>Обувь</li>
-            <li>Одежда</li>
-            <li>Аксессуары</li>
-            <li>Блог</li>
-            <li>Отзывы</li>
+            <li className={location.pathname === "/shop" ? "active" : ""}>
+              <NavLink to="/shop">Shoes</NavLink>
+            </li>
+            <li>Clothes</li>
+            <li>Accessories</li>
+            <li>Blog</li>
+            <li>Reviews</li>
           </ul>
-          <div className="search">
+          <div className="filter-search">
             <input placeholder="Поиск"></input>
-            <button className="search-btn"></button>
-            <div className="menu-btn">
-              Меню <span></span>
-            </div>
+            <Button
+              palette={"purple"}
+              size={"semicircle"}
+              rest={"search-btn"}
+            />
+
+            <Button palette={"blue"} size={"semicircle"} rest={"menu-btn"} />
           </div>
         </div>
       </div>

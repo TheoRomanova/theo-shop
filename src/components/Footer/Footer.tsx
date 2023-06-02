@@ -1,5 +1,7 @@
 import "./styles.scss";
 import "./media.scss";
+import { Button } from "../../atoms/Button/Button";
+
 export const Footer = () => {
   return (
     <footer className="app-footer">
@@ -37,8 +39,10 @@ export const Footer = () => {
             </li>
           </ul>
           <div className="search">
-            <input placeholder="Поиск"></input>
-            <button>поиск</button>
+            <input placeholder="search..."></input>
+            <Button palette={"pink"} size={"semicircle"}>
+              SEARCH
+            </Button>
           </div>
         </div>
       </div>

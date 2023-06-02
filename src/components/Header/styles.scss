@@ -1,5 +1,6 @@
 .app-header {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
+
   .promotion {
     padding: 2px;
     margin-bottom: 20px;
@@ -7,11 +8,12 @@
     color: #ffff;
     background-color: #29292d;
     span {
-      color: #ff1818;
+      color: #f8534e;
     }
   }
 
   .header {
+    box-shadow: rgba(138, 180, 251, 0.45) 0px 25px 20px -20px;
     .main {
       display: flex;
       justify-content: space-between;
@@ -48,10 +50,12 @@
           border-radius: 20px;
           background-color: #8aa3de;
           cursor: pointer;
+
           &:hover {
             background-color: #748cc4;
           }
         }
+
         li:not(:last-child) {
           margin-right: 20px;
         }
@@ -94,9 +98,18 @@
       .pages li {
         font-weight: 800;
         font-size: 27px;
-
         cursor: pointer;
+        a:active {
+          color: #748cc4;
+        }
+        a:visited {
+          color: #000000;
+        }
       }
+      .pages li.active a {
+        color: rgb(67, 122, 243);
+      }
+
       .pages li:hover {
         color: rgb(67, 122, 243);
       }
@@ -104,38 +117,27 @@
         margin-right: 25px;
       }
 
-      .search {
+      .filter-search {
         display: flex;
         position: relative;
-        border-radius: 20px;
-        overflow: hidden;
-        width: 320px;
-        height: 44px;
-        cursor: pointer;
         input {
           padding: 0;
           width: 320px;
-          height: 44px;
+          height: 45px;
           text-indent: 20px;
-          background: #ffffff;
-          box-shadow: inset 5px 2px 30px rgba(41, 41, 45, 0.1);
+          color: rgb(67, 122, 243);
+          font-size: 18px;
+          border-radius: 20px 0 0 20px;
+          background: #dbeafa;
         }
         .search-btn {
-          position: absolute;
-          top: -10px;
-          right: 0;
-          width: 95px;
-          height: 54px;
-          background: no-repeat url(../../assets/header/search.png) right 30px
-            top 15px;
-          background-color: #5695d1;
+          background-image: url(../../assets/header/search.png);
+          background-repeat: no-repeat;
+          background-position: left 15px top 8px;
         }
         .menu-btn {
           display: none;
         }
-      }
-      .search-btn:hover {
-        background-color: #457bae;
       }
     }
   }
