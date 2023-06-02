@@ -27,8 +27,8 @@
         span {
           width: 25px;
           height: 25px;
-          border-radius: 5px;
-          background-color: aqua;
+          border-radius: 20px;
+
           cursor: pointer;
         }
         span:nth-child(1) {
@@ -50,6 +50,10 @@
           text-align: start;
           white-space: pre;
         }
+        p:first-child {
+          margin-bottom: 5px;
+        }
+
         p:nth-child(1)::before {
           content: url(../../assets/header/phone2.png);
           vertical-align: top;
@@ -69,6 +73,7 @@
       flex-grow: 1;
       color: white;
       margin: auto;
+
       p {
         margin-bottom: 10px;
         cursor: pointer;

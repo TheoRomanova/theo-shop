@@ -89,14 +89,16 @@
 
       .pages {
         display: flex;
+        padding-bottom: 10px;
       }
       .pages li {
-        font-weight: 600;
-        font-size: 20px;
+        font-weight: 800;
+        font-size: 27px;
+
         cursor: pointer;
       }
       .pages li:hover {
-        color: rgb(80, 133, 248);
+        color: rgb(67, 122, 243);
       }
       .pages li:not(:last-child) {
         margin-right: 25px;
