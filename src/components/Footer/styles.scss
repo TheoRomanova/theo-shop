@@ -85,6 +85,7 @@
 
       .profile-icons {
         display: flex;
+        margin-bottom: 10px;
 
         li {
           width: 30px;
@@ -97,6 +98,12 @@
 
         li:first-child {
           margin-right: 20px;
+          &:hover {
+            background-color: #5b5b8e;
+          }
+        }
+        li:nth-child(2):hover {
+          background-color: #5b5b8e;
         }
 
         li span {
@@ -112,8 +119,9 @@
         li:first-child span {
           background: url(../../assets/header/bag.png) no-repeat;
         }
+
         li:nth-child(2) span {
-          background: url(../../assets/header/user2.png) no-repeat;
+          background: url(../../assets/header/user2.png) no-repeat right 0;
         }
       }
 
