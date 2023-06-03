@@ -77,15 +77,12 @@
         width: 250px;
         border-radius: 20px;
         padding: 10px;
-        background-color: #a1adf4;
+        background-color: #f0f2ff;
         img {
           width: 200px;
           height: 150px;
           margin: 0 auto;
         }
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-          rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
       }
 
       .best-item:not(:last-child) {
@@ -101,7 +98,7 @@
         }
         .price {
           font-size: 18px;
-          color: rgb(103, 219, 174);
+          color: rgb(87, 58, 227);
           font-weight: bold;
         }
         .name {
@@ -123,10 +120,8 @@
       color: white;
       font-weight: bold;
       font-size: 20px;
-      background-color: rgb(114, 142, 252);
-      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+      z-index: 1;
+      background-color: rgb(139, 159, 240);
     }
 
     .btn:hover {

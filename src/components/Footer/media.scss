@@ -46,12 +46,13 @@
 }
 @media (max-width: 430px) {
   .app-footer {
-    padding-left: 120px;
-    padding-bottom: 0;
+    flex-direction: column;
 
     .shop-info {
+      width: 100%;
       .info-block {
-        display: none;
+        position: relative;
+        left: -20%;
       }
     }
   }

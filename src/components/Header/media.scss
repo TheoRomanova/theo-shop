@@ -61,6 +61,7 @@
 
           .menu-btn.atom-button.semicircle {
             display: block;
+            transform: rotate(180deg);
             background-image: url(../../assets/header/menu.png);
             background-repeat: no-repeat;
             background-position: left 15px top -8px;
@@ -97,9 +98,11 @@
           background-size: cover;
         }
         .profile-icons {
-          position: absolute;
-          top: 80px;
-          left: 35% !important;
+          z-index: 1;
+          position: relative;
+          top: 0;
+          left: 33% !important;
+          padding-bottom: 6px !important;
         }
       }
     }
@@ -113,13 +116,19 @@
     }
 
     .header {
+      padding-bottom: 1px;
       .main {
         .contacts {
           display: none;
         }
         .profile-icons {
+          top: 40px;
           li {
-            margin: 0 auto !important;
+            margin: 0 !important;
+            cursor: pointer;
+          }
+          li:first-child {
+            margin-left: 10px !important;
           }
         }
 
@@ -127,8 +136,21 @@
           top: 20px;
           left: 40%;
         }
+      }
+    }
+  }
+}
+@media (max-width: 350px) {
+  .app-header {
+    .promotion {
+      font-size: 15px;
+    }
+
+    .header {
+      .main {
         .profile-icons {
-          left: 31%;
+          top: 70px;
+          left: 25% !important;
         }
       }
     }
