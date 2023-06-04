@@ -113,3 +113,26 @@ export const clothes: Array<ShopItemType> = [
     sizes: [37, 38, 40],
   },
 ];
+
+export const getSizes = (start: number, end: number) => {
+  const sizes = [];
+  for (let i = start; i <= end; i++) {
+    sizes.push(i);
+  }
+  return sizes;
+};
+
+export const colors = [
+  { black: "#29292D" },
+  { white: "#B3C0D2" },
+  { pink: "#FFE1E1" },
+  { red: "#D92A27" },
+  { blue: "#76DECB" },
+  { dark_blue: "#336CBD" },
+  { purple: "#A13FBA" },
+  { light_green: "#2C830E" },
+  { dark_green: "#2E4824" },
+  { yellow: "#EBEF31" },
+  { black: "#29292D" },
+  { light_grey: "#C4C4C4" },
+];
