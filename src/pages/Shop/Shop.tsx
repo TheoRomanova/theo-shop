@@ -16,22 +16,31 @@ const Shop = () => {
       </Button>
       <div>
         <div className="filter-block">
-          <p>Размер</p>
+          <p>Size</p>
           <div className="sizes">
             {sizes.map((size) => (
-              <span className="size">{size} EUR</span>
+              <div className="size">
+                <input
+                  type="checkbox"
+                  id={size.toString()}
+                  name={size.toString()}
+                  value={size.toString()}
+                />
+                <label htmlFor={size.toString()}> {size.toString()} EUR </label>
+                <br />
+              </div>
             ))}
           </div>
-          <p>Сезон</p>
+          <p>Seazon</p>
           <form className="weather">
             <input type="checkbox" id="demi" name="demi" value="demi" />
-            <label htmlFor="demi">Демисезон </label> <br />
+            <label htmlFor="demi">Demi-season</label> <br />
             <input type="checkbox" id="winter" name="winter" value="winter" />
-            <label htmlFor="winter">Зима </label> <br />
+            <label htmlFor="winter">Winter</label> <br />
             <input type="checkbox" id="summer" name="summer" value="summer" />
-            <label htmlFor="summer">Лето </label>
+            <label htmlFor="summer">Summer</label>
           </form>
-          <p>Цена</p>
+          <p>Price</p>
           <div className="price">
             <MultiRangeSlider
               min={0}
@@ -41,7 +50,7 @@ const Shop = () => {
               }
             />
           </div>
-          <p>Цвет</p>
+          <p>Color</p>
           <div className="colors">
             {colors.map((color) => (
               <input
@@ -99,7 +108,7 @@ const Shop = () => {
             />
             <label htmlFor="high-boots">Тапочки </label> <br />
           </form>
-          <p>Бренд</p>
+          <p>Brand</p>
           <form className="brand">
             <input type="checkbox" id="adidas" name="adidas" value="adidas" />
             <label htmlFor="adidas">Adidas </label> <br />
@@ -120,7 +129,6 @@ const Shop = () => {
             <br />
             <input type="checkbox" id="asics" name="asics" value="asics" />
             <label htmlFor="asics">Asics </label> <br />
-            <br />
             <input
               type="checkbox"
               id="caterpillar"
@@ -138,12 +146,17 @@ const Shop = () => {
             <input type="checkbox" id="puma" name="puma" value="puma" />
             <label htmlFor="high-boots">Puma </label>
           </form>
+          <Button palette={"blue"} size={"big"}>
+            Apply
+          </Button>
+          <Button palette={"purple"} size={"big"}>
+            Reset
+          </Button>
         </div>
         <div className="shop-items-block">
           <div className="options"></div>
           <div className="shop-items"></div>
         </div>
-        <div></div>
       </div>
     </div>
   );
