@@ -1,8 +1,9 @@
 import "./styles.scss";
 import "./media.scss";
 import { clothes } from "../../data/data";
-import { ShopItem } from "./ShopItem";
+
 import { useState } from "react";
+import { ShopItem } from "../../components/ShopItem/ShopItem";
 
 export const MainPage = () => {
   const [portionStart, setPortionStart] = useState(0);
@@ -21,7 +22,7 @@ export const MainPage = () => {
     }
   };
   return (
-    <div className="main-page container">
+    <div className="main-page">
       <div className="big-reclam">
         <div className="big-info">
           <p>ADIDAS NITE JOGGER</p>
@@ -44,13 +45,7 @@ export const MainPage = () => {
 
         <ul>
           {clothes.slice(portionStart, portionEnd).map((item) => (
-            <ShopItem
-              id={item.id}
-              name={item.name}
-              photo={item.photo}
-              price={item.price}
-              articul={item.articul}
-            />
+            <ShopItem shopItem={item} />
           ))}
         </ul>
 

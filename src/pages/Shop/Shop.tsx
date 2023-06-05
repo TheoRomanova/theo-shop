@@ -1,13 +1,20 @@
 import "./styles.scss";
 
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../atoms/Button/Button";
-import { colors, getSizes } from "../../data/data";
+import { clothes, colors, getSizes } from "../../data/data";
 import MultiRangeSlider from "../../atoms/MultiRangeSlider/MultiRangeSlider";
+import { ShopItem } from "../../components/ShopItem/ShopItem";
 const sizes = getSizes(30, 46);
 const Shop = () => {
   const navigate = useNavigate();
+  const amountItems = [18, 30, 60];
+  const [activeAmount, setActiveAmount] = useState(18);
+
+  const onChangeAmountItems = (count: number) => {
+    setActiveAmount(count);
+  };
 
   return (
     <div className="shop-page">
@@ -154,8 +161,39 @@ const Shop = () => {
           </Button>
         </div>
         <div className="shop-items-block">
-          <div className="options"></div>
-          <div className="shop-items"></div>
+          <div className="options">
+            <div className="options-left">
+              {" "}
+              <label>
+                <span className="">Sorting</span>
+                <select name="sorting">
+                  <option value="1">by default</option>
+                  <option value="2">popular</option>
+                  <option value="3">low price</option>
+                </select>
+              </label>
+            </div>
+
+            <div className="options-right">
+              {" "}
+              <label>
+                <span className="">Amount</span>
+                {amountItems.map((count) => (
+                  <button
+                    className={activeAmount === count ? "button-active" : ""}
+                    onClick={() => onChangeAmountItems(count)}
+                  >
+                    {count}
+                  </button>
+                ))}
+              </label>
+            </div>
+          </div>
+          <div className="shop-items">
+            {clothes.map((item) => (
+              <ShopItem shopItem={item} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

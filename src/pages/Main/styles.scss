@@ -1,6 +1,9 @@
 .main-page {
-  padding-left: 10px;
-  padding-right: 10px;
+  width: 1154px;
+  margin: 0 auto;
+  padding-left: 22px;
+  padding-right: 22px;
+
   .big-reclam {
     display: flex;
     position: relative;
@@ -57,83 +60,45 @@
 
   .bestsellers {
     position: relative;
-
-    margin-bottom: 100px;
-    padding-bottom: 20px;
-    p:first-child {
+    > p:nth-of-type(1) {
+      margin-bottom: 91.6px;
       font-weight: 700;
-      font-size: 30px;
-      margin-bottom: 70px;
+      font-size: 48px;
+      line-height: 59px;
     }
     ul {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
-
-      .best-item {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 250px;
-        border-radius: 20px;
-        padding: 10px;
-        background-color: #f0f2ff;
-        img {
-          width: 200px;
-          height: 150px;
-          margin: 0 auto;
-        }
+      .shop-item {
+        margin-right: 26.58px;
       }
-
-      .best-item:not(:last-child) {
-        margin-right: 20px;
-      }
-
-      .best-item_description {
-        .name,
-        p,
-        .price {
-          padding: 0 15px 0 15px;
-          margin-bottom: 10px;
-        }
-        .price {
-          font-size: 18px;
-          color: rgb(87, 58, 227);
-          font-weight: bold;
-        }
-        .name {
-          padding: 0 15px 0 15px;
-          margin-bottom: 10px;
-          height: 50px;
-
-          font-weight: bold;
-          color: rgb(146, 55, 162);
-        }
+      .shop-item:nth-child(4) {
+        margin-right: 0;
       }
     }
 
     .btn {
       position: absolute;
-      width: 70px;
+      width: 40px;
       padding: 10px;
       border-radius: 10px;
       color: white;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 10px;
       z-index: 1;
-      background-color: rgb(139, 159, 240);
+      background-color: rgb(149, 158, 190);
     }
 
     .btn:hover {
-      background-color: rgb(102, 127, 225);
+      background-color: rgb(113, 115, 126);
     }
     .btn-left {
       top: 50%;
-      left: 0;
+      left: -62px;
     }
     .btn-right {
       top: 50%;
-      right: 0;
+      right: -62px;
     }
   }
 }

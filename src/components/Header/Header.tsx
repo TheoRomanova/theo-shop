@@ -11,7 +11,7 @@ export const Header = () => {
       <div className="promotion">
         Only three days - <span> 30% </span> discount on everything!
       </div>
-      <div className="header container">
+      <div className="header">
         <div className="main">
           <ul className="contacts">
             <li> +7 777 777 77 77</li>

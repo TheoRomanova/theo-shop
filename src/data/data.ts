@@ -1,15 +1,7 @@
 import { v1 } from "uuid";
-import a from "../../src/assets/main/a.png";
-import d from "../../src/assets/main/d.png";
-import f from "../../src/assets/main/f.png";
-import g from "../../src/assets/main/g.png";
-import h from "../../src/assets/main/h.png";
-import i from "../../src/assets/main/i.png";
-import k from "../../src/assets/main/k.png";
-import l from "../../src/assets/main/l.png";
-import o from "../../src/assets/main/o.png";
-import p from "../../src/assets/main/p.png";
+
 import r from "../../src/assets/main/r.png";
+import photo from "../../src/assets/main/tshirt.png";
 
 export interface ShopItemType {
   id: string;
@@ -24,8 +16,8 @@ export interface ShopItemType {
 export const clothes: Array<ShopItemType> = [
   {
     id: v1(),
-    name: "СЛАНЦЫ ADIDAS YEEZY SLIDE",
-    photo: a,
+    name: "ADIDAS YEEZY SLIDE",
+    photo,
     articul: 234,
     price: 70,
     colors: ["blue", "red"],
@@ -33,8 +25,8 @@ export const clothes: Array<ShopItemType> = [
   },
   {
     id: v1(),
-    name: "КРОССОВКИ ADIDAS EQT SUPPORT ADV PK",
-    photo: r,
+    name: "ADIDAS EQT SUPPORT ADV PK",
+    photo,
     articul: 234,
     price: 70,
     colors: ["pink", "yellow"],
@@ -42,8 +34,8 @@ export const clothes: Array<ShopItemType> = [
   },
   {
     id: v1(),
-    name: "КРОССОВКИ ADIDAS EQT SUPPORT ADV PK",
-    photo: f,
+    name: "ADIDAS EQT SUPPORT ADV PK",
+    photo,
     articul: 234,
     price: 70,
     colors: ["pink", "yellow"],
@@ -51,8 +43,8 @@ export const clothes: Array<ShopItemType> = [
   },
   {
     id: v1(),
-    name: "КРОССОВКИ ADIDAS ALPHABOUNCE INSTINCT",
-    photo: g,
+    name: "ADIDAS ALPHABOUNCE INSTINCT",
+    photo,
     articul: 234,
     price: 70,
     colors: ["pink", "yellow"],
@@ -60,8 +52,8 @@ export const clothes: Array<ShopItemType> = [
   },
   {
     id: v1(),
-    name: "ФУТБОЛКА NIKE",
-    photo: h,
+    name: "TSHIRT NIKE",
+    photo,
     articul: 234,
     price: 70,
     colors: ["pink", "yellow"],
@@ -69,8 +61,8 @@ export const clothes: Array<ShopItemType> = [
   },
   {
     id: v1(),
-    name: "ОЛИМПИЙКА NIKE",
-    photo: i,
+    name: "TSHIRT NIKE",
+    photo,
     articul: 234,
     price: 70,
     colors: ["pink", "yellow"],
@@ -78,8 +70,8 @@ export const clothes: Array<ShopItemType> = [
   },
   {
     id: v1(),
-    name: "СЛАНЦЫ ADIDAS YEEZY SLIDE",
-    photo: o,
+    name: "ADIDAS YEEZY SLIDE",
+    photo,
     articul: 234,
     price: 70,
     colors: ["pink", "yellow"],
@@ -87,8 +79,8 @@ export const clothes: Array<ShopItemType> = [
   },
   {
     id: v1(),
-    name: "СЛАНЦЫ ADIDAS YEEZY SLIDE",
-    photo: p,
+    name: " ADIDAS YEEZY SLIDE",
+    photo,
     articul: 234,
     price: 70,
     colors: ["pink", "yellow"],
@@ -96,8 +88,8 @@ export const clothes: Array<ShopItemType> = [
   },
   {
     id: v1(),
-    name: "СЛАНЦЫ ADIDAS YEEZY SLIDE",
-    photo: k,
+    name: "ADIDAS YEEZY SLIDE",
+    photo,
     articul: 234,
     price: 70,
     colors: ["pink", "yellow"],
@@ -105,8 +97,80 @@ export const clothes: Array<ShopItemType> = [
   },
   {
     id: v1(),
-    name: "СЛАНЦЫ ADIDAS YEEZY SLIDE",
-    photo: l,
+    name: "ADIDAS YEEZY SLIDE",
+    photo,
+    articul: 234,
+    price: 70,
+    colors: ["pink", "yellow"],
+    sizes: [37, 38, 40],
+  },
+  {
+    id: v1(),
+    name: "TSHIRT NIKE",
+    photo,
+    articul: 234,
+    price: 70,
+    colors: ["pink", "yellow"],
+    sizes: [37, 38, 40],
+  },
+  {
+    id: v1(),
+    name: "ADIDAS YEEZY SLIDE",
+    photo,
+    articul: 234,
+    price: 70,
+    colors: ["pink", "yellow"],
+    sizes: [37, 38, 40],
+  },
+  {
+    id: v1(),
+    name: " ADIDAS YEEZY SLIDE",
+    photo,
+    articul: 234,
+    price: 70,
+    colors: ["pink", "yellow"],
+    sizes: [37, 38, 40],
+  },
+  {
+    id: v1(),
+    name: "ADIDAS YEEZY SLIDE",
+    photo,
+    articul: 234,
+    price: 70,
+    colors: ["pink", "yellow"],
+    sizes: [37, 38, 40],
+  },
+  {
+    id: v1(),
+    name: "ADIDAS YEEZY SLIDE",
+    photo,
+    articul: 234,
+    price: 70,
+    colors: ["pink", "yellow"],
+    sizes: [37, 38, 40],
+  },
+  {
+    id: v1(),
+    name: " ADIDAS YEEZY SLIDE",
+    photo,
+    articul: 234,
+    price: 70,
+    colors: ["pink", "yellow"],
+    sizes: [37, 38, 40],
+  },
+  {
+    id: v1(),
+    name: "ADIDAS YEEZY SLIDE",
+    photo,
+    articul: 234,
+    price: 70,
+    colors: ["pink", "yellow"],
+    sizes: [37, 38, 40],
+  },
+  {
+    id: v1(),
+    name: "ADIDAS YEEZY SLIDE",
+    photo,
     articul: 234,
     price: 70,
     colors: ["pink", "yellow"],
