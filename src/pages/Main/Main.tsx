@@ -1,15 +1,18 @@
 import "./styles.scss";
 import "./media.scss";
-import { clothes } from "../../data/data";
 
+import { useSelector } from "react-redux";
 import { useState } from "react";
 import { ShopItem } from "../../components/ShopItem/ShopItem";
+import { RootState } from "../../redux/store";
 
 export const MainPage = () => {
   const [portionStart, setPortionStart] = useState(0);
   const [portionEnd, setPortionEnd] = useState(4);
-  const totalItems = clothes.length;
-  console.log(totalItems);
+
+  const { categoryName, itemCount, products } = useSelector(
+    (state: RootState) => state.products
+  );
 
   const onNavigate = (sign: string) => {
     if (sign === "+") {
@@ -21,6 +24,7 @@ export const MainPage = () => {
       setPortionEnd((prev) => prev - 1);
     }
   };
+
   return (
     <div className="main-page">
       <div className="big-reclam">
@@ -44,12 +48,12 @@ export const MainPage = () => {
         )}
 
         <ul>
-          {clothes.slice(portionStart, portionEnd).map((item) => (
-            <ShopItem shopItem={item} />
+          {products?.slice(portionStart, portionEnd).map((item) => (
+            <ShopItem product={item} />
           ))}
         </ul>
 
-        {portionEnd < totalItems && (
+        {portionEnd < itemCount && (
           <button className="btn btn-right" onClick={() => onNavigate("+")}>
             {">"}
           </button>

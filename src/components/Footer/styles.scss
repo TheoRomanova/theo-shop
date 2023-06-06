@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding: 30px 100px 10px 100px;
-  background-color: #29292d;
+  background-color: #4a4949;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 
@@ -14,6 +14,7 @@
       width: 150px;
       height: 150px;
       background: url(../../assets/header/logo.png) no-repeat;
+      background-size: 95px;
     }
     .contacts {
       display: flex;

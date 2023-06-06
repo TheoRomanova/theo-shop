@@ -48,10 +48,14 @@
         line-height: 29px;
       }
       .price + span {
+        margin: auto 0;
         width: 25px;
         height: 21px;
+        top: 20px;
         background-image: url(../../assets/main/herat-grey.png);
         background-repeat: no-repeat;
+        background-size: contain;
+
         cursor: pointer;
       }
       .price + span:hover {

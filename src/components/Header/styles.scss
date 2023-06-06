@@ -6,7 +6,7 @@
     margin-bottom: 20px;
     text-align: center;
     color: #ffff;
-    background-color: #29292d;
+    background-color: #4a4949;
     span {
       color: #f8534e;
     }
@@ -43,6 +43,7 @@
         width: 95px;
         height: 95px;
         background: no-repeat url(../../assets/header/logo.png);
+        background-size: 95px;
       }
 
       .profile-icons {

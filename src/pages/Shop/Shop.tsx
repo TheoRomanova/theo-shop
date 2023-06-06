@@ -1,20 +1,33 @@
 import "./styles.scss";
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../atoms/Button/Button";
-import { clothes, colors, getSizes } from "../../data/data";
+import { colors, getSizes } from "../../data/data";
 import MultiRangeSlider from "../../atoms/MultiRangeSlider/MultiRangeSlider";
 import { ShopItem } from "../../components/ShopItem/ShopItem";
+import { useDispatch } from "react-redux";
+import { getProductsThunk } from "../../redux/products/products.thunk";
+import { RootState } from "../../redux/store";
+import { Loader } from "../../components/Loader/Loader";
+
 const sizes = getSizes(30, 46);
 const Shop = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const amountItems = [18, 30, 60];
   const [activeAmount, setActiveAmount] = useState(18);
 
+  const { categoryName, products, isLoading } = useSelector(
+    (state: RootState) => state.products
+  );
   const onChangeAmountItems = (count: number) => {
     setActiveAmount(count);
   };
+
+  useEffect(() => {
+    dispatch(getProductsThunk() as any);
+  }, []);
 
   return (
     <div className="shop-page">
@@ -30,7 +43,6 @@ const Shop = () => {
                 <input
                   type="checkbox"
                   id={size.toString()}
-                  name={size.toString()}
                   value={size.toString()}
                 />
                 <label htmlFor={size.toString()}> {size.toString()} EUR </label>
@@ -40,11 +52,11 @@ const Shop = () => {
           </div>
           <p>Seazon</p>
           <form className="weather">
-            <input type="checkbox" id="demi" name="demi" value="demi" />
+            <input type="checkbox" id="demi" value="demi" />
             <label htmlFor="demi">Demi-season</label> <br />
-            <input type="checkbox" id="winter" name="winter" value="winter" />
+            <input type="checkbox" id="winter" value="winter" />
             <label htmlFor="winter">Winter</label> <br />
-            <input type="checkbox" id="summer" name="summer" value="summer" />
+            <input type="checkbox" id="summer" value="summer" />
             <label htmlFor="summer">Summer</label>
           </form>
           <p>Price</p>
@@ -66,7 +78,6 @@ const Shop = () => {
                 }}
                 type="checkbox"
                 key={Object.keys(color)[0]}
-                name={Object.keys(color)[0]}
                 value={Object.keys(color)[0]}
               />
             ))}
@@ -75,80 +86,35 @@ const Shop = () => {
           <form className="category">
             <input type="checkbox" id="basket" name="basket" value="basket" />
             <label htmlFor="basket">Баскетбол </label> <br />
-            <input
-              type="checkbox"
-              id="running"
-              name="running"
-              value="running"
-            />
+            <input type="checkbox" id="running" value="running" />
             <label htmlFor="running">Бег </label> <br />
             <input type="checkbox" id="boots" name="boots" value="boots" />
             <label htmlFor="boots">Ботинки </label>
             <br />
-            <input
-              type="checkbox"
-              id="sneakers"
-              name="sneakers"
-              value="sneakers"
-            />
+            <input type="checkbox" id="sneakers" value="sneakers" />
             <label htmlFor="sneakers">Кроссовки </label> <br />
-            <input
-              type="checkbox"
-              id="sandals"
-              name="sandals"
-              value="sandals"
-            />
+            <input type="checkbox" id="sandals" value="sandals" />
             <label htmlFor="sandals">Сандалии </label> <br />
-            <input
-              type="checkbox"
-              id="high-boots"
-              name="high-boots"
-              value="high-boots"
-            />
+            <input type="checkbox" id="high-boots" value="high-boots" />
             <label htmlFor="high-boots">Сапоги </label>
             <br />
-            <input
-              type="checkbox"
-              id="slippers"
-              name="slippers"
-              value="slippers"
-            />
+            <input type="checkbox" id="slippers" value="slippers" />
             <label htmlFor="high-boots">Тапочки </label> <br />
           </form>
           <p>Brand</p>
           <form className="brand">
             <input type="checkbox" id="adidas" name="adidas" value="adidas" />
             <label htmlFor="adidas">Adidas </label> <br />
-            <input
-              type="checkbox"
-              id="mcQueen"
-              name="mcQueen"
-              value="mcQueen"
-            />
+            <input type="checkbox" id="mcQueen" value="mcQueen" />
             <label htmlFor="mcQueen">Alexander McQueen </label> <br />
-            <input
-              type="checkbox"
-              id="balenciaga"
-              name="balenciaga"
-              value="balenciaga"
-            />
+            <input type="checkbox" id="balenciaga" value="balenciaga" />
             <label htmlFor="balenciaga">Balenciaga </label>
             <br />
             <input type="checkbox" id="asics" name="asics" value="asics" />
             <label htmlFor="asics">Asics </label> <br />
-            <input
-              type="checkbox"
-              id="caterpillar"
-              name="caterpillar"
-              value="caterpillar"
-            />
+            <input type="checkbox" id="caterpillar" value="caterpillar" />
             <label htmlFor="caterpillar">Caterpillar </label> <br />
-            <input
-              type="checkbox"
-              id="columbia"
-              name="columbia"
-              value="columbia"
-            />
+            <input type="checkbox" id="columbia" value="columbia" />
             <label htmlFor="sandals">Columbia </label> <br />
             <input type="checkbox" id="puma" name="puma" value="puma" />
             <label htmlFor="high-boots">Puma </label>
@@ -190,9 +156,13 @@ const Shop = () => {
             </div>
           </div>
           <div className="shop-items">
-            {clothes.map((item) => (
-              <ShopItem shopItem={item} />
-            ))}
+            {isLoading ? (
+              <Loader />
+            ) : (
+              products
+                ?.slice(0, activeAmount)
+                .map((item) => <ShopItem product={item} />)
+            )}
           </div>
         </div>
       </div>
