@@ -7,27 +7,22 @@ import { colors, getSizes } from "../../data/data";
 import MultiRangeSlider from "../../atoms/MultiRangeSlider/MultiRangeSlider";
 import { ShopItem } from "../../components/ShopItem/ShopItem";
 import { useDispatch } from "react-redux";
-import { getProductsThunk } from "../../redux/products/products.thunk";
+
 import { RootState } from "../../redux/store";
 import { Loader } from "../../components/Loader/Loader";
 
 const sizes = getSizes(30, 46);
 const Shop = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const amountItems = [18, 30, 60];
   const [activeAmount, setActiveAmount] = useState(18);
 
-  const { categoryName, products, isLoading } = useSelector(
+  const { products, isLoading } = useSelector(
     (state: RootState) => state.products
   );
   const onChangeAmountItems = (count: number) => {
     setActiveAmount(count);
   };
-
-  useEffect(() => {
-    dispatch(getProductsThunk() as any);
-  }, []);
 
   return (
     <div className="shop-page">
@@ -82,7 +77,7 @@ const Shop = () => {
               />
             ))}
           </div>
-          <p>Категория</p>
+          <p>Category</p>
           <form className="category">
             <input type="checkbox" id="basket" name="basket" value="basket" />
             <label htmlFor="basket">Баскетбол </label> <br />

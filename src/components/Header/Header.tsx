@@ -1,12 +1,26 @@
 import "./styles.scss";
 import "./media.scss";
+import { useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Button } from "../../atoms/Button/Button";
+import { RootState } from "../../redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductsThunk } from "../../redux/products/products.thunk";
+import { Loader } from "../Loader/Loader";
 
 export const Header = () => {
+  const { categoryName, isLoading } = useSelector(
+    (state: RootState) => state.products
+  );
   const location = useLocation();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProductsThunk() as any);
+  }, []);
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <header className="app-header">
       <div className="promotion">
         Only three days - <span> 30% </span> discount on everything!
@@ -33,7 +47,7 @@ export const Header = () => {
         <div className="navigation">
           <ul className="pages">
             <li className={location.pathname === "/shop" ? "active" : ""}>
-              <NavLink to="/shop">Shoes</NavLink>
+              <NavLink to="/shop">{categoryName}</NavLink>
             </li>
             <li>Clothes</li>
             <li>Accessories</li>

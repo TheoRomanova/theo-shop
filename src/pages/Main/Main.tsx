@@ -10,7 +10,7 @@ export const MainPage = () => {
   const [portionStart, setPortionStart] = useState(0);
   const [portionEnd, setPortionEnd] = useState(4);
 
-  const { categoryName, itemCount, products } = useSelector(
+  const { itemCount, products, isLoading } = useSelector(
     (state: RootState) => state.products
   );
 

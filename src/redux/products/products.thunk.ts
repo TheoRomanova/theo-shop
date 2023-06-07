@@ -7,9 +7,9 @@ export const getProductsThunk = createAsyncThunk(
     try {
       dispatch(setLoading(true));
       const data = await ProductsApi.getProducts();
-      const { categoryName, products } = data;
+      const { categoryName, products, itemCount } = data;
       console.log(products);
-      return { categoryName, products };
+      return { categoryName, products, itemCount };
     } catch (err) {
       throw err;
     }
