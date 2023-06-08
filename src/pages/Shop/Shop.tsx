@@ -10,18 +10,26 @@ import { useDispatch } from "react-redux";
 
 import { RootState } from "../../redux/store";
 import { Loader } from "../../components/Loader/Loader";
+import Pagination from "../../components/Pagination/Pagination";
 
 const sizes = getSizes(30, 46);
 const Shop = () => {
   const navigate = useNavigate();
-  const amountItems = [18, 30, 60];
-  const [activeAmount, setActiveAmount] = useState(18);
+  const displayedAmountItems = [9, 18, 27]; //18, 30, 60
+  const [activeAmount, setActiveAmount] = useState(9);
 
-  const { products, isLoading } = useSelector(
+  const { products, isLoading, itemCount } = useSelector(
     (state: RootState) => state.products
   );
+
+  const [startPositionItem, setStartPositionItem] = useState(0);
+
   const onChangeAmountItems = (count: number) => {
     setActiveAmount(count);
+  };
+
+  const onPageChanged = (page: number) => {
+    setStartPositionItem((page - 1) * activeAmount);
   };
 
   return (
@@ -139,7 +147,7 @@ const Shop = () => {
               {" "}
               <label>
                 <span className="">Amount</span>
-                {amountItems.map((count) => (
+                {displayedAmountItems.map((count) => (
                   <button
                     className={activeAmount === count ? "button-active" : ""}
                     onClick={() => onChangeAmountItems(count)}
@@ -155,10 +163,15 @@ const Shop = () => {
               <Loader />
             ) : (
               products
-                ?.slice(0, activeAmount)
+                ?.slice(startPositionItem, startPositionItem + activeAmount)
                 .map((item) => <ShopItem product={item} />)
             )}
           </div>
+          <Pagination
+            totalItemsCount={itemCount}
+            portionSize={5}
+            onPageChanged={onPageChanged}
+          />
         </div>
       </div>
     </div>

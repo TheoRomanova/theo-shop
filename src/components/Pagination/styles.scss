@@ -1,0 +1,9 @@
+.pagination {
+  margin: 0 auto;
+  width: 400px;
+
+  .active-page {
+    color: white;
+    background-color: rgb(115, 163, 234);
+  }
+}
