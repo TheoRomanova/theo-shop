@@ -1,12 +1,11 @@
 import "./styles.scss";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../atoms/Button/Button";
 import { colors, getSizes } from "../../data/data";
 import MultiRangeSlider from "../../atoms/MultiRangeSlider/MultiRangeSlider";
 import { ShopItem } from "../../components/ShopItem/ShopItem";
-import { useDispatch } from "react-redux";
 
 import { RootState } from "../../redux/store";
 import { Loader } from "../../components/Loader/Loader";

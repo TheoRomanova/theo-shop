@@ -2,7 +2,7 @@ import "./styles.scss";
 import "./media.scss";
 
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { ShopItem } from "../../components/ShopItem/ShopItem";
 import { RootState } from "../../redux/store";
 
@@ -14,6 +14,10 @@ export const MainPage = () => {
     (state: RootState) => state.products
   );
 
+  const crumbs = [0, 1, 2, 3, 4];
+  const [currentCrumb, setCurrentCrumb] = useState(0);
+  const bestellers = products?.slice(0, 20);
+
   const onNavigate = (sign: string) => {
     if (sign === "+") {
       setPortionStart((prev) => prev + 1);
@@ -23,6 +27,13 @@ export const MainPage = () => {
       setPortionStart((prev) => prev - 1);
       setPortionEnd((prev) => prev - 1);
     }
+  };
+
+  const onChangeCrumb = (crumb: number) => {
+    setCurrentCrumb(crumb);
+    const newPortionStart = crumb * 4;
+    setPortionStart(newPortionStart);
+    setPortionEnd(newPortionStart + 4);
   };
 
   return (
@@ -46,14 +57,24 @@ export const MainPage = () => {
         )}
 
         <ul>
-          {products?.slice(portionStart, portionEnd).map((item) => (
+          {bestellers?.slice(portionStart, portionEnd).map((item) => (
             <ShopItem product={item} />
           ))}
         </ul>
 
-        {portionEnd < itemCount && (
+        {portionEnd < bestellers!.length && (
           <button className="next-btn" onClick={() => onNavigate("+")}></button>
         )}
+        <div className="crumbs">
+          {crumbs.map((crumb) => (
+            <button
+              className={
+                currentCrumb === crumb ? "active-crumb crumb" : "crumb"
+              }
+              onClick={() => onChangeCrumb(crumb)}
+            ></button>
+          ))}
+        </div>
       </div>
     </div>
   );

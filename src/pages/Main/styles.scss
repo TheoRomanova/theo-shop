@@ -111,3 +111,24 @@
     }
   }
 }
+
+.crumbs {
+  margin: 0 auto;
+  width: 373px;
+  margin-bottom: 66px;
+  .crumb {
+    width: 10px;
+    height: 10px;
+    background-color: grey;
+    border-radius: 50px;
+  }
+  .crumb:hover {
+    background-color: #8aa3de;
+  }
+  .crumb:not(:nth-child(5)) {
+    margin-right: 80px;
+  }
+  .active-crumb {
+    background-color: #8aa3de;
+  }
+}
