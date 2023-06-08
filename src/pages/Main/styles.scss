@@ -77,26 +77,35 @@
       }
     }
 
-    .btn {
+    .prev-btn,
+    .next-btn {
       position: absolute;
-      width: 40px;
-      padding: 10px;
-      border-radius: 10px;
-      color: white;
-      font-weight: bold;
-      font-size: 10px;
-      z-index: 1;
-      background-color: rgb(149, 158, 190);
+
+      width: 0;
+      height: 0;
+      border-top: 12.5px solid transparent;
+      border-bottom: 12.5px solid transparent;
     }
 
-    .btn:hover {
-      background-color: rgb(113, 115, 126);
+    .prev-btn {
+      border-right: 25px solid #b3c0d2;
+      &:hover {
+        border-right: 25px solid #9ba4b0;
+      }
     }
-    .btn-left {
+
+    .next-btn {
+      border-left: 25px solid #b3c0d2;
+      &:hover {
+        border-left: 25px solid #9ba4b0;
+      }
+    }
+
+    .prev-btn {
       top: 50%;
       left: -62px;
     }
-    .btn-right {
+    .next-btn {
       top: 50%;
       right: -62px;
     }

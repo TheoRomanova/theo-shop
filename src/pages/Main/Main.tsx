@@ -42,9 +42,7 @@ export const MainPage = () => {
       <div className="bestsellers">
         <p>The best of the best</p>
         {portionStart > 0 && (
-          <button className="btn btn-left" onClick={() => onNavigate("-")}>
-            {"<"}
-          </button>
+          <button className="prev-btn" onClick={() => onNavigate("-")}></button>
         )}
 
         <ul>
@@ -54,9 +52,7 @@ export const MainPage = () => {
         </ul>
 
         {portionEnd < itemCount && (
-          <button className="btn btn-right" onClick={() => onNavigate("+")}>
-            {">"}
-          </button>
+          <button className="next-btn" onClick={() => onNavigate("+")}></button>
         )}
       </div>
     </div>

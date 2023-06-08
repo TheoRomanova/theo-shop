@@ -59,11 +59,11 @@
           margin-right: 0;
         }
       }
-      .btn-left {
+      .prev-btn {
         top: 50%;
         left: -22px;
       }
-      .btn-right {
+      .next-btn {
         top: 50%;
         right: -22px;
       }
@@ -111,11 +111,11 @@
         }
       }
 
-      .btn-left {
+      .prev-btn {
         top: 50%;
         left: 50px;
       }
-      .btn-right {
+      .next-btn {
         top: 50%;
         right: 50px;
       }
@@ -138,10 +138,10 @@
     }
     .bestsellers {
       width: 700px;
-      .btn-left {
+      .prev-btn {
         left: -50px;
       }
-      .btn-right {
+      .next-btn {
         right: 110px;
       }
 
@@ -183,11 +183,11 @@
         font-weight: 700;
       }
 
-      .btn-left {
+      .prev-btn {
         left: 100px;
         top: 45%;
       }
-      .btn-right {
+      .next-btn {
         right: 140px;
         top: 45%;
       }
@@ -273,7 +273,7 @@
         font-size: 18px;
       }
 
-      .btn-right {
+      .next-btn {
         right: 90px;
         top: 45%;
       }

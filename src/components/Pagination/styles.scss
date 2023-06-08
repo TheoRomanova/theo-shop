@@ -6,4 +6,29 @@
     color: white;
     background-color: rgb(115, 163, 234);
   }
+
+  .prev-btn,
+  .next-btn {
+    width: 0;
+    height: 0;
+    position: relative;
+    top: -5px;
+    left: 0;
+    border-top: 12.5px solid transparent;
+    border-bottom: 12.5px solid transparent;
+  }
+
+  .prev-btn {
+    border-right: 25px solid #b3c0d2;
+    &:hover {
+      border-right: 25px solid #9ba4b0;
+    }
+  }
+
+  .next-btn {
+    border-left: 25px solid #b3c0d2;
+    &:hover {
+      border-left: 25px solid #9ba4b0;
+    }
+  }
 }
