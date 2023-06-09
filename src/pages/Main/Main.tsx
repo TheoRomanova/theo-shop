@@ -62,7 +62,7 @@ export const MainPage = () => {
           ))}
         </ul>
 
-        {portionEnd < bestellers!.length && (
+        {bestellers && portionEnd < bestellers.length && (
           <button className="next-btn" onClick={() => onNavigate("+")}></button>
         )}
         <div className="crumbs">

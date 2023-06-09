@@ -51,9 +51,41 @@
 }
 
 .blue {
-  background-color: #95bdff;
+  background-color: #9dbdf2;
 
   &:hover {
-    background-color: #6a8bc1;
+    background-color: #8bb0ea;
+  }
+}
+
+//pastelle
+.pastelle_blue {
+  background-color: #8294c4;
+
+  &:hover {
+    background-color: #7787b0;
+  }
+}
+
+.pastelle_purple {
+  background-color: #acb1d6;
+
+  &:hover {
+    background-color: #979cbd;
+  }
+}
+.pastelle_lightblue {
+  background-color: #dbdfea;
+
+  &:hover {
+    background-color: #b6bac4;
+  }
+}
+
+.pastelle_yellow {
+  background-color: #ffead2;
+
+  &:hover {
+    background-color: #dccab4;
   }
 }
