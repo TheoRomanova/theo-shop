@@ -2,9 +2,12 @@ import "./styles.scss";
 import "./media.scss";
 
 import { useSelector } from "react-redux";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { ShopItem } from "../../components/ShopItem/ShopItem";
 import { RootState } from "../../redux/store";
+
+const indexForChangeCrumb = [3, 7, 11, 15, 19];
+const crumbs = [0, 1, 2, 3, 4];
 
 export const MainPage = () => {
   const [portionStart, setPortionStart] = useState(0);
@@ -14,7 +17,6 @@ export const MainPage = () => {
     (state: RootState) => state.products
   );
 
-  const crumbs = [0, 1, 2, 3, 4];
   const [currentCrumb, setCurrentCrumb] = useState(0);
   const bestellers = products?.slice(0, 20);
 
@@ -28,6 +30,15 @@ export const MainPage = () => {
       setPortionEnd((prev) => prev - 1);
     }
   };
+
+  useEffect(() => {
+    const crumbIndexForChange = indexForChangeCrumb.findIndex(
+      (crumb) => crumb === portionEnd - 1
+    );
+    if (crumbIndexForChange !== -1) {
+      setCurrentCrumb(crumbs[crumbIndexForChange]);
+    }
+  }, [onNavigate]);
 
   const onChangeCrumb = (crumb: number) => {
     setCurrentCrumb(crumb);
