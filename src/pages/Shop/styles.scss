@@ -136,6 +136,10 @@
     background-color: rgb(211, 248, 211);
     border-radius: 20px;
 
+    .options-mobile {
+      display: none;
+    }
+
     .options {
       display: flex;
       justify-content: space-between;

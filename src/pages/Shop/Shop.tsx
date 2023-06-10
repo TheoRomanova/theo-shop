@@ -18,7 +18,7 @@ const Shop = () => {
   const displayedAmountItems = [9, 18, 27]; //18, 30, 60
   const [activeAmount, setActiveAmount] = useState(9);
 
-  const { products, isLoading, itemCount } = useSelector(
+  const { products, isLoading, itemCount, categoryName } = useSelector(
     (state: RootState) => state.products
   );
 
@@ -157,6 +157,10 @@ const Shop = () => {
                 ))}
               </label>
             </div>
+          </div>
+          <div className="options-mobile">
+            <span>{categoryName}</span>
+            <button>Фильтровать</button>
           </div>
           <div className="shop-items">
             {isLoading ? (
