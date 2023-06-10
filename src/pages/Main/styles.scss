@@ -80,15 +80,16 @@
     .prev-btn,
     .next-btn {
       position: absolute;
-
       width: 0;
       height: 0;
       border-top: 12.5px solid transparent;
       border-bottom: 12.5px solid transparent;
+      background-color: white;
     }
 
     .prev-btn {
       border-right: 25px solid #b3c0d2;
+
       &:hover {
         border-right: 25px solid #9ba4b0;
       }
