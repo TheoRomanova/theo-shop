@@ -58,7 +58,9 @@ export const Header = () => {
             <input placeholder="Поиск"></input>
             <Button palette={"blue"} size={"semicircle"} rest={"search-btn"} />
 
-            <Button palette={"blue"} size={"semicircle"} rest={"menu-btn"} />
+            <Button palette={"blue"} size={"semicircle"} rest={"menu-btn"}>
+              Menu
+            </Button>
           </div>
         </div>
       </div>
