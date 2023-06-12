@@ -27,7 +27,9 @@
       form.category,
       form.brand {
         margin-bottom: 50px;
-        input {
+        input[type="checkbox"] {
+          width: 20px;
+          height: 20px;
           margin-right: 10px;
         }
       }
@@ -36,10 +38,6 @@
       }
 
       .sizes {
-        input[type="checkbox"] {
-          width: 20px;
-          height: 20px;
-        }
       }
 
       .price {
