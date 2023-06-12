@@ -13,6 +13,25 @@ import { Loader } from "../../components/Loader/Loader";
 import Pagination from "../../components/Pagination/Pagination";
 
 const sizes = getSizes(30, 46);
+
+const brandNames = [
+  "ASOS DESIGN",
+  "New Balance",
+  "Lacoste",
+  "Base London",
+  "House of Hounds",
+  "adidas Originals",
+  "Nike Training",
+  "Vans",
+  "New Look",
+  "Nike",
+  "River Island",
+  "Ted Baker",
+  "Havaianas",
+  "Dr Martens",
+  "Superdry",
+].sort();
+
 const Shop = () => {
   const navigate = useNavigate();
   const displayedAmountItems = [9, 18, 27]; //18, 30, 60
@@ -74,16 +93,31 @@ const Shop = () => {
           </div>
           <p>Color</p>
           <div className="colors">
-            {colors.map((color) => (
-              <input
-                style={{
-                  backgroundColor: Object.values(color)[0],
-                }}
-                type="checkbox"
-                key={Object.keys(color)[0]}
-                value={Object.keys(color)[0]}
-              />
-            ))}
+            {colors.map((color) => {
+              if (color.Multi) {
+                return (
+                  <input
+                    style={{
+                      backgroundImage: color.Multi.GRADIENT,
+                    }}
+                    type="checkbox"
+                    key={Object.keys(color)[0]}
+                    value={Object.keys(color)[0]}
+                  />
+                );
+              }
+
+              return (
+                <input
+                  style={{
+                    backgroundColor: Object.values(color)[0],
+                  }}
+                  type="checkbox"
+                  key={Object.keys(color)[0]}
+                  value={Object.keys(color)[0]}
+                />
+              );
+            })}
           </div>
           <p>Category</p>
           <form className="category">
