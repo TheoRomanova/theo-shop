@@ -35,15 +35,21 @@
     }
   }
 }
-
+@media (max-width: 1150px) {
+  .app-header .header .navigation .pages li {
+    font-size: 23px;
+  }
+}
 @media (max-width: 768px) {
   .app-header {
     position: relative;
+
     .promotion {
       font-size: 12px;
     }
     .header {
       padding: 0;
+
       .navigation {
         position: absolute;
         top: 80px;
@@ -90,6 +96,7 @@
 
       .main {
         flex-direction: column;
+        margin-bottom: 0;
 
         .contacts {
           display: flex;

@@ -1,9 +1,72 @@
-@media (max-width: 1300px) {
+@media (max-width: 1160px) {
+  .shop-page {
+    width: 850px;
+    margin: 0;
+
+    .filter-block {
+      margin-right: 0;
+    }
+    .shop-items-block {
+      .shop-items {
+        .shop-item {
+          margin-right: 0;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 768px) {
-}
+  .shop-page {
+    width: 740px;
 
+    .filter-block {
+      width: 180px;
+
+      form.weather,
+      form.category,
+      form.brand {
+        margin-bottom: 50px;
+        input {
+          margin-right: 10px;
+        }
+      }
+      label {
+        font-size: 14px;
+      }
+
+      .sizes {
+        input[type="checkbox"] {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .price {
+        .slider {
+          width: 175px;
+        }
+        .thumb {
+          width: 175px;
+        }
+      }
+
+      .colors {
+        input[type="checkbox"] {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      button {
+        width: 120px;
+        height: 40px;
+        padding: 5px 20px;
+        font-size: 15px;
+      }
+    }
+  }
+}
 @media (max-width: 360px) {
   .shop-page {
     .atom-button.blue.medium.undefined {
