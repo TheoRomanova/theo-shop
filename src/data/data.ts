@@ -17,7 +17,6 @@ export const getSizes = (start: number, end: number) => {
 };
 
 const OFF_WHITE = "Off white";
-const GRADIENT = "background-image";
 
 export const colors = [
   { Tan: "#D2B48C" },
@@ -25,10 +24,8 @@ export const colors = [
   { Black: "#000000" },
   { White: "#FFFFFF" },
   {
-    Multi: {
-      GRADIENT:
-        "linear-gradient(to right, #f259b0, #fe677a, #ed8556, #cda04f, #aab566, #82bc7a, #54bf98, #00bfb9, #00b5dd, #00a6ff, #008cff, #8f5ffb",
-    },
+    Multi:
+      "linear-gradient(to right, #f259b0, #fe677a, #ed8556, #cda04f, #aab566, #82bc7a, #54bf98, #00bfb9, #00b5dd, #00a6ff, #008cff, #8f5ffb",
   },
   { Navy: "#000080" },
   { [OFF_WHITE]: "rgb(237, 234, 222)" },

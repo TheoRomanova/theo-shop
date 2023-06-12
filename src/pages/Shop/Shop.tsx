@@ -36,6 +36,7 @@ const Shop = () => {
   const navigate = useNavigate();
   const displayedAmountItems = [9, 18, 27]; //18, 30, 60
   const [activeAmount, setActiveAmount] = useState(9);
+  const [currentColor, setCurrentColor] = useState("");
 
   const { products, isLoading, itemCount, categoryName } = useSelector(
     (state: RootState) => state.products
@@ -51,6 +52,7 @@ const Shop = () => {
     setStartPositionItem((page - 1) * activeAmount);
   };
 
+  console.log(currentColor);
   return (
     <div className="shop-page">
       <Button palette={"blue"} size={"medium"} onClick={() => navigate("/")}>
@@ -94,27 +96,16 @@ const Shop = () => {
           <p>Color</p>
           <div className="colors">
             {colors.map((color) => {
-              if (color.Multi) {
-                return (
-                  <input
-                    style={{
-                      backgroundImage: color.Multi.GRADIENT,
-                    }}
-                    type="checkbox"
-                    key={Object.keys(color)[0]}
-                    value={Object.keys(color)[0]}
-                  />
-                );
-              }
-
               return (
                 <input
                   style={{
-                    backgroundColor: Object.values(color)[0],
+                    backgroundImage: color.Multi && color.Multi,
+                    backgroundColor: !color.Multi && Object.values(color)[0],
                   }}
                   type="checkbox"
                   key={Object.keys(color)[0]}
                   value={Object.keys(color)[0]}
+                  onClick={() => setCurrentColor(Object.keys(color)[0])}
                 />
               );
             })}
@@ -122,21 +113,21 @@ const Shop = () => {
           <p>Category</p>
           <form className="category">
             <input type="checkbox" id="basket" name="basket" value="basket" />
-            <label htmlFor="basket">Баскетбол </label> <br />
+            <label htmlFor="basket">Basketball </label> <br />
             <input type="checkbox" id="running" value="running" />
-            <label htmlFor="running">Бег </label> <br />
+            <label htmlFor="running">Run </label> <br />
             <input type="checkbox" id="boots" name="boots" value="boots" />
-            <label htmlFor="boots">Ботинки </label>
+            <label htmlFor="boots">Boots </label>
             <br />
             <input type="checkbox" id="sneakers" value="sneakers" />
-            <label htmlFor="sneakers">Кроссовки </label> <br />
+            <label htmlFor="sneakers">Sneakers </label> <br />
             <input type="checkbox" id="sandals" value="sandals" />
-            <label htmlFor="sandals">Сандалии </label> <br />
+            <label htmlFor="sandals">Sandals </label> <br />
             <input type="checkbox" id="high-boots" value="high-boots" />
-            <label htmlFor="high-boots">Сапоги </label>
+            <label htmlFor="high-boots">Boots </label>
             <br />
             <input type="checkbox" id="slippers" value="slippers" />
-            <label htmlFor="high-boots">Тапочки </label> <br />
+            <label htmlFor="high-boots">Slippers </label> <br />
           </form>
           <p>Brand</p>
           <form className="brand">
