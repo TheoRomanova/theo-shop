@@ -37,6 +37,30 @@
 }
 
 @media (max-width: 768px) {
+  .app-footer {
+    padding-top: 20px;
+    .contacts-info {
+      .logo {
+      }
+
+      .social-media {
+      }
+      .tel-mail {
+        p {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .shop-info {
+      .info-block {
+        margin-top: 0;
+        p {
+          font-size: 12px;
+        }
+      }
+    }
+  }
 }
 @media (max-width: 630px) {
   .app-footer {
