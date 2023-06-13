@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../atoms/Button/Button";
-import { ShopItemType, colors, getSizes } from "../../data/data";
+import { colors, getSizes } from "../../data/data";
 import MultiRangeSlider from "../../atoms/MultiRangeSlider/MultiRangeSlider";
 import { ShopItem } from "../../components/ShopItem/ShopItem";
 
@@ -12,27 +12,8 @@ import { RootState } from "../../redux/store";
 import { Loader } from "../../components/Loader/Loader";
 import Pagination from "../../components/Pagination/Pagination";
 import { ProductType } from "../../redux/products/products.slice";
-import { fileURLToPath } from "url";
 
 const sizes = getSizes(30, 46);
-
-const brandNames = [
-  "ASOS DESIGN",
-  "New Balance",
-  "Lacoste",
-  "Base London",
-  "House of Hounds",
-  "adidas Originals",
-  "Nike Training",
-  "Vans",
-  "New Look",
-  "Nike",
-  "River Island",
-  "Ted Baker",
-  "Havaianas",
-  "Dr Martens",
-  "Superdry",
-].sort();
 
 const Shop = () => {
   const navigate = useNavigate();
@@ -62,7 +43,8 @@ const Shop = () => {
     } else {
       setCurrentColor(Object.keys(color)[0]);
       const filteredArray = products!.filter(
-        (item) => item.colour === Object.keys(color)[0]
+        (item) =>
+          item.colour.toLowerCase() === Object.keys(color)[0].toLowerCase()
       );
       setFilteredItems(filteredArray);
     }
