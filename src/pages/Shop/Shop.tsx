@@ -4,13 +4,15 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../atoms/Button/Button";
-import { colors, getSizes } from "../../data/data";
+import { ShopItemType, colors, getSizes } from "../../data/data";
 import MultiRangeSlider from "../../atoms/MultiRangeSlider/MultiRangeSlider";
 import { ShopItem } from "../../components/ShopItem/ShopItem";
 
 import { RootState } from "../../redux/store";
 import { Loader } from "../../components/Loader/Loader";
 import Pagination from "../../components/Pagination/Pagination";
+import { ProductType } from "../../redux/products/products.slice";
+import { fileURLToPath } from "url";
 
 const sizes = getSizes(30, 46);
 
@@ -43,6 +45,7 @@ const Shop = () => {
   );
 
   const [startPositionItem, setStartPositionItem] = useState(0);
+  const [filteredItems, setFilteredItems] = useState([] as Array<ProductType>);
 
   const onChangeAmountItems = (count: number) => {
     setActiveAmount(count);
@@ -52,7 +55,20 @@ const Shop = () => {
     setStartPositionItem((page - 1) * activeAmount);
   };
 
-  console.log(currentColor);
+  const onColorCHange = (color: any) => {
+    if (currentColor === Object.keys(color)[0]) {
+      setCurrentColor("");
+      setFilteredItems([]);
+    } else {
+      setCurrentColor(Object.keys(color)[0]);
+      const filteredArray = products!.filter(
+        (item) => item.colour === Object.keys(color)[0]
+      );
+      setFilteredItems(filteredArray);
+    }
+  };
+
+  console.log(currentColor, products);
   return (
     <div className="shop-page">
       <Button palette={"blue"} size={"medium"} onClick={() => navigate("/")}>
@@ -75,7 +91,7 @@ const Shop = () => {
             ))}
           </div>
           <p>Seazon</p>
-          <form className="weather">
+          <form className="season">
             <input type="checkbox" id="demi" value="demi" />
             <label htmlFor="demi">Demi-season</label> <br />
             <input type="checkbox" id="winter" value="winter" />
@@ -105,7 +121,7 @@ const Shop = () => {
                   type="checkbox"
                   key={Object.keys(color)[0]}
                   value={Object.keys(color)[0]}
-                  onClick={() => setCurrentColor(Object.keys(color)[0])}
+                  onClick={() => onColorCHange(color)}
                 />
               );
             })}
@@ -174,6 +190,10 @@ const Shop = () => {
                 <span className="">Amount</span>
                 {displayedAmountItems.map((count) => (
                   <button
+                    disabled={
+                      filteredItems.length !== 0 &&
+                      filteredItems.length < activeAmount
+                    }
                     className={activeAmount === count ? "button-active" : ""}
                     onClick={() => onChangeAmountItems(count)}
                   >
@@ -192,7 +212,13 @@ const Shop = () => {
               <Loader />
             ) : (
               products
+                ?.filter((product) =>
+                  currentColor !== ""
+                    ? product.colour === currentColor
+                    : product
+                )
                 ?.slice(startPositionItem, startPositionItem + activeAmount)
+
                 .map((item) => <ShopItem product={item} />)
             )}
           </div>
@@ -208,3 +234,16 @@ const Shop = () => {
 };
 
 export default React.memo(Shop);
+
+{
+  /* <div className="shop-items">
+{isLoading ? (
+  <Loader />
+) : (
+  (filteredItems.length !== 0 ? filteredItems : products)
+    ?.slice(startPositionItem, startPositionItem + activeAmount)
+
+    .map((item) => <ShopItem product={item} />)
+)}
+</div> */
+}
