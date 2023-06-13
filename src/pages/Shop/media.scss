@@ -90,6 +90,37 @@
 
     .filter-block {
       width: 140px;
+
+      .price {
+        .slider {
+          width: 140px;
+        }
+        .thumb {
+          width: 140px;
+        }
+      }
+
+      .colors {
+        margin-bottom: 50px;
+        padding-left: 10px;
+
+        input[type="checkbox"]:not(:nth-child(3n + 3)) {
+          margin-right: 15px;
+        }
+
+        input[type="checkbox"] {
+          &:checked {
+            right: 3px;
+            top: -9px;
+
+            width: 34px;
+            height: 34px;
+          }
+          &:checked:not(:nth-child(3n + 3)) {
+            margin-right: 6px;
+          }
+        }
+      }
     }
     .shop-items-block {
       width: 340px;
@@ -162,8 +193,6 @@
                 width: 19.53px;
                 height: 17.5px;
                 top: 20px;
-
-                // background-size: contain;
               }
             }
           }
