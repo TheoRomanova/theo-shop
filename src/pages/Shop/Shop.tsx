@@ -37,6 +37,7 @@ const Shop = () => {
   };
 
   const onColorCHange = (color: any) => {
+    setActiveAmount(9);
     if (currentColor === Object.keys(color)[0]) {
       setCurrentColor("");
       setFilteredItems([]);

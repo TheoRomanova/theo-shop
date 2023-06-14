@@ -8,27 +8,6 @@
     .filter-block {
       width: 180px;
       margin-right: 0;
-    }
-    .shop-items-block {
-      .shop-items {
-        .shop-item {
-          margin-right: 0;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 863px) {
-  .shop-page {
-    width: 760px;
-  }
-}
-
-@media (max-width: 768px) {
-  .shop-page {
-    width: 710px;
-    .filter-block {
       form.season,
       form.category,
       form.brand {
@@ -82,6 +61,20 @@
         font-size: 15px;
       }
     }
+    .shop-items-block {
+      width: 100%;
+      .shop-items {
+        .shop-item {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .shop-page {
+    width: 710px;
   }
 }
 
@@ -206,9 +199,8 @@
             }
           }
         }
-
         // .shop-item:not(.shop-item:nth-child(3n + 3)) {
-        //   margin-right: 28.58px;
+        //   margin-right: 20px !important;
         // }
       }
     }
