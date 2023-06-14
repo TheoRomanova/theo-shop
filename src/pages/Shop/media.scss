@@ -1,9 +1,12 @@
 @media (max-width: 1160px) {
   .shop-page {
-    width: 850px;
+    // width: 850px;
+    width: 100%;
+
     margin: 0;
 
     .filter-block {
+      width: 180px;
       margin-right: 0;
     }
     .shop-items-block {
@@ -26,8 +29,6 @@
   .shop-page {
     width: 710px;
     .filter-block {
-      width: 180px;
-
       form.season,
       form.category,
       form.brand {
@@ -86,7 +87,7 @@
 
 @media (max-width: 728px) {
   .shop-page {
-    width: 600px;
+    width: 100%;
 
     .filter-block {
       width: 140px;
@@ -131,7 +132,6 @@
       }
     }
     .shop-items-block {
-      width: 340px;
       padding-left: 10px;
 
       .options {
@@ -163,7 +163,8 @@
       }
 
       .shop-items {
-        justify-content: start;
+        justify-content: space-between;
+        flex-wrap: wrap;
 
         .shop-item {
           width: 150px;
@@ -205,12 +206,10 @@
             }
           }
         }
-        .shop-item:nth-child(odd) {
-          margin-right: 15px;
-        }
-        .shop-item:nth-child(even) {
-          margin-right: 0;
-        }
+
+        // .shop-item:not(.shop-item:nth-child(3n + 3)) {
+        //   margin-right: 28.58px;
+        // }
       }
     }
     .pagination {
@@ -220,7 +219,7 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
   .shop-page {
     .atom-button.blue.medium.undefined {
       display: none;
@@ -229,9 +228,9 @@
       display: none;
     }
     .shop-items-block {
-      width: 360px;
-      padding-left: 20px;
-      padding-right: 18px;
+      width: 100%;
+      padding-left: 5px;
+      padding-right: 5px;
       .options {
         display: none;
       }
