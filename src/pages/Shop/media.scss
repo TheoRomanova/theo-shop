@@ -8,10 +8,12 @@
     .filter-block {
       width: 180px;
       margin-right: 0;
+
       form.season,
       form.category,
       form.brand {
-        margin-bottom: 50px;
+        margin-bottom: 40px;
+
         input[type="checkbox"] {
           width: 20px;
           height: 20px;
@@ -35,7 +37,6 @@
       }
 
       .colors {
-        margin-bottom: 50px;
         padding-left: 0px;
         padding-right: 0px;
 
@@ -87,12 +88,12 @@
     .filter-block {
       width: 140px;
 
-      p {
-        margin-bottom: 15px;
-      }
-
-      .sizes {
-        margin-bottom: 30px;
+      .sizes,
+      form.season,
+      .colors,
+      form.category,
+      form.brand {
+        margin-bottom: 20px;
       }
 
       .price {
@@ -105,7 +106,6 @@
       }
 
       .colors {
-        margin-bottom: 50px;
         padding-left: 10px;
 
         input[type="checkbox"]:not(:nth-child(3n + 3)) {
