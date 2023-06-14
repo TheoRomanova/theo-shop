@@ -39,17 +39,16 @@
       .colors {
         padding-left: 0px;
         padding-right: 0px;
+        .active-color {
+          &:checked {
+            width: 39px;
+            height: 39px;
+          }
+        }
 
         input[type="checkbox"] {
           width: 25px;
           height: 25px;
-
-          .active-color {
-            &:checked {
-              width: 39px;
-              height: 39px;
-            }
-          }
         }
 
         input[type="checkbox"]:nth-child(4n + 4) {
