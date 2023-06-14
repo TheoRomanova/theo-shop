@@ -30,6 +30,7 @@
 .slider__left-value,
 .slider__right-value {
   margin-top: -45px;
+
   z-index: 2;
   font-weight: 400;
   line-height: 17px;
@@ -41,7 +42,7 @@
 }
 
 .slider__right-value {
-  right: -4px;
+  right: 5px;
 }
 
 /* Removing the default appearance */

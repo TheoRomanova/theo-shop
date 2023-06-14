@@ -20,10 +20,11 @@ const Shop = () => {
   const displayedAmountItems = [9, 18, 27]; //18, 30, 60
   const [activeAmount, setActiveAmount] = useState(9);
   const [currentColor, setCurrentColor] = useState("");
-
   const { products, isLoading, itemCount, categoryName } = useSelector(
     (state: RootState) => state.products
   );
+
+  const [countsForPagination, setCountsForPagination] = useState(itemCount);
 
   const [startPositionItem, setStartPositionItem] = useState(0);
   const [filteredItems, setFilteredItems] = useState([] as Array<ProductType>);
@@ -41,6 +42,7 @@ const Shop = () => {
     if (currentColor === Object.keys(color)[0]) {
       setCurrentColor("");
       setFilteredItems([]);
+      setCountsForPagination(itemCount);
     } else {
       setCurrentColor(Object.keys(color)[0]);
       const filteredArray = products!.filter(
@@ -48,6 +50,7 @@ const Shop = () => {
           item.colour.toLowerCase() === Object.keys(color)[0].toLowerCase()
       );
       setFilteredItems(filteredArray);
+      setCountsForPagination(filteredArray.length);
     }
   };
 
@@ -206,7 +209,7 @@ const Shop = () => {
             )}
           </div>
           <Pagination
-            totalItemsCount={itemCount}
+            totalItemsCount={countsForPagination}
             portionSize={5}
             onPageChanged={onPageChanged}
           />
