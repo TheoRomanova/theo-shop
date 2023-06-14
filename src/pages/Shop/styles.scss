@@ -94,17 +94,7 @@
       margin-bottom: 70px;
       padding-left: 20px;
 
-      input[type="checkbox"] {
-        box-sizing: border-box;
-        border: 1px solid black;
-
-        width: 30px;
-        height: 30px;
-        margin-bottom: 18px;
-        border-radius: 40px;
-        appearance: none;
-        cursor: pointer;
-
+      .active-color {
         &:checked {
           position: relative;
           right: 7px;
@@ -117,6 +107,18 @@
         &:checked:not(:nth-child(4n + 4)) {
           margin-right: 6px;
         }
+      }
+
+      input[type="checkbox"] {
+        box-sizing: border-box;
+        border: 1px solid black;
+
+        width: 30px;
+        height: 30px;
+        margin-bottom: 18px;
+        border-radius: 40px;
+        appearance: none;
+        cursor: pointer;
       }
 
       input:not(input:nth-child(4n + 4)) {

@@ -43,9 +43,11 @@
           width: 25px;
           height: 25px;
 
-          &:checked {
-            width: 39px;
-            height: 39px;
+          .active-color {
+            &:checked {
+              width: 39px;
+              height: 39px;
+            }
           }
         }
 
@@ -110,7 +112,7 @@
           margin-right: 15px;
         }
 
-        input[type="checkbox"] {
+        .active-color {
           &:checked {
             right: 3px;
             top: -9px;

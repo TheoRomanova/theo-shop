@@ -99,6 +99,9 @@ const Shop = () => {
             {colors.map((color) => {
               return (
                 <input
+                  className={
+                    currentColor === Object.keys(color)[0] ? "active-color" : ""
+                  }
                   style={{
                     backgroundImage: color.Multi && color.Multi,
                     backgroundColor: !color.Multi && Object.values(color)[0],
