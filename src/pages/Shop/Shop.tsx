@@ -54,7 +54,6 @@ const Shop = () => {
     }
   };
 
-  console.log(currentColor, products);
   return (
     <div className="shop-page">
       <Button palette={"blue"} size={"medium"} onClick={() => navigate("/")}>
