@@ -213,16 +213,3 @@ const Shop = () => {
 };
 
 export default React.memo(Shop);
-
-{
-  /* <div className="shop-items">
-{isLoading ? (
-  <Loader />
-) : (
-  (filteredItems.length !== 0 ? filteredItems : products)
-    ?.slice(startPositionItem, startPositionItem + activeAmount)
-
-    .map((item) => <ShopItem product={item} />)
-)}
-</div> */
-}
