@@ -1,6 +1,6 @@
 import "./styles.scss";
 import "./media.scss";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../atoms/Button/Button";
@@ -37,7 +37,11 @@ const Shop = () => {
     setStartPositionItem((page - 1) * activeAmount);
   };
 
-  const onColorCHange = (color: any) => {
+  //сделать общий фильтра на apply
+
+  const onApplyFilters = () => {};
+
+  const onFilterColor = (color: any) => {
     setActiveAmount(9);
     if (currentColor === Object.keys(color)[0]) {
       setCurrentColor("");
@@ -62,7 +66,7 @@ const Shop = () => {
       <div>
         <div className="filter-block">
           <p>Size</p>
-          <div className="sizes">
+          <form id="form1" className="sizes">
             {sizes.map((size) => (
               <div className="size">
                 <input
@@ -74,9 +78,9 @@ const Shop = () => {
                 <br />
               </div>
             ))}
-          </div>
+          </form>
           <p>Seazon</p>
-          <form className="season">
+          <form id="form2" className="season">
             <input type="checkbox" id="demi" value="demi" />
             <label htmlFor="demi">Demi-season</label> <br />
             <input type="checkbox" id="winter" value="winter" />
@@ -95,7 +99,7 @@ const Shop = () => {
             />
           </div>
           <p>Color</p>
-          <div className="colors">
+          <form id="form3" className="colors">
             {colors.map((color) => {
               return (
                 <input
@@ -109,11 +113,11 @@ const Shop = () => {
                   type="checkbox"
                   key={Object.keys(color)[0]}
                   value={Object.keys(color)[0]}
-                  onClick={() => onColorCHange(color)}
+                  onClick={() => onFilterColor(color)}
                 />
               );
             })}
-          </div>
+          </form>
           <p>Category</p>
           <form className="category">
             <input type="checkbox" id="basket" name="basket" value="basket" />
@@ -134,7 +138,7 @@ const Shop = () => {
             <label htmlFor="high-boots">Slippers </label> <br />
           </form>
           <p>Brand</p>
-          <form className="brand">
+          <form id="form4" className="brand">
             {brandNames.map((brand) => (
               <div>
                 <input type="checkbox" id={brand} value={brand} />
@@ -142,7 +146,7 @@ const Shop = () => {
               </div>
             ))}
           </form>
-          <Button palette={"blue"} size={"big"}>
+          <Button onClick={onApplyFilters} palette={"blue"} size={"big"}>
             Apply
           </Button>
           <Button palette={"purple"} size={"big"}>
