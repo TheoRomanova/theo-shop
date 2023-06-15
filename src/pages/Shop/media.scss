@@ -24,9 +24,6 @@
         font-size: 14px;
       }
 
-      .sizes {
-      }
-
       .price {
         .slider {
           width: 175px;
@@ -87,12 +84,20 @@
     .filter-block {
       width: 140px;
 
+      .sizes .size:not(.size:nth-child(2n + 2)) {
+        margin-right: 7px;
+      }
+
       .sizes,
       form.season,
       .colors,
       form.category,
       form.brand {
         margin-bottom: 20px;
+
+        label {
+          font-size: 12px;
+        }
       }
 
       .price {

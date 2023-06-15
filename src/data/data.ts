@@ -16,7 +16,7 @@ export const getSizes = (start: number, end: number) => {
   return sizes;
 };
 
-const brandNames = [
+export const brandNames = [
   "ASOS DESIGN",
   "New Balance",
   "Lacoste",
@@ -37,7 +37,6 @@ const brandNames = [
   "Calvin Klein Jeans",
   "Jack & Jones",
   "Truffle Collection",
-
   "Puma",
   "Reebok",
   "HUGO",

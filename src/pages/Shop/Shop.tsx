@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../atoms/Button/Button";
-import { colors, getSizes } from "../../data/data";
+import { brandNames, colors, getSizes } from "../../data/data";
 import MultiRangeSlider from "../../atoms/MultiRangeSlider/MultiRangeSlider";
 import { ShopItem } from "../../components/ShopItem/ShopItem";
 
@@ -135,21 +135,12 @@ const Shop = () => {
           </form>
           <p>Brand</p>
           <form className="brand">
-            <input type="checkbox" id="adidas" name="adidas" value="adidas" />
-            <label htmlFor="adidas">Adidas </label> <br />
-            <input type="checkbox" id="mcQueen" value="mcQueen" />
-            <label htmlFor="mcQueen">Alexander McQueen </label> <br />
-            <input type="checkbox" id="balenciaga" value="balenciaga" />
-            <label htmlFor="balenciaga">Balenciaga </label>
-            <br />
-            <input type="checkbox" id="asics" name="asics" value="asics" />
-            <label htmlFor="asics">Asics </label> <br />
-            <input type="checkbox" id="caterpillar" value="caterpillar" />
-            <label htmlFor="caterpillar">Caterpillar </label> <br />
-            <input type="checkbox" id="columbia" value="columbia" />
-            <label htmlFor="sandals">Columbia </label> <br />
-            <input type="checkbox" id="puma" name="puma" value="puma" />
-            <label htmlFor="high-boots">Puma </label>
+            {brandNames.map((brand) => (
+              <div>
+                <input type="checkbox" id={brand} value={brand} />
+                <label htmlFor={brand}>{brand}</label>
+              </div>
+            ))}
           </form>
           <Button palette={"blue"} size={"big"}>
             Apply
