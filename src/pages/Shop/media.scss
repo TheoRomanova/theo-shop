@@ -36,11 +36,10 @@
       .colors {
         padding-left: 0px;
         padding-right: 0px;
-        .active-color {
-          &:checked {
-            width: 39px;
-            height: 39px;
-          }
+
+        input[type="checkbox"]:checked {
+          width: 39px;
+          height: 39px;
         }
 
         input[type="checkbox"] {

@@ -1,6 +1,6 @@
 import "./styles.scss";
 import "./media.scss";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../atoms/Button/Button";
@@ -29,7 +29,7 @@ const Shop = () => {
   const [countsForPagination, setCountsForPagination] = useState(itemCount);
 
   const [startPositionItem, setStartPositionItem] = useState(0);
-  const [filteredItems, setFilteredItems] = useState([] as Array<ProductType>);
+  const [filteredItems, setFilteredItems] = useState([]);
 
   const onChangeAmountItems = (count: number) => {
     setActiveAmount(count);
@@ -41,55 +41,41 @@ const Shop = () => {
 
   //сделать общий фильтра на apply
 
-  const onApplyFilters = () => {};
-
-  const onFilterColor = (color: any) => {
+  const onApplyFilters = () => {
     setActiveAmount(9);
-    if (currentColor === Object.keys(color)[0]) {
-      setCurrentColor("");
-      setFilteredItems([]);
-      setCountsForPagination(itemCount);
-    } else {
-      setCurrentColor(Object.keys(color)[0]);
-      const filteredArray = products!.filter(
-        (item) =>
-          item.colour.toLowerCase() === Object.keys(color)[0].toLowerCase()
+    setCountsForPagination(itemCount);
+    let filteredArr = products?.slice();
+    if (currentColor !== "") {
+      filteredArr?.filter(
+        (item) => item.colour.toLowerCase() === currentColor.toLowerCase()
       );
-      setFilteredItems(filteredArray);
-      setCountsForPagination(filteredArray.length);
+    }
+    if (currentBrand !== "") {
+      filteredArr?.filter(
+        (item) => item.brandName.toLowerCase() === currentBrand.toLowerCase()
+      );
+    }
+    if (filteredArr!.length > 1) {
+      setFilteredItems(filteredArr as any);
+      setCountsForPagination(filteredArr!.length);
     }
   };
 
-  const onFilterBrand = (brand: string) => {
-    console.log(brand);
-    setActiveAmount(9);
-    if (currentBrand === brand) {
-      setCurrentBrand("");
-      setFilteredItems([]);
-    } else {
-      setCurrentBrand(brand);
-      const filteredArray = products!.filter(
-        (item) => item.brandName.toLowerCase() === currentBrand
-      );
-      setFilteredItems(filteredArray);
-      setCountsForPagination(filteredArray.length);
-    }
-  };
-
-  const getProducts = (): any => {
-    if (products) {
-      return products
-        .filter((product: ProductType) =>
-          currentColor !== ""
-            ? product.colour === currentColor
-            : // : currentBrand !== ""
-              // ? product.brandName === currentBrand
-              product
-        )
+  const getProducts = (filtered: any) => {
+    if (filtered.length > 1) {
+      return filtered
         ?.slice(startPositionItem, startPositionItem + activeAmount)
-        .map((item) => {
+        .map((item: any) => {
           return <ShopItem product={item} />;
         });
+    } else {
+      if (products) {
+        return products
+          ?.slice(startPositionItem, startPositionItem + activeAmount)
+          .map((item) => {
+            return <ShopItem product={item} />;
+          });
+      }
     }
   };
 
@@ -146,7 +132,10 @@ const Shop = () => {
                   type="checkbox"
                   key={Object.keys(color)[0]}
                   value={Object.keys(color)[0]}
-                  onClick={() => onFilterColor(color)}
+                  onClick={() =>
+                    currentColor !== Object.keys(color)[0] &&
+                    setCurrentColor(Object.keys(color)[0])
+                  }
                 />
               );
             })}
@@ -179,7 +168,9 @@ const Shop = () => {
                   type="checkbox"
                   id={brand}
                   value={brand}
-                  onClick={() => onFilterBrand(brand)}
+                  onClick={() =>
+                    currentBrand !== brand && setCurrentBrand(brand)
+                  }
                 />
                 <label htmlFor={brand}>{brand}</label>
               </div>
@@ -230,7 +221,7 @@ const Shop = () => {
             <button>Фильтровать</button>
           </div>
           <div className="shop-items">
-            {isLoading ? <Loader /> : getProducts()}
+            {isLoading ? <Loader /> : getProducts(filteredItems)}
           </div>
           <Pagination
             totalItemsCount={countsForPagination}
