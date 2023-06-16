@@ -116,17 +116,15 @@
           margin-right: 15px;
         }
 
-        .active-color {
-          &:checked {
-            right: 3px;
-            top: -9px;
+        input:checked {
+          right: 3px;
+          top: -9px;
 
-            width: 34px;
-            height: 34px;
-          }
-          &:checked:not(:nth-child(3n + 3)) {
-            margin-right: 6px;
-          }
+          width: 34px;
+          height: 34px;
+        }
+        input:checked:not(:nth-child(3n + 3)) {
+          margin-right: 6px;
         }
       }
     }

@@ -69,9 +69,9 @@
         height: 33px;
         cursor: pointer;
       }
-      input:checked {
-        accent-color: #ff1818;
-      }
+      // input:checked {
+      //   accent-color: #ff1818;
+      // }
 
       label {
         vertical-align: 55%;
@@ -82,7 +82,12 @@
     form.brand {
       height: 222px;
       overflow-y: scroll;
+
+      input:checked {
+        accent-color: #ff1818;
+      }
     }
+
     p:nth-of-type(3) {
       margin-bottom: 81px;
     }
@@ -94,31 +99,28 @@
       margin-bottom: 70px;
       padding-left: 20px;
 
-      .active-color {
-        &:checked {
-          position: relative;
-          right: 7px;
-          top: -5px;
-          margin-right: 1px;
-          margin-bottom: 4px;
-          width: 44px;
-          height: 44px;
-        }
-        &:checked:not(:nth-child(4n + 4)) {
-          margin-right: 6px;
-        }
-      }
-
-      input[type="checkbox"] {
+      input {
         box-sizing: border-box;
         border: 1px solid black;
-
         width: 30px;
         height: 30px;
         margin-bottom: 18px;
         border-radius: 40px;
         appearance: none;
         cursor: pointer;
+      }
+
+      input:checked {
+        position: relative;
+        right: 7px;
+        top: -5px;
+        margin-right: 1px;
+        margin-bottom: 4px;
+        width: 44px;
+        height: 44px;
+      }
+      input:checked:not(:nth-child(4n + 4)) {
+        margin-right: 6px;
       }
 
       input:not(input:nth-child(4n + 4)) {

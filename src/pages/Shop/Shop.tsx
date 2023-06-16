@@ -1,6 +1,6 @@
 import "./styles.scss";
 import "./media.scss";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../atoms/Button/Button";
@@ -12,14 +12,16 @@ import { RootState } from "../../redux/store";
 import { Loader } from "../../components/Loader/Loader";
 import Pagination from "../../components/Pagination/Pagination";
 import { ProductType } from "../../redux/products/products.slice";
-
 const sizes = getSizes(30, 46);
 
 const Shop = () => {
   const navigate = useNavigate();
   const displayedAmountItems = [9, 18, 27]; //18, 30, 60
   const [activeAmount, setActiveAmount] = useState(9);
+  //flters
   const [currentColor, setCurrentColor] = useState("");
+  const [currentBrand, setCurrentBrand] = useState("");
+  //
   const { products, isLoading, itemCount, categoryName } = useSelector(
     (state: RootState) => state.products
   );
@@ -55,6 +57,39 @@ const Shop = () => {
       );
       setFilteredItems(filteredArray);
       setCountsForPagination(filteredArray.length);
+    }
+  };
+
+  const onFilterBrand = (brand: string) => {
+    console.log(brand);
+    setActiveAmount(9);
+    if (currentBrand === brand) {
+      setCurrentBrand("");
+      setFilteredItems([]);
+    } else {
+      setCurrentBrand(brand);
+      const filteredArray = products!.filter(
+        (item) => item.brandName.toLowerCase() === currentBrand
+      );
+      setFilteredItems(filteredArray);
+      setCountsForPagination(filteredArray.length);
+    }
+  };
+
+  const getProducts = (): any => {
+    if (products) {
+      return products
+        .filter((product: ProductType) =>
+          currentColor !== ""
+            ? product.colour === currentColor
+            : // : currentBrand !== ""
+              // ? product.brandName === currentBrand
+              product
+        )
+        ?.slice(startPositionItem, startPositionItem + activeAmount)
+        .map((item) => {
+          return <ShopItem product={item} />;
+        });
     }
   };
 
@@ -103,9 +138,7 @@ const Shop = () => {
             {colors.map((color) => {
               return (
                 <input
-                  className={
-                    currentColor === Object.keys(color)[0] ? "active-color" : ""
-                  }
+                  checked={currentColor === Object.keys(color)[0]}
                   style={{
                     backgroundImage: color.Multi && color.Multi,
                     backgroundColor: !color.Multi && Object.values(color)[0],
@@ -141,7 +174,13 @@ const Shop = () => {
           <form id="form4" className="brand">
             {brandNames.map((brand) => (
               <div>
-                <input type="checkbox" id={brand} value={brand} />
+                <input
+                  checked={currentBrand === brand}
+                  type="checkbox"
+                  id={brand}
+                  value={brand}
+                  onClick={() => onFilterBrand(brand)}
+                />
                 <label htmlFor={brand}>{brand}</label>
               </div>
             ))}
@@ -191,19 +230,7 @@ const Shop = () => {
             <button>Фильтровать</button>
           </div>
           <div className="shop-items">
-            {isLoading ? (
-              <Loader />
-            ) : (
-              products
-                ?.filter((product) =>
-                  currentColor !== ""
-                    ? product.colour === currentColor
-                    : product
-                )
-                ?.slice(startPositionItem, startPositionItem + activeAmount)
-
-                .map((item) => <ShopItem product={item} />)
-            )}
+            {isLoading ? <Loader /> : getProducts()}
           </div>
           <Pagination
             totalItemsCount={countsForPagination}
