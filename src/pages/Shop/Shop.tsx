@@ -90,6 +90,12 @@ const Shop = () => {
     }
   };
 
+  const onResetFilters = () => {
+    setFilterMode(false);
+    setFilteredItems([]);
+    setCountsForPagination(itemCount);
+  };
+
   return (
     <div className="shop-page">
       <Button palette={"blue"} size={"medium"} onClick={() => navigate("/")}>
@@ -193,11 +199,7 @@ const Shop = () => {
           <Button onClick={onApplyFilters} palette={"blue"} size={"big"}>
             Apply
           </Button>
-          <Button
-            palette={"purple"}
-            size={"big"}
-            onClick={() => setFilterMode(false)}
-          >
+          <Button palette={"purple"} size={"big"} onClick={onResetFilters}>
             Reset
           </Button>
         </div>
