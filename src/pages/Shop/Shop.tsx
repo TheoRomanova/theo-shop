@@ -11,7 +11,8 @@ import { ShopItem } from "../../components/ShopItem/ShopItem";
 import { RootState } from "../../redux/store";
 import { Loader } from "../../components/Loader/Loader";
 import Pagination from "../../components/Pagination/Pagination";
-import { ProductType } from "../../redux/products/products.slice";
+import { FALSE } from "sass";
+
 const sizes = getSizes(30, 46);
 
 const Shop = () => {
@@ -30,6 +31,7 @@ const Shop = () => {
 
   const [startPositionItem, setStartPositionItem] = useState(0);
   const [filteredItems, setFilteredItems] = useState([]);
+  const [filterMode, setFilterMode] = useState(false);
 
   const onChangeAmountItems = (count: number) => {
     setActiveAmount(count);
@@ -44,37 +46,46 @@ const Shop = () => {
   const onApplyFilters = () => {
     setActiveAmount(9);
     setCountsForPagination(itemCount);
-    let filteredArr = products?.slice();
+
+    let filtered: any = [];
     if (currentColor !== "") {
-      filteredArr?.filter(
+      setFilterMode(true);
+      filtered = products?.filter(
         (item) => item.colour.toLowerCase() === currentColor.toLowerCase()
       );
     }
+
     if (currentBrand !== "") {
-      filteredArr?.filter(
-        (item) => item.brandName.toLowerCase() === currentBrand.toLowerCase()
+      !filterMode && setFilterMode(true);
+      filtered = filtered?.filter(
+        (item: any) =>
+          item.brandName.toLowerCase() === currentBrand.toLowerCase()
       );
     }
-    if (filteredArr!.length > 1) {
-      setFilteredItems(filteredArr as any);
-      setCountsForPagination(filteredArr!.length);
+
+    if (filtered.length > 0) {
+      setFilteredItems(filtered as any);
+      setCountsForPagination(filtered!.length);
     }
   };
 
   const getProducts = (filtered: any) => {
-    if (filtered.length > 1) {
+    console.log("filtered", filtered);
+    if (filtered.length > 0) {
       return filtered
         ?.slice(startPositionItem, startPositionItem + activeAmount)
         .map((item: any) => {
           return <ShopItem product={item} />;
         });
     } else {
-      if (products) {
+      if (products && !filterMode) {
         return products
           ?.slice(startPositionItem, startPositionItem + activeAmount)
           .map((item) => {
             return <ShopItem product={item} />;
           });
+      } else {
+        return <p>there are no filtered items</p>;
       }
     }
   };
@@ -133,8 +144,9 @@ const Shop = () => {
                   key={Object.keys(color)[0]}
                   value={Object.keys(color)[0]}
                   onClick={() =>
-                    currentColor !== Object.keys(color)[0] &&
-                    setCurrentColor(Object.keys(color)[0])
+                    currentColor !== Object.keys(color)[0]
+                      ? setCurrentColor(Object.keys(color)[0])
+                      : setCurrentColor("")
                   }
                 />
               );
@@ -169,7 +181,9 @@ const Shop = () => {
                   id={brand}
                   value={brand}
                   onClick={() =>
-                    currentBrand !== brand && setCurrentBrand(brand)
+                    currentBrand !== brand
+                      ? setCurrentBrand(brand)
+                      : setCurrentBrand("")
                   }
                 />
                 <label htmlFor={brand}>{brand}</label>
@@ -179,7 +193,11 @@ const Shop = () => {
           <Button onClick={onApplyFilters} palette={"blue"} size={"big"}>
             Apply
           </Button>
-          <Button palette={"purple"} size={"big"}>
+          <Button
+            palette={"purple"}
+            size={"big"}
+            onClick={() => setFilterMode(false)}
+          >
             Reset
           </Button>
         </div>
@@ -218,16 +236,19 @@ const Shop = () => {
           </div>
           <div className="options-mobile">
             <span>{categoryName}</span>
-            <button>Фильтровать</button>
+            <button>Filter</button>
           </div>
           <div className="shop-items">
             {isLoading ? <Loader /> : getProducts(filteredItems)}
           </div>
-          <Pagination
-            totalItemsCount={countsForPagination}
-            portionSize={5}
-            onPageChanged={onPageChanged}
-          />
+
+          {!filterMode && (
+            <Pagination
+              totalItemsCount={countsForPagination}
+              portionSize={5}
+              onPageChanged={onPageChanged}
+            />
+          )}
         </div>
       </div>
     </div>
