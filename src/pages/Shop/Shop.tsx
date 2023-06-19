@@ -1,17 +1,17 @@
 import "./styles.scss";
 import "./media.scss";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { RootState } from "../../redux/store";
 import { Button } from "../../atoms/Button/Button";
 import { brandNames, colors, getSizes } from "../../data/data";
 import MultiRangeSlider from "../../atoms/MultiRangeSlider/MultiRangeSlider";
 import { ShopItem } from "../../components/ShopItem/ShopItem";
 
-import { RootState } from "../../redux/store";
 import { Loader } from "../../components/Loader/Loader";
 import Pagination from "../../components/Pagination/Pagination";
-import { FALSE } from "sass";
+import { ProductType } from "../../redux/products/products.slice";
 
 const sizes = getSizes(30, 46);
 
@@ -19,10 +19,10 @@ const Shop = () => {
   const navigate = useNavigate();
   const displayedAmountItems = [9, 18, 27]; //18, 30, 60
   const [activeAmount, setActiveAmount] = useState(9);
-  //flters
+
   const [currentColor, setCurrentColor] = useState("");
   const [currentBrand, setCurrentBrand] = useState("");
-  //
+
   const { products, isLoading, itemCount, categoryName } = useSelector(
     (state: RootState) => state.products
   );
@@ -41,16 +41,15 @@ const Shop = () => {
     setStartPositionItem((page - 1) * activeAmount);
   };
 
-  //сделать общий фильтра на apply
-
   const onApplyFilters = () => {
-    setActiveAmount(9);
-    setCountsForPagination(itemCount);
+    setFilteredItems([]);
 
-    let filtered: any = [];
-    if (currentColor !== "") {
+    setActiveAmount(9);
+
+    let filtered: Array<ProductType> = [];
+    if (currentColor !== "" && products) {
       setFilterMode(true);
-      filtered = products?.filter(
+      filtered = products.filter(
         (item) => item.colour.toLowerCase() === currentColor.toLowerCase()
       );
     }
@@ -95,7 +94,7 @@ const Shop = () => {
     setFilteredItems([]);
     setCountsForPagination(itemCount);
   };
-
+  console.log(currentColor);
   return (
     <div className="shop-page">
       <Button palette={"blue"} size={"medium"} onClick={() => navigate("/")}>
@@ -141,7 +140,7 @@ const Shop = () => {
             {colors.map((color) => {
               return (
                 <input
-                  checked={currentColor === Object.keys(color)[0]}
+                  checked={currentColor === Object.keys(color)[0].toString()}
                   style={{
                     backgroundImage: color.Multi && color.Multi,
                     backgroundColor: !color.Multi && Object.values(color)[0],
