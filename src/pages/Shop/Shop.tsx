@@ -42,8 +42,9 @@ const Shop = () => {
   };
 
   const onApplyFilters = () => {
-    setFilteredItems([]);
-
+    filteredItems.length > 0 && setFilteredItems([]);
+    currentColor && setCurrentColor("");
+    currentBrand && setCurrentBrand("");
     setActiveAmount(9);
 
     let filtered: Array<ProductType> = [];
@@ -56,10 +57,18 @@ const Shop = () => {
 
     if (currentBrand !== "") {
       !filterMode && setFilterMode(true);
-      filtered = filtered?.filter(
-        (item: any) =>
-          item.brandName.toLowerCase() === currentBrand.toLowerCase()
-      );
+
+      if (filtered.length > 0) {
+        filtered = filtered?.filter(
+          (item: any) =>
+            item.brandName.toLowerCase() === currentBrand.toLowerCase()
+        );
+      } else {
+        filtered = products!.filter(
+          (item: any) =>
+            item.brandName.toLowerCase() === currentBrand.toLowerCase()
+        );
+      }
     }
 
     if (filtered.length > 0) {
@@ -94,7 +103,7 @@ const Shop = () => {
     setFilteredItems([]);
     setCountsForPagination(itemCount);
   };
-  console.log(currentColor);
+  console.log(filteredItems);
   return (
     <div className="shop-page">
       <Button palette={"blue"} size={"medium"} onClick={() => navigate("/")}>
