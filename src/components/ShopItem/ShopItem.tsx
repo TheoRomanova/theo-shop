@@ -1,4 +1,5 @@
 import "./styles.scss";
+
 import { ProductType } from "../../redux/products/products.slice";
 import { useEffect } from "react";
 import { getSizes } from "../../data/data";

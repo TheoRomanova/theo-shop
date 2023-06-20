@@ -170,6 +170,7 @@
             padding-top: 6.05px;
             width: 150px;
             height: 120.92px;
+            border-radius: 10px 10px 0 0;
           }
           .description {
             height: 101.12px;
@@ -177,6 +178,7 @@
             padding-left: 10px;
             padding-right: 18.29px;
             padding-bottom: 10px;
+            border-radius: 0 0 10px 10px;
 
             p {
               height: 31px; //34px
@@ -197,14 +199,44 @@
               .price + span {
                 width: 19.53px;
                 height: 17.5px;
-                top: 20px;
               }
             }
           }
         }
-        // .shop-item:not(.shop-item:nth-child(3n + 3)) {
-        //   margin-right: 20px !important;
-        // }
+
+        .shop-item:hover {
+          .description {
+            p + span {
+              margin-bottom: 36.5px;
+            }
+            .price-favorites {
+              .price + span {
+                margin-top: 9px;
+              }
+
+              .sizes,
+              .size {
+                border-radius: 0 0 10px 10px;
+              }
+              .sizes {
+                padding-left: 10px;
+                padding-bottom: 23px;
+                width: 150px;
+
+                bottom: -80px;
+                .size {
+                  width: 40px;
+                  height: 20px;
+                  margin-right: 5px;
+
+                  font-size: 12px;
+                  line-height: 15px;
+                  border-radius: 5px;
+                }
+              }
+            }
+          }
+        }
       }
     }
     .pagination {
