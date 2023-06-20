@@ -41,6 +41,10 @@
     .price-favorites {
       display: flex;
       justify-content: space-between;
+
+      .sizes {
+        display: none;
+      }
       .price {
         padding-top: 6px;
         font-weight: 700;
@@ -60,6 +64,52 @@
       }
       .price + span:hover {
         background-image: url(../../assets/main/heart-red.png);
+      }
+    }
+  }
+}
+
+.shop-item:hover {
+  .description {
+    position: relative;
+    p + span {
+      margin-bottom: 36.5px;
+    }
+    .price-favorites {
+      .sizes {
+        position: absolute;
+        padding-left: 26px;
+        padding-top: 10px;
+        margin-right: 103px;
+        left: 0;
+        bottom: -70px;
+
+        display: flex;
+        flex-wrap: wrap;
+        width: 256.42px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 0 0 20px 20px;
+        .size {
+          margin-right: 13px;
+          margin-bottom: 7px;
+          width: 63px;
+          height: 30px;
+
+          padding-left: 6px;
+          padding-top: 2px;
+          padding-bottom: 2px;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 19px;
+          color: #002c6a;
+          border-radius: 5px;
+          cursor: pointer;
+
+          &:hover {
+            color: white;
+            background-color: #002c6a;
+          }
+        }
       }
     }
   }
