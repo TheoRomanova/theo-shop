@@ -65,30 +65,28 @@
           margin-right: 20px;
         }
 
-        li span {
+        li a {
           display: block;
           position: relative;
           top: -10px;
           right: 10px;
           width: 20px;
           height: 20px;
+          background-size: contain !important;
         }
-        li:first-child span {
+        li:first-child a {
           right: 7px;
         }
 
-        li:nth-of-type(1) span {
+        li:nth-of-type(1) a {
           position: relative;
           background: no-repeat url(../../assets/header/bag.png);
-          background-size: contain;
         }
-        li:nth-of-type(2) span {
+        li:nth-of-type(2) a {
           background: no-repeat url(../../assets/header/user2.png);
-          background-size: contain;
         }
-        li:nth-of-type(3) span {
+        li:nth-of-type(3) a {
           background: no-repeat url(../../assets/header/heart.png);
-          background-size: contain;
         }
       }
     }

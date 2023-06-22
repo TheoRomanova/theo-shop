@@ -34,13 +34,13 @@ export const Header = () => {
           <div className="logo"></div>
           <ul className="profile-icons">
             <li>
-              <span></span>
+              <NavLink to="/basket" />
             </li>
             <li>
-              <span></span>
+              <NavLink to="/profile" />
             </li>
             <li>
-              <span></span>
+              <NavLink to="/favorites" />
             </li>
           </ul>
         </div>
