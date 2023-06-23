@@ -32,6 +32,7 @@ const Shop = () => {
   const [startPositionItem, setStartPositionItem] = useState(0);
   const [filteredItems, setFilteredItems] = useState([]);
   const [filterMode, setFilterMode] = useState(false);
+  const [mobileFilterMode, setMobileFilterMode] = useState(false);
 
   const onChangeAmountItems = (count: number) => {
     setActiveAmount(count);
@@ -102,6 +103,7 @@ const Shop = () => {
     setFilterMode(false);
     setFilteredItems([]);
     setCountsForPagination(itemCount);
+    setMobileFilterMode(false);
   };
   console.log(filteredItems);
   return (
@@ -110,7 +112,11 @@ const Shop = () => {
         back
       </Button>
       <div>
-        <div className="filter-block">
+        <div
+          className={
+            mobileFilterMode ? "filter-block filter-mode" : "filter-block"
+          }
+        >
           <p>Size</p>
           <form id="form1" className="sizes">
             {sizes.map((size) => (
@@ -211,55 +217,57 @@ const Shop = () => {
             Reset
           </Button>
         </div>
-        <div className="shop-items-block">
-          <div className="options">
-            <div className="options-left">
-              {" "}
-              <label>
-                <span className="">Sorting</span>
-                <select name="sorting">
-                  <option value="1">by default</option>
-                  <option value="2">popular</option>
-                  <option value="3">low price</option>
-                </select>
-              </label>
+        {!mobileFilterMode && (
+          <div className="shop-items-block">
+            <div className="options">
+              <div className="options-left">
+                {" "}
+                <label>
+                  <span className="">Sorting</span>
+                  <select name="sorting">
+                    <option value="1">by default</option>
+                    <option value="2">popular</option>
+                    <option value="3">low price</option>
+                  </select>
+                </label>
+              </div>
+
+              <div className="options-right">
+                {" "}
+                <label>
+                  <span className="">Amount</span>
+                  {displayedAmountItems.map((count) => (
+                    <button
+                      disabled={
+                        filteredItems.length !== 0 &&
+                        filteredItems.length < activeAmount
+                      }
+                      className={activeAmount === count ? "button-active" : ""}
+                      onClick={() => onChangeAmountItems(count)}
+                    >
+                      {count}
+                    </button>
+                  ))}
+                </label>
+              </div>
+            </div>
+            <div className="options-mobile">
+              <span>{categoryName}</span>
+              <button onClick={() => setMobileFilterMode(true)}>Filter</button>
+            </div>
+            <div className="shop-items">
+              {isLoading ? <Loader /> : getProducts(filteredItems)}
             </div>
 
-            <div className="options-right">
-              {" "}
-              <label>
-                <span className="">Amount</span>
-                {displayedAmountItems.map((count) => (
-                  <button
-                    disabled={
-                      filteredItems.length !== 0 &&
-                      filteredItems.length < activeAmount
-                    }
-                    className={activeAmount === count ? "button-active" : ""}
-                    onClick={() => onChangeAmountItems(count)}
-                  >
-                    {count}
-                  </button>
-                ))}
-              </label>
-            </div>
+            {!filterMode && (
+              <Pagination
+                totalItemsCount={countsForPagination}
+                portionSize={5}
+                onPageChanged={onPageChanged}
+              />
+            )}
           </div>
-          <div className="options-mobile">
-            <span>{categoryName}</span>
-            <button>Filter</button>
-          </div>
-          <div className="shop-items">
-            {isLoading ? <Loader /> : getProducts(filteredItems)}
-          </div>
-
-          {!filterMode && (
-            <Pagination
-              totalItemsCount={countsForPagination}
-              portionSize={5}
-              onPageChanged={onPageChanged}
-            />
-          )}
-        </div>
+        )}
       </div>
     </div>
   );

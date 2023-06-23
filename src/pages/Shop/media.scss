@@ -283,5 +283,62 @@
         }
       }
     }
+
+    .sizes {
+      .size {
+        margin-right: 55px !important;
+      }
+    }
+
+    .filter-mode {
+      display: block;
+      width: 100%;
+
+      p {
+        margin-bottom: 20px;
+      }
+      .sizes {
+        .size {
+          margin-right: 55px !important;
+        }
+      }
+
+      .price {
+        padding-bottom: 1px;
+        margin-bottom: 45px;
+        padding-left: 10px;
+        padding-right: 10px;
+        .slider {
+          width: 310px;
+        }
+        .thumb {
+          width: 310px;
+        }
+      }
+
+      .colors {
+        width: 250px;
+
+        input[type="checkbox"]:not(:nth-child(5n + 5)) {
+          margin-right: 20px !important;
+        }
+
+        input:checked {
+          right: 6px;
+          top: -6px;
+        }
+        input:checked:not(:nth-child(5n + 5)) {
+          margin-right: 6px !important;
+        }
+      }
+      button {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        width: 200px;
+        height: 50px;
+        border-radius: 30px;
+      }
+    }
   }
 }
