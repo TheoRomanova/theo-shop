@@ -43,6 +43,7 @@ const Shop = () => {
   };
 
   const onApplyFilters = () => {
+    setMobileFilterMode(false);
     filteredItems.length > 0 && setFilteredItems([]);
     currentColor && setCurrentColor("");
     currentBrand && setCurrentBrand("");

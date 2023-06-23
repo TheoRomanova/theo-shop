@@ -40,9 +40,6 @@
   .app-footer {
     padding-top: 20px;
     .contacts-info {
-      .logo {
-      }
-
       .social-media {
       }
       .tel-mail {
@@ -70,13 +67,27 @@
 }
 @media (max-width: 430px) {
   .app-footer {
-    flex-direction: column;
+    padding-bottom: 0;
+    padding-top: 30px;
+    .contacts-info {
+      .logo {
+        margin-right: 20px;
+      }
+      .contacts {
+        .social-media {
+          display: flex;
+          justify-content: start;
+          padding-left: 25px;
 
+          span {
+            margin-right: 15px;
+          }
+        }
+      }
+    }
     .shop-info {
-      width: 100%;
       .info-block {
-        position: relative;
-        left: -20%;
+        text-align: start;
       }
     }
   }
