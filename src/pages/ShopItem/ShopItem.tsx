@@ -5,6 +5,7 @@ import { RootState } from "../../redux/store";
 import { ProductType } from "../../redux/products/products.slice";
 import { getSizes } from "../../data/data";
 import { Button } from "../../atoms/Button/Button";
+import { useState } from "react";
 
 export const ShopItemPage = () => {
   const { id } = useParams();
@@ -13,10 +14,26 @@ export const ShopItemPage = () => {
   const currentItem = products?.find(
     (shopItem: ProductType) => id && shopItem.id === +id
   );
+  const photos = [
+    `https://${currentItem?.imageUrl} `,
+    `https://${currentItem?.additionalImageUrls[0]} `,
+    `https://${currentItem?.additionalImageUrls[1]} `,
+    `https://${currentItem?.additionalImageUrls[2]} `,
+  ];
 
+  const [productPhotos, setProductsPhotos] = useState(photos);
   const sizes = getSizes(37, 42);
-  console.log(currentItem);
 
+  const updateBigProductPhoto = (photo: string, index: number) => {
+    let temp = productPhotos[0];
+    const newPhotosOrder = productPhotos.slice();
+
+    newPhotosOrder[index] = temp;
+    newPhotosOrder[0] = photo;
+
+    setProductsPhotos(newPhotosOrder);
+  };
+  console.log(productPhotos[0]);
   return (
     <div className="shop-item_page">
       <h1>{currentItem?.name.toUpperCase()}</h1>
@@ -26,15 +43,15 @@ export const ShopItemPage = () => {
       <div className="photos-sizes">
         <div className="photos">
           <span className="like"></span>
-          <img
-            className="big-photo"
-            src={`https://${currentItem?.imageUrl} `}
-          ></img>
+          <img className="big-photo" src={photos[0]}></img>
 
           <div className="small-photos">
-            <img src={`https://${currentItem?.additionalImageUrls[0]} `}></img>
-            <img src={`https://${currentItem?.additionalImageUrls[1]} `}></img>
-            <img src={`https://${currentItem?.additionalImageUrls[2]} `}></img>
+            {photos.slice(1).map((photo, index) => (
+              <img
+                src={photo}
+                onClick={() => updateBigProductPhoto(photo, index)}
+              ></img>
+            ))}
           </div>
         </div>
         <div className="sizes-info">
