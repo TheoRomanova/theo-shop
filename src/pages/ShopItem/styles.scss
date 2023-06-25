@@ -1,0 +1,54 @@
+.shop-item_page {
+  width: 1154px;
+  margin: 0 auto;
+  padding-left: 22px;
+  padding-right: 22px;
+  h1 {
+    margin-bottom: 10px;
+  }
+  .product-code {
+    display: block;
+    margin-bottom: 10px;
+    color: grey;
+  }
+  .photos-sizes {
+    width: 400px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    .like {
+      position: absolute;
+      display: block;
+      width: 45px;
+      height: 36px;
+      top: 30px;
+      right: 20px;
+
+      background-image: url(../../assets/main/herat-grey.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      cursor: pointer;
+
+      &:hover {
+        background-image: url(../../assets/main/heart-red.png);
+      }
+    }
+    .big-photo {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      width: 400px;
+      border-radius: 20px;
+    }
+
+    .small-photos {
+      display: flex;
+      justify-content: space-between;
+      img {
+        width: 120px;
+        border-radius: 20px;
+      }
+    }
+  }
+}

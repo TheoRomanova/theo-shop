@@ -260,13 +260,11 @@ const Shop = () => {
               {isLoading ? <Loader /> : getProducts(filteredItems)}
             </div>
 
-            {!filterMode && (
-              <Pagination
-                totalItemsCount={countsForPagination}
-                portionSize={5}
-                onPageChanged={onPageChanged}
-              />
-            )}
+            <Pagination
+              totalItemsCount={countsForPagination}
+              portionSize={5}
+              onPageChanged={onPageChanged}
+            />
           </div>
         )}
       </div>

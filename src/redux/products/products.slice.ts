@@ -13,6 +13,7 @@ export interface ProductType {
   brandName: string;
   productCode: number;
   imageUrl: string;
+  additionalImageUrls: Array<string>;
 }
 
 interface State {
