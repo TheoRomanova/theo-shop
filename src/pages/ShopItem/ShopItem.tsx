@@ -13,7 +13,7 @@ export const ShopItemPage = () => {
   console.log(currentItem);
   return (
     <div className="shop-item_page">
-      <h1>{currentItem?.name}</h1>
+      <h1>{currentItem?.name.toUpperCase()}</h1>
       <span className="product-code">
         product code: {currentItem?.productCode}
       </span>
