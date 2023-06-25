@@ -89,3 +89,19 @@
     background-color: #dccab4;
   }
 }
+/////////////////////
+.red {
+  background-color: #ff1818;
+
+  &:hover {
+    background-color: #ca1515;
+  }
+}
+
+.dark-blue {
+  background-color: #002c6a;
+
+  &:hover {
+    background-color: #032451;
+  }
+}

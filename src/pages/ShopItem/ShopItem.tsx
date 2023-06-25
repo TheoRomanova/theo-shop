@@ -48,10 +48,10 @@ export const ShopItemPage = () => {
             </div>
           </div>
           <div className="buttons">
-            <Button palette={"pink"} size={"big"}>
+            <Button palette={"red"} size={"big"}>
               Add to cart
             </Button>
-            <Button palette={"blue"} size={"big"}>
+            <Button palette={"dark-blue"} size={"big"}>
               Buy now
             </Button>
           </div>
