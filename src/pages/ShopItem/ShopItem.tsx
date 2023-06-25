@@ -3,14 +3,20 @@ import "./styles.scss";
 import { useParams } from "react-router-dom";
 import { RootState } from "../../redux/store";
 import { ProductType } from "../../redux/products/products.slice";
+import { getSizes } from "../../data/data";
+import { Button } from "../../atoms/Button/Button";
 
 export const ShopItemPage = () => {
   const { id } = useParams();
   const products = useSelector((state: RootState) => state.products.products);
+
   const currentItem = products?.find(
     (shopItem: ProductType) => id && shopItem.id === +id
   );
+
+  const sizes = getSizes(37, 42);
   console.log(currentItem);
+
   return (
     <div className="shop-item_page">
       <h1>{currentItem?.name.toUpperCase()}</h1>
@@ -31,7 +37,25 @@ export const ShopItemPage = () => {
             <img src={`https://${currentItem?.additionalImageUrls[2]} `}></img>
           </div>
         </div>
-        <div></div>
+        <div className="sizes-info">
+          <h1>{currentItem?.price.current.text}</h1>
+          <div className="choose-size">
+            <p>SELECT SIZE</p>
+            <div className="sizes">
+              {sizes.map((size) => (
+                <span>{size}</span>
+              ))}
+            </div>
+          </div>
+          <div className="buttons">
+            <Button palette={"pink"} size={"big"}>
+              Add to cart
+            </Button>
+            <Button palette={"blue"} size={"big"}>
+              Buy now
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

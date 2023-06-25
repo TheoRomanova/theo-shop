@@ -13,43 +13,98 @@
     color: grey;
   }
   .photos-sizes {
-    margin-bottom: 50px;
-    width: 400px;
-    position: relative;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 50px;
 
-    .like {
-      position: absolute;
-      display: block;
-      width: 45px;
-      height: 36px;
-      top: 30px;
-      right: 20px;
+    .photos {
+      position: relative;
+      .like {
+        position: absolute;
+        display: block;
+        width: 45px;
+        height: 36px;
+        top: 30px;
+        right: 20px;
 
-      background-image: url(../../assets/main/herat-grey.png);
-      background-repeat: no-repeat;
-      background-size: contain;
-      cursor: pointer;
+        background-image: url(../../assets/main/herat-grey.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
 
-      &:hover {
-        background-image: url(../../assets/main/heart-red.png);
+        &:hover {
+          background-image: url(../../assets/main/heart-red.png);
+        }
+      }
+
+      .big-photo {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        width: 400px;
+
+        border-radius: 20px;
+      }
+
+      .small-photos {
+        display: flex;
+        justify-content: space-between;
+        img {
+          width: 120px;
+          border-radius: 20px;
+        }
       }
     }
-    .big-photo {
-      display: block;
-      margin: 0 auto;
-      margin-bottom: 20px;
-      width: 400px;
-      border-radius: 20px;
-    }
 
-    .small-photos {
-      display: flex;
-      justify-content: space-between;
-      img {
-        width: 120px;
-        border-radius: 20px;
+    .sizes-info {
+      background-color: rgb(255, 214, 227);
+
+      h1 {
+        padding-top: 10px;
+        text-align: center;
+        margin-bottom: 50px;
+        color: #ff1818;
+      }
+      .choose-size {
+        padding: 40px 20px 40px 50px;
+        margin: 0 auto;
+        margin-bottom: 240px;
+        width: 350px;
+        p {
+          margin-bottom: 20px;
+          font-size: 20px;
+          font-weight: 900;
+        }
+
+        .sizes {
+          display: flex;
+          justify-content: start;
+          flex-wrap: wrap;
+
+          span {
+            padding: 10px 25px 10px 20px;
+            border-radius: 10px;
+            &:hover {
+              background-color: #ff1818;
+              cursor: pointer;
+            }
+          }
+        }
+
+        // height: 282px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      }
+
+      .buttons {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        button:nth-of-type(1) {
+          margin-bottom: 20px;
+        }
+        button {
+          width: 250px;
+        }
       }
     }
   }
