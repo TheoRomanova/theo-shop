@@ -21,7 +21,6 @@ export const ShopItemPage = () => {
     (state: RootState) => state.productInfo.profuctInfo
   );
 
-  const state = useSelector((state: RootState) => state);
   const poductInfoIsLoaded = useSelector(
     (state: RootState) => state.productInfo.poductInfoIsLoaded
   );
@@ -41,8 +40,6 @@ export const ShopItemPage = () => {
 
     setProductsPhotos(newPhotosOrder);
   };
-
-  console.log("state", state);
 
   useEffect(() => {
     currentItem && dispatch(getProductInfoThunk({ id: currentItem.id }) as any);
