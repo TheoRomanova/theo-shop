@@ -1,21 +1,30 @@
 import "./styles.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { RootState } from "../../redux/store";
-import { ProductType } from "../../redux/products/products.slice";
+
 import { getSizes } from "../../data/data";
 import { Button } from "../../atoms/Button/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Loader } from "../../components/Loader/Loader";
+import { ProductType } from "../../redux/products/types";
+import { getProductInfoThunk } from "../../redux/productInfo/productInfo.thunk";
 
 export const ShopItemPage = () => {
   const { id } = useParams();
   const products = useSelector((state: RootState) => state.products.products);
-
+  const dispatch = useDispatch();
   const currentItem = products?.find(
     (shopItem: ProductType) => id && shopItem.id === +id
   );
+  const { aboutMe, careInfo, sizeAndFit } = useSelector(
+    (state: RootState) => state.productInfo.profuctInfo
+  );
 
+  const state = useSelector((state: RootState) => state);
+  const poductInfoIsLoaded = useSelector(
+    (state: RootState) => state.productInfo.poductInfoIsLoaded
+  );
   const [productPhotos, setProductsPhotos] = useState([
     `https://${currentItem?.imageUrl} `,
     `https://${currentItem?.additionalImageUrls[0]} `,
@@ -33,7 +42,13 @@ export const ShopItemPage = () => {
     setProductsPhotos(newPhotosOrder);
   };
 
-  return !currentItem ? (
+  console.log("state", state);
+
+  useEffect(() => {
+    currentItem && dispatch(getProductInfoThunk({ id: currentItem.id }) as any);
+  }, []);
+  console.log("HHHHH", currentItem);
+  return !currentItem && !poductInfoIsLoaded ? (
     <Loader />
   ) : (
     <div className="shop-item_page">
@@ -75,6 +90,7 @@ export const ShopItemPage = () => {
           </div>
         </div>
       </div>
+      <div className="additional-info"></div>
     </div>
   );
 };

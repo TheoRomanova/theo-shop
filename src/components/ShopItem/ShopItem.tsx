@@ -1,10 +1,10 @@
 import "./styles.scss";
 import "./media.scss";
 
-import { ProductType } from "../../redux/products/products.slice";
 import { NavLink } from "react-router-dom";
 
 import { getSizes } from "../../data/data";
+import { ProductType } from "../../redux/products/types";
 
 interface Props {
   product: ProductType;

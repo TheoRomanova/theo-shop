@@ -11,7 +11,7 @@ import { ShopItem } from "../../components/ShopItem/ShopItem";
 
 import { Loader } from "../../components/Loader/Loader";
 import Pagination from "../../components/Pagination/Pagination";
-import { ProductType } from "../../redux/products/products.slice";
+import { ProductType } from "../../redux/products/types";
 
 const sizes = getSizes(30, 46);
 

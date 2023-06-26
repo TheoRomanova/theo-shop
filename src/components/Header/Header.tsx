@@ -1,6 +1,6 @@
 import "./styles.scss";
 import "./media.scss";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Button } from "../../atoms/Button/Button";
 import { RootState } from "../../redux/store";
@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProductsThunk } from "../../redux/products/products.thunk";
 import { Loader } from "../Loader/Loader";
 
-export const Header = () => {
+const Header = () => {
   const { categoryName, isLoading } = useSelector(
     (state: RootState) => state.products
   );
@@ -67,3 +67,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export default React.memo(Header);
