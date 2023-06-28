@@ -55,14 +55,14 @@
         margin: auto 0;
         width: 25px;
         height: 21px;
-        background-image: url(../../assets/main/herat-grey.png);
+        background-image: url(../../assets/herat-grey.png);
         background-repeat: no-repeat;
         background-size: contain;
 
         cursor: pointer;
       }
       .price + span:hover {
-        background-image: url(../../assets/main/heart-red.png);
+        background-image: url(../../assets/heart-red.png);
       }
     }
   }

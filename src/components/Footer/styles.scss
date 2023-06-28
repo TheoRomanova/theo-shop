@@ -13,7 +13,7 @@
     .logo {
       width: 150px;
       height: 150px;
-      background: url(../../assets/header/logo.png) no-repeat;
+      background: url(../../assets/logo.png) no-repeat;
       background-size: 95px;
     }
     .contacts {
@@ -56,11 +56,11 @@
         }
 
         p:nth-child(1)::before {
-          content: url(../../assets/header/phone2.png);
+          content: url(../../assets/phone2.png);
           vertical-align: top;
         }
         p:nth-child(2)::before {
-          content: url(../../assets/header/mail2.png);
+          content: url(../../assets/mail2.png);
           vertical-align: top;
         }
       }
@@ -123,12 +123,12 @@
         }
 
         li:first-child span {
-          background: url(../../assets/header/bag.png) no-repeat;
+          background: url(../../assets/bag.png) no-repeat;
           background-size: contain;
         }
 
         li:nth-child(2) span {
-          background: url(../../assets/header/user2.png) no-repeat;
+          background: url(../../assets/profile.png) no-repeat;
           background-size: contain;
         }
       }

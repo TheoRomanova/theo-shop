@@ -29,20 +29,20 @@
           position: relative;
           top: 5px;
           right: 0px;
-          content: url(../../assets/header/phone.png);
+          content: url(../../assets/phone.png);
         }
         li:nth-of-type(2):before {
           position: relative;
           top: 5px;
           right: 0;
-          content: url(../../assets/header/envelop.png);
+          content: url(../../assets/envelop.png);
         }
       }
 
       .logo {
         width: 95px;
         height: 95px;
-        background: no-repeat url(../../assets/header/logo.png);
+        background: no-repeat url(../../assets/logo.png);
         background-size: 95px;
       }
 
@@ -80,13 +80,13 @@
 
         li:nth-of-type(1) a {
           position: relative;
-          background: no-repeat url(../../assets/header/bag.png);
+          background: no-repeat url(../../assets/bag.png);
         }
         li:nth-of-type(2) a {
-          background: no-repeat url(../../assets/header/user2.png);
+          background: no-repeat url(../../assets/profile.png);
         }
         li:nth-of-type(3) a {
-          background: no-repeat url(../../assets/header/heart.png);
+          background: no-repeat url(../../assets/heart.png);
         }
       }
     }
@@ -135,7 +135,7 @@
         }
         .search-btn {
           height: 45px;
-          background-image: url(../../assets/header/search.png);
+          background-image: url(../../assets/search.png);
           background-repeat: no-repeat;
           background-position: right 25px top 8px;
         }

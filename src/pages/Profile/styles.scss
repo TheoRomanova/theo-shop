@@ -1,0 +1,34 @@
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  .profile-navigate {
+    width: 200px;
+
+    li {
+      width: 200px;
+      height: 80px;
+      border-radius: 0 50px 50px 0;
+      background-color: white;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      background-repeat: no-repeat;
+      background-position: 150px 20px;
+      background-size: 30px;
+      cursor: pointer;
+    }
+    li:nth-of-type(1) {
+      background-image: url(../../assets/profile-red.png);
+    }
+    li:nth-of-type(2) {
+      background-image: url(../../assets/bag.png);
+    }
+    li:nth-of-type(3) {
+    }
+  }
+
+  .login-form {
+    .login-input {
+      background-color: rgb(167, 245, 206);
+    }
+  }
+}
