@@ -35,6 +35,12 @@
       background-image: url(../../assets/navigate.png);
       background-position: 150px 25px;
     }
+
+    a {
+      display: block;
+      width: 200px;
+      height: 80px;
+    }
   }
 
   .login-form {
