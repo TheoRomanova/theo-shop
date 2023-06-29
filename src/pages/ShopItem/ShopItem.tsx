@@ -44,7 +44,7 @@ export const ShopItemPage = () => {
   useEffect(() => {
     currentItem && dispatch(getProductInfoThunk({ id: currentItem.id }) as any);
   }, []);
-  console.log("HHHHH", currentItem);
+  console.log("CURRENTITEMPAGE", currentItem);
   return !currentItem && !poductInfoIsLoaded ? (
     <Loader />
   ) : (

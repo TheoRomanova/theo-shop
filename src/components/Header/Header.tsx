@@ -9,13 +9,14 @@ import { getProductsThunk } from "../../redux/products/products.thunk";
 import { Loader } from "../Loader/Loader";
 
 const Header = () => {
-  const { categoryName, isLoading } = useSelector(
+  const { categoryName, isLoading, products } = useSelector(
     (state: RootState) => state.products
   );
   const location = useLocation();
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProductsThunk() as any);
+    console.log("HEADER", products?.length);
+    !products?.length && dispatch(getProductsThunk() as any);
   }, []);
 
   // return isLoading ? (
