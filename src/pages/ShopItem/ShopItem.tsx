@@ -98,12 +98,36 @@ export const ShopItemPage = () => {
         </div>
       </div>
 
-      <Tabs value={currentTabIndex} onChange={handleTabChange}>
-        <Tab label="Description" />
-        <Tab label="Payment and delivery" />
-        <Tab label="Exchange and return" />
-        <Tab label="Guarantees" />
-        <Tab label="About the product" />
+      <Tabs
+        className="additional-info"
+        value={currentTabIndex}
+        onChange={handleTabChange}
+      >
+        <Tab
+          className={currentTabIndex === 0 ? "active" : ""}
+          label="Description"
+          tabIndex={0}
+        />
+        <Tab
+          className={currentTabIndex === 1 ? "active" : ""}
+          label="Payment and delivery"
+          tabIndex={1}
+        />
+        <Tab
+          className={currentTabIndex === 2 ? "active" : ""}
+          label="Exchange and return"
+          tabIndex={2}
+        />
+        <Tab
+          className={currentTabIndex === 3 ? "active" : ""}
+          label="Guarantees"
+          tabIndex={3}
+        />
+        <Tab
+          className={currentTabIndex === 4 ? "active" : ""}
+          label="About the product"
+          tabIndex={4}
+        />
       </Tabs>
     </div>
   );

@@ -15,7 +15,7 @@
   .photos-sizes {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 
     .photos {
       position: relative;
@@ -116,15 +116,16 @@
   }
 
   .additional-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    button {
+      margin-right: auto;
+      color: #29292d;
 
-    li {
-      width: 215px;
-      height: 29px;
-      font-weight: 700;
-      cursor: pointer;
+      height: 19px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .active {
+      color: red;
     }
   }
 }
