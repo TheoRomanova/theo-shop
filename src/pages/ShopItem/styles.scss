@@ -116,5 +116,15 @@
   }
 
   .additional-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    li {
+      width: 215px;
+      height: 29px;
+      font-weight: 700;
+      cursor: pointer;
+    }
   }
 }

@@ -9,6 +9,10 @@ import { useState, useEffect } from "react";
 import { Loader } from "../../components/Loader/Loader";
 import { ProductType } from "../../redux/products/types";
 import { getProductInfoThunk } from "../../redux/productInfo/productInfo.thunk";
+import Tab from "@mui/material/Tab";
+import { AppBar, Box, Tabs } from "@mui/material";
+import { TabPanel } from "@mui/lab";
+import { BestSellers } from "../../components/BestSellers/Bestsellers";
 
 export const ShopItemPage = () => {
   const { id } = useParams();
@@ -31,6 +35,7 @@ export const ShopItemPage = () => {
     `https://${currentItem?.additionalImageUrls[2]} `,
   ]);
   const sizes = getSizes(37, 42);
+  const [currentTabIndex, setCurrentTabIndex] = useState(0);
 
   const updateBigProductPhoto = (photo: string, index: number) => {
     const newPhotosOrder = productPhotos.slice();
@@ -41,10 +46,15 @@ export const ShopItemPage = () => {
     setProductsPhotos(newPhotosOrder);
   };
 
+  const handleTabChange = (e: any, tabIndex: number) => {
+    console.log(tabIndex);
+    setCurrentTabIndex(tabIndex);
+  };
+
   useEffect(() => {
     currentItem && dispatch(getProductInfoThunk({ id: currentItem.id }) as any);
   }, []);
-  console.log("CURRENTITEMPAGE", currentItem);
+
   return !currentItem && !poductInfoIsLoaded ? (
     <Loader />
   ) : (
@@ -87,7 +97,16 @@ export const ShopItemPage = () => {
           </div>
         </div>
       </div>
-      <div className="additional-info"></div>
+
+      <Tabs value={currentTabIndex} onChange={handleTabChange}>
+        <Tab label="Description" />
+        <Tab label="Payment and delivery" />
+        <Tab label="Exchange and return" />
+        <Tab label="Guarantees" />
+        <Tab label="About the product" />
+      </Tabs>
     </div>
   );
 };
+
+// "additional-info"

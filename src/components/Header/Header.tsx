@@ -19,10 +19,9 @@ const Header = () => {
     !products?.length && dispatch(getProductsThunk() as any);
   }, []);
 
-  // return isLoading ? (
-  //   <Loader />
-  // ) : (
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <header className="app-header">
       <div className="promotion">
         Only three days - <span> 30% </span> discount on everything!
