@@ -10,9 +10,7 @@ import { Loader } from "../../components/Loader/Loader";
 import { ProductType } from "../../redux/products/types";
 import { getProductInfoThunk } from "../../redux/productInfo/productInfo.thunk";
 import Tab from "@mui/material/Tab";
-import { AppBar, Box, Tabs } from "@mui/material";
-import { TabPanel } from "@mui/lab";
-import { BestSellers } from "../../components/BestSellers/Bestsellers";
+import { Tabs } from "@mui/material";
 
 export const ShopItemPage = () => {
   const { id } = useParams();
@@ -49,7 +47,6 @@ export const ShopItemPage = () => {
   };
 
   const handleTabChange = (e: any, tabIndex: number) => {
-    console.log(tabIndex);
     setCurrentTabIndex(tabIndex);
   };
 
@@ -157,5 +154,3 @@ export const ShopItemPage = () => {
     </div>
   );
 };
-
-// "additional-info"
