@@ -116,6 +116,7 @@
   }
 
   .additional-info {
+    margin-bottom: 50px;
     button {
       margin-right: auto;
       color: #29292d;
@@ -126,6 +127,32 @@
     }
     .active {
       color: red;
+    }
+  }
+  .info {
+    display: flex;
+    font-size: 20px;
+    padding-top: 30px;
+
+    .info-left {
+      width: 70%;
+      padding-right: 30px;
+    }
+    .info-right {
+      li {
+        position: relative;
+        margin-bottom: 20px;
+        color: #002c6a;
+
+        span {
+          width: 233px;
+          // white-space: wrap;
+          position: absolute;
+          top: 0;
+          left: 100px;
+          font-weight: bold;
+        }
+      }
     }
   }
 }

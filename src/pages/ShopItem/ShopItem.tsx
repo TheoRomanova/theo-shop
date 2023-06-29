@@ -16,7 +16,9 @@ import { BestSellers } from "../../components/BestSellers/Bestsellers";
 
 export const ShopItemPage = () => {
   const { id } = useParams();
-  const products = useSelector((state: RootState) => state.products.products);
+  const { products, categoryName } = useSelector(
+    (state: RootState) => state.products
+  );
   const dispatch = useDispatch();
   const currentItem = products?.find(
     (shopItem: ProductType) => id && shopItem.id === +id
@@ -98,37 +100,60 @@ export const ShopItemPage = () => {
         </div>
       </div>
 
-      <Tabs
-        className="additional-info"
-        value={currentTabIndex}
-        onChange={handleTabChange}
-      >
-        <Tab
-          className={currentTabIndex === 0 ? "active" : ""}
-          label="Description"
-          tabIndex={0}
-        />
-        <Tab
-          className={currentTabIndex === 1 ? "active" : ""}
-          label="Payment and delivery"
-          tabIndex={1}
-        />
-        <Tab
-          className={currentTabIndex === 2 ? "active" : ""}
-          label="Exchange and return"
-          tabIndex={2}
-        />
-        <Tab
-          className={currentTabIndex === 3 ? "active" : ""}
-          label="Guarantees"
-          tabIndex={3}
-        />
-        <Tab
-          className={currentTabIndex === 4 ? "active" : ""}
-          label="About the product"
-          tabIndex={4}
-        />
-      </Tabs>
+      <div className="additional-info">
+        <Tabs value={currentTabIndex} onChange={handleTabChange}>
+          <Tab
+            className={currentTabIndex === 0 ? "active" : ""}
+            label="Description"
+            tabIndex={0}
+          />
+          <Tab
+            className={currentTabIndex === 1 ? "active" : ""}
+            label="Care Information"
+            tabIndex={1}
+          />
+          <Tab
+            className={currentTabIndex === 2 ? "active" : ""}
+            label="Size And Fit"
+            tabIndex={2}
+          />
+          <Tab
+            className={currentTabIndex === 3 ? "active" : ""}
+            label="Guarantees"
+            tabIndex={3}
+          />
+          <Tab
+            className={currentTabIndex === 4 ? "active" : ""}
+            label="About the product"
+            tabIndex={4}
+          />
+        </Tabs>
+        <div className="info">
+          <div className="info-left">
+            {currentTabIndex === 0 && aboutMe}
+            {currentTabIndex === 1 && careInfo}
+            {currentTabIndex === 2 && sizeAndFit}
+            {currentTabIndex === 3 && "3333"}
+            {currentTabIndex === 4 && "4444"}
+          </div>
+          <ul className="info-right">
+            <li>
+              Category <span>{categoryName}</span>
+            </li>
+            <li>
+              Model <span>{currentItem?.name}</span>
+            </li>
+            <li>Season</li>
+            <li>
+              Color{" "}
+              <span>
+                {currentItem?.colour.split("")[0].toUpperCase() +
+                  currentItem!.colour.toLowerCase().split("").slice(1).join("")}
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
