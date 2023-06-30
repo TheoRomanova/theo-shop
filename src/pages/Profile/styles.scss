@@ -1,11 +1,9 @@
 .profile-page {
+  display: flex;
   padding-right: 100px;
   //   width: 77%;
-  width: 1580px;
-  display: flex;
-  flex-direction: column;
   margin-top: 50px;
-  background-color: rgb(204, 242, 255);
+  background-color: rgb(171, 224, 255);
 
   .login-form {
     .login-input {
