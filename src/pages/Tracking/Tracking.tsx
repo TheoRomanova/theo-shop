@@ -1,9 +1,9 @@
 import "./styles.scss";
 import { ProfileNavigate } from "../../components/ProfileNavigate/ProfileNavigate";
 
-export const BasketPage = () => {
+export const TrackingPage = () => {
   return (
-    <div className="basket-page">
+    <div className="tracking-page">
       <ProfileNavigate />
     </div>
   );

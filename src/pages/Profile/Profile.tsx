@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./styles.scss";
 
 import { LoginForm } from "./LoginForm";
+import { ProfileNavigate } from "../../components/ProfileNavigate/ProfileNavigate";
 
 export const ProfilePage = () => {
   const onSumbitLoginForm = (values: any, { setSubmitting }: any) => {
@@ -13,17 +14,7 @@ export const ProfilePage = () => {
 
   return (
     <div className="profile-page">
-      <ul className="profile-navigate ">
-        <li>
-          <NavLink to="/profile" />
-        </li>
-        <li>
-          <NavLink to="/basket" />
-        </li>
-        <li>
-          <NavLink to="" />
-        </li>
-      </ul>
+      <ProfileNavigate />
       <LoginForm onSumbitLoginForm={onSumbitLoginForm} />
     </div>
   );

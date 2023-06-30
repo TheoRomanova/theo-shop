@@ -9,6 +9,7 @@ import { BasketPage } from "./pages/Basket/Basket";
 import { FavoritesPage } from "./pages/Favorites/Favorites";
 
 import { ShopItemPage } from "./pages/ShopItem/ShopItem";
+import { TrackingPage } from "./pages/Tracking/Tracking";
 
 export const App = () => {
   return (
@@ -21,6 +22,7 @@ export const App = () => {
           <Route path="/shop-item/:id" element={<ShopItemPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/basket" element={<BasketPage />} />
+          <Route path="/tracking" element={<TrackingPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
         </Routes>
       </Router>
