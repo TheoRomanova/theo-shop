@@ -16,8 +16,17 @@
     }
     form {
       display: flex;
-      flex-direction: column;
 
+      .left-form,
+      .right-form {
+        width: 470px;
+
+        display: flex;
+        flex-direction: column;
+      }
+      .left-form {
+        margin-right: 70px;
+      }
       .login-input {
         font-size: 20px;
         margin-bottom: 20px;

@@ -5,7 +5,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 export const LoginForm = ({ onSumbitLoginForm }: any) => {
   return (
     <div className="login-form">
-      <p>Personal data</p>
       <Formik
         initialValues={{ email: "", password: "", rememberMe: false }}
         validate={(values) => {
@@ -23,36 +22,57 @@ export const LoginForm = ({ onSumbitLoginForm }: any) => {
       >
         {({ isSubmitting }) => (
           <Form>
-            <Field
-              className="login-input"
-              type="email"
-              placeholder="Email"
-              name="email"
-            />
-            <ErrorMessage name="email" component="div" />
-            <Field
-              className="login-input"
-              type="password"
-              placeholder="Password"
-              name="password"
-            />
-            <ErrorMessage name="password" component="div" />
-            <Field
-              className="login-input"
-              type="checkbox"
-              placeholder="Password"
-              name="rememberMe"
-            />
-            <span>remember you?</span>
-            <ErrorMessage name="rememberMe" component="div" />
-            <Button
+            <div className="left-form">
+              <p>Personal data</p>
+              <Field
+                className="login-input"
+                type="email"
+                placeholder="Email"
+                name="email"
+              />
+              <ErrorMessage name="email" component="div" />
+              <Field
+                className="login-input"
+                type="password"
+                placeholder="Password"
+                name="password"
+              />
+              <ErrorMessage name="password" component="div" />
+              <Field
+                className="login-input"
+                type="checkbox"
+                placeholder="Password"
+                name="rememberMe"
+              />
+              <span>remember you?</span>
+              <ErrorMessage name="rememberMe" component="div" />
+            </div>
+            <div className="right-form">
+              <p>Change personal data</p>
+              <Field
+                className="login-input"
+                type="email"
+                placeholder="New email"
+                name="email"
+              />
+              <ErrorMessage name="email" component="div" />
+              <Field
+                className="login-input"
+                type="password"
+                placeholder="New Password"
+                name="password"
+              />
+              <ErrorMessage name="password" component="div" />
+            </div>
+
+            {/* <Button
               palette={"pastelle_blue"}
               size={"big"}
               type="submit"
               disabled={isSubmitting}
             >
               Submit
-            </Button>
+            </Button> */}
           </Form>
         )}
       </Formik>
