@@ -1,13 +1,41 @@
 .profile-page {
   display: flex;
   padding-right: 100px;
+
   //   width: 77%;
   margin-top: 50px;
-  background-color: rgb(171, 224, 255);
+  margin-bottom: 20px;
 
   .login-form {
-    .login-input {
-      background-color: rgb(167, 245, 206);
+    padding-top: 20px;
+    p {
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: 700;
+      color: #002c6a;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .login-input {
+        font-size: 20px;
+        margin-bottom: 20px;
+        width: 470px;
+        height: 40px;
+        border-bottom: 2px solid #002c6a;
+      }
+      .login-input[type="checkbox"] {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+      }
+      span {
+        position: relative;
+        color: rgb(114, 165, 216);
+        top: -35px;
+        left: 40px;
+      }
     }
   }
 }
