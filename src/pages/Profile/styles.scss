@@ -16,7 +16,10 @@
     }
     form {
       display: flex;
-
+      flex-wrap: wrap;
+      button {
+        margin: 0 500px 0 0;
+      }
       .left-form,
       .right-form {
         width: 470px;

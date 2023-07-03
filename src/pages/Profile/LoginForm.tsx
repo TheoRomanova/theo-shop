@@ -52,27 +52,26 @@ export const LoginForm = ({ onSumbitLoginForm }: any) => {
               <Field
                 className="login-input"
                 type="email"
-                placeholder="New email"
-                name="email"
+                placeholder="Email"
+                name="new-email"
               />
-              <ErrorMessage name="email" component="div" />
+              {/* <ErrorMessage name="new-email" component="div" /> */}
               <Field
                 className="login-input"
-                type="password"
-                placeholder="New Password"
-                name="password"
+                // type="password"
+                placeholder="Password"
+                name="new-password"
               />
-              <ErrorMessage name="password" component="div" />
-            </div>
-
-            {/* <Button
+              {/* <ErrorMessage name="new-password" component="div" /> */}
+            </div>{" "}
+            <Button
               palette={"pastelle_blue"}
               size={"big"}
               type="submit"
               disabled={isSubmitting}
             >
               Submit
-            </Button> */}
+            </Button>
           </Form>
         )}
       </Formik>
