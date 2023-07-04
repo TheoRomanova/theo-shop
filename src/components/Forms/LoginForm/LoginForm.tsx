@@ -1,4 +1,4 @@
-import { Button } from "../../atoms/Button/Button";
+import { Button } from "../../../atoms/Button/Button";
 import "./styles.scss";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 

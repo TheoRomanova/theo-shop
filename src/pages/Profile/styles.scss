@@ -5,49 +5,4 @@
   //   width: 77%;
   margin-top: 50px;
   margin-bottom: 20px;
-
-  .login-form {
-    padding-top: 20px;
-    p {
-      margin-bottom: 20px;
-      font-size: 24px;
-      font-weight: 700;
-      color: #002c6a;
-    }
-    form {
-      display: flex;
-      flex-wrap: wrap;
-      button {
-        margin: 0 500px 0 0;
-      }
-      .left-form,
-      .right-form {
-        width: 470px;
-
-        display: flex;
-        flex-direction: column;
-      }
-      .left-form {
-        margin-right: 70px;
-      }
-      .login-input {
-        font-size: 20px;
-        margin-bottom: 20px;
-        width: 470px;
-        height: 40px;
-        border-bottom: 2px solid #002c6a;
-      }
-      .login-input[type="checkbox"] {
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-      }
-      span {
-        position: relative;
-        color: rgb(114, 165, 216);
-        top: -45px;
-        left: 40px;
-      }
-    }
-  }
 }

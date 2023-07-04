@@ -1,6 +1,6 @@
 import "./styles.scss";
 
-import { LoginForm } from "./LoginForm";
+import { LoginForm } from "../../components/Forms/LoginForm/LoginForm";
 import { ProfileNavigate } from "../../components/ProfileNavigate/ProfileNavigate";
 
 export const ProfilePage = () => {
