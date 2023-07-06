@@ -16,12 +16,18 @@ interface LogiInResponse {
 
 export interface GetAuthResponse {
   resultCode: number;
-  messages: [];
+  messages: Array<string>;
   data: {
     id: number;
     email: string;
     login: string;
   };
+}
+
+export interface DeleteLoginResponse {
+  resultCode: number;
+  messages: Array<string>;
+  data: {};
 }
 
 export const AuthApi = {
@@ -32,6 +38,12 @@ export const AuthApi = {
   async logIn({ email, password, rememberMe }: ApiLoginDataType) {
     return instance2
       .post<LogiInResponse>("/auth/login", { email, password, rememberMe })
+      .then((res) => res.data);
+  },
+
+  async logout() {
+    return instance2
+      .delete<DeleteLoginResponse>("/auth/login")
       .then((res) => res.data);
   },
 };

@@ -43,3 +43,21 @@ export const GetAuthThunk = createAsyncThunk(
     }
   }
 );
+
+export const DeleteLoginThunk = createAsyncThunk(
+  "auth/getAuth",
+  async (data, { dispatch }): Promise<any> => {
+    try {
+      const response = await AuthApi.logout();
+      console.log(response);
+      if (response.resultCode === 0) {
+        return response.data;
+      }
+      if (response.resultCode === 1) {
+        return response.messages;
+      }
+    } catch (err) {
+      return err;
+    }
+  }
+);

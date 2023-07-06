@@ -7,6 +7,7 @@ import { RootState } from "../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductsThunk } from "../../redux/products/products.thunk";
 import { Loader } from "../Loader/Loader";
+import { DeleteLoginThunk } from "../../redux/auth/auth.thunk";
 
 const Header = () => {
   const { categoryName, isLoading, products } = useSelector(
@@ -20,6 +21,11 @@ const Header = () => {
   }, []);
 
   console.log("headerlogin", login);
+
+  const onLogout = () => {
+    dispatch(DeleteLoginThunk() as any);
+  };
+
   return isLoading ? (
     <Loader />
   ) : (
@@ -30,7 +36,7 @@ const Header = () => {
         </div>
 
         <div className="login">
-          <span>{login && "logout"}</span>
+          <span onClick={onLogout}>{login && "logout"}</span>
           <span>{login}</span>
         </div>
       </div>
