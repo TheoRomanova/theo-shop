@@ -1,16 +1,23 @@
 import "./styles.scss";
 import "./media.scss";
-
 import { RootState } from "../../redux/store";
 import { ErrorAlert } from "../../components/ErrorAlert/ErrorAlert";
 import { NavLink } from "react-router-dom";
 import { BestSellers } from "../../components/BestSellers/Bestsellers";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getProductsThunk } from "../../redux/products/products.thunk";
 
 export const MainPage = () => {
   const errorMessages = useSelector(
     (state: RootState) => state.auth.errorMessages
   );
+  const products = useSelector((state: RootState) => state.products.products);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    products?.length && dispatch(getProductsThunk() as any);
+  }, []);
 
   return (
     <div className="main-page">

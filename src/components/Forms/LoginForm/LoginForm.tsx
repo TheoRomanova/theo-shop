@@ -49,11 +49,10 @@ export const LoginForm = ({ onSumbitLoginForm, formName }: any) => {
             </div>
 
             <Button
-              // disabled={formName === "Change Personal data"}
+              disabled={formName === "Change Personal data"}
               palette={"pastelle_blue"}
               size={"big"}
               type="submit"
-              // disabled={isSubmitting}
             >
               Submit
             </Button>

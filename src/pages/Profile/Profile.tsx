@@ -8,10 +8,10 @@ import { RootState } from "../../redux/store";
 export const ProfilePage = () => {
   const dispatch = useDispatch();
   const { userId, login } = useSelector((state: RootState) => state.auth);
-  const onSumbitLoginForm = (values: any, { setSubmitting }: any) => {
-    alert("submit");
-    setSubmitting(false);
+  const onSumbitLoginForm = (values: any, { resetForm }: any) => {
     dispatch(LogInThunk(values) as any);
+    resetForm({ values: "" });
+    values = {};
   };
   console.log("ProfilePage", userId, login);
   return (

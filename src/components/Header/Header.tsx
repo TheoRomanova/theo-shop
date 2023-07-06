@@ -1,24 +1,21 @@
 import "./styles.scss";
 import "./media.scss";
-import React, { useEffect } from "react";
+import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Button } from "../../atoms/Button/Button";
 import { RootState } from "../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductsThunk } from "../../redux/products/products.thunk";
+
 import { Loader } from "../Loader/Loader";
 import { DeleteLoginThunk } from "../../redux/auth/auth.thunk";
 
 const Header = () => {
-  const { categoryName, isLoading, products } = useSelector(
+  const { categoryName, isLoading } = useSelector(
     (state: RootState) => state.products
   );
   const login = useSelector((state: RootState) => state.auth.login);
   const location = useLocation();
   const dispatch = useDispatch();
-  useEffect(() => {
-    !products?.length && dispatch(getProductsThunk() as any);
-  }, []);
 
   console.log("headerlogin", login);
 

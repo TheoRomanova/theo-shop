@@ -120,6 +120,7 @@
 
       .pages {
         display: flex;
+        justify-content: space-between;
         padding-bottom: 10px;
       }
       .pages li {
@@ -139,9 +140,6 @@
 
       .pages li:hover {
         color: rgb(67, 122, 243);
-      }
-      .pages li:not(:last-child) {
-        margin-right: 25px;
       }
 
       .filter-search {
