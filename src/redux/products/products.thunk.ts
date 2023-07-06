@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ProductsApi } from "../../api/api";
+
 import { setLoading } from "./products.slice";
+import { ProductsApi } from "../../api/product-api";
 export const getProductsThunk = createAsyncThunk(
   "products/getProducts",
   async (data, { dispatch }): Promise<any> => {

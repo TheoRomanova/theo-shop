@@ -12,19 +12,27 @@ const Header = () => {
   const { categoryName, isLoading, products } = useSelector(
     (state: RootState) => state.products
   );
+  const login = useSelector((state: RootState) => state.auth.login);
   const location = useLocation();
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log("HEADER", products?.length);
     !products?.length && dispatch(getProductsThunk() as any);
   }, []);
 
+  console.log("headerlogin", login);
   return isLoading ? (
     <Loader />
   ) : (
     <header className="app-header">
-      <div className="promotion">
-        Only three days - <span> 30% </span> discount on everything!
+      <div className="promotion-login">
+        <div className="promotion">
+          Only three days - <span> 30% </span> discount on everything!
+        </div>
+
+        <div className="login">
+          <span>{login && "logout"}</span>
+          <span>{login}</span>
+        </div>
       </div>
       <div className="header">
         <div className="main">
@@ -33,17 +41,19 @@ const Header = () => {
             <li> info@pika-shop.by</li>
           </ul>
           <div className="logo"></div>
-          <ul className="profile-icons">
-            <li>
-              <NavLink to="/basket" />
-            </li>
-            <li>
-              <NavLink to="/profile" />
-            </li>
-            <li>
-              <NavLink to="/favorites" />
-            </li>
-          </ul>
+          <div>
+            <ul className="profile-icons">
+              <li>
+                <NavLink to="/basket" />
+              </li>
+              <li>
+                <NavLink to="/profile" />
+              </li>
+              <li>
+                <NavLink to="/favorites" />
+              </li>
+            </ul>
+          </div>
         </div>
         <div className="navigation">
           <ul className="pages">

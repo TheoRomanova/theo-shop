@@ -1,14 +1,38 @@
 .app-header {
   margin-bottom: 25px;
 
-  .promotion {
-    padding: 2px;
+  .promotion-login {
+    padding: 7px;
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
-    text-align: center;
-    color: #ffff;
+
     background-color: #4a4949;
-    span {
-      color: #f8534e;
+
+    .promotion {
+      text-align: center;
+      span {
+        color: #f8534e;
+      }
+    }
+
+    .login {
+      position: relative;
+      top: 0;
+      left: 15%;
+      margin: 0;
+      color: rgb(255, 168, 252);
+      font-weight: bold;
+
+      span:nth-child(1) {
+        margin-right: 30px;
+        color: white;
+        font-weight: 200;
+        cursor: pointer;
+        &:hover {
+          color: rgb(41, 132, 189);
+        }
+      }
     }
   }
 

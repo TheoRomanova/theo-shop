@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ProductsApi } from "../../api/api";
+import { ProductsApi } from "../../api/product-api";
 
 interface GetProductInfoData {
   id: number;

@@ -2,7 +2,7 @@ import { Button } from "../../../atoms/Button/Button";
 import "./styles.scss";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-export const LoginForm = ({ onSumbitLoginForm }: any) => {
+export const LoginForm = ({ onSumbitLoginForm, formName }: any) => {
   return (
     <div className="login-form">
       <Formik
@@ -23,7 +23,7 @@ export const LoginForm = ({ onSumbitLoginForm }: any) => {
         {({ isSubmitting }) => (
           <Form>
             <div className="left-form">
-              <p>Personal data</p>
+              <p>{formName}</p>
               <Field
                 className="login-input"
                 type="email"
@@ -47,28 +47,13 @@ export const LoginForm = ({ onSumbitLoginForm }: any) => {
               <span>remember you?</span>
               <ErrorMessage name="rememberMe" component="div" />
             </div>
-            <div className="right-form">
-              <p>Change personal data</p>
-              <Field
-                className="login-input"
-                type="email"
-                placeholder="Email"
-                name="new-email"
-              />
-              {/* <ErrorMessage name="new-email" component="div" /> */}
-              <Field
-                className="login-input"
-                // type="password"
-                placeholder="Password"
-                name="new-password"
-              />
-              {/* <ErrorMessage name="new-password" component="div" /> */}
-            </div>{" "}
+
             <Button
+              // disabled={formName === "Change Personal data"}
               palette={"pastelle_blue"}
               size={"big"}
               type="submit"
-              disabled={isSubmitting}
+              // disabled={isSubmitting}
             >
               Submit
             </Button>
