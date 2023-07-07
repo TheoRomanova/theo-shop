@@ -11,16 +11,23 @@ import { FavoritesPage } from "./pages/Favorites/Favorites";
 import { ShopItemPage } from "./pages/ShopItem/ShopItem";
 import { TrackingPage } from "./pages/Tracking/Tracking";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { GetAuthThunk } from "./redux/auth/auth.thunk";
+import { RootState } from "./redux/store";
+import { Loader } from "./components/Loader/Loader";
+import { getProductsThunk } from "./redux/products/products.thunk";
 
 export const App = () => {
+  const products = useSelector((state: RootState) => state.products.products);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GetAuthThunk() as any);
+    dispatch(getProductsThunk() as any);
   }, []);
 
-  return (
+  return !products?.length ? (
+    <Loader />
+  ) : (
     <div className="app">
       <Router>
         <Header />
