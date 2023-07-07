@@ -120,12 +120,13 @@
 
       .pages {
         display: flex;
-        justify-content: space-between;
+        width: 60%;
+        justify-content: space-between !important;
         padding-bottom: 10px;
       }
       .pages li {
         font-weight: 700;
-        font-size: 27px;
+        font-size: 24px;
         cursor: pointer;
         a:active {
           color: #748cc4;
@@ -145,9 +146,10 @@
       .filter-search {
         display: flex;
         position: relative;
+        width: 350px;
         input {
           padding: 0;
-          width: 320px;
+
           height: 45px;
           text-indent: 20px;
           color: rgb(67, 122, 243);
