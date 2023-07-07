@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../../redux/store";
 import { Button } from "../../atoms/Button/Button";
-import { brandNames, colors, getSizes } from "../../data/data";
+import { shoesBrandNames, colors, getSizes } from "../../data/data";
 import MultiRangeSlider from "../../atoms/MultiRangeSlider/MultiRangeSlider";
 import { ShopItem } from "../../components/ShopItem/ShopItem";
 
@@ -194,7 +194,7 @@ const Shop = () => {
           </form>
           <p>Brand</p>
           <form id="form4" className="brand">
-            {brandNames.map((brand) => (
+            {shoesBrandNames.map((brand) => (
               <div>
                 <input
                   checked={currentBrand === brand}

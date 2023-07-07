@@ -22,7 +22,7 @@ export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GetAuthThunk() as any);
-    dispatch(getProductsThunk() as any);
+    dispatch(getProductsThunk({ categoryId: "4209" }) as any);
   }, []);
 
   return !products?.length ? (

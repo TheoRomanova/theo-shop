@@ -16,7 +16,7 @@ export const getSizes = (start: number, end: number) => {
   return sizes;
 };
 
-export const brandNames = [
+export const shoesBrandNames = [
   "ASOS DESIGN",
   "New Balance",
   "Lacoste",
