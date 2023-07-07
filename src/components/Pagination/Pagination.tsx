@@ -47,7 +47,7 @@ const Pagination: React.FC<Props> = ({
             className="prev-btn"
             onClick={() => onSignClick("-")}
           ></button>
-          <span>...</span>
+          <span> ... </span>
         </>
       )}
 
