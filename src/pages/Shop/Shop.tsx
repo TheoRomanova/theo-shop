@@ -1,8 +1,9 @@
 import "./styles.scss";
 import "./media.scss";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { RootState } from "../../redux/store";
 import { Button } from "../../atoms/Button/Button";
 import { shoesBrandNames, colors, getSizes } from "../../data/data";
@@ -12,6 +13,7 @@ import { ShopItem } from "../../components/ShopItem/ShopItem";
 import { Loader } from "../../components/Loader/Loader";
 import Pagination from "../../components/Pagination/Pagination";
 import { ProductType } from "../../redux/products/types";
+import { getProductsThunk } from "../../redux/products/products.thunk";
 
 const sizes = getSizes(30, 46);
 
@@ -42,6 +44,9 @@ const Shop = () => {
     setStartPositionItem((page - 1) * activeAmount);
   };
 
+  const { categoryId } = useParams();
+
+  const dispatch = useDispatch();
   const onApplyFilters = () => {
     setMobileFilterMode(false);
     filteredItems.length > 0 && setFilteredItems([]);
@@ -107,6 +112,12 @@ const Shop = () => {
     setMobileFilterMode(false);
   };
   console.log(filteredItems);
+
+  useEffect(() => {
+    console.log("SHOPPAGE USEEFFECT", categoryId);
+    categoryId && dispatch(getProductsThunk({ categoryId }) as any);
+  }, [categoryId]);
+
   return (
     <div className="shop-page">
       <Button palette={"blue"} size={"medium"} onClick={() => navigate("/")}>
@@ -218,55 +229,61 @@ const Shop = () => {
             Reset
           </Button>
         </div>
-        {!mobileFilterMode && (
-          <div className="shop-items-block">
-            <div className="options">
-              <div className="options-left">
-                {" "}
-                <label>
-                  <span className="">Sorting</span>
-                  <select name="sorting">
-                    <option value="1">by default</option>
-                    <option value="2">popular</option>
-                    <option value="3">low price</option>
-                  </select>
-                </label>
+        {!mobileFilterMode &&
+          (isLoading ? (
+            <Loader />
+          ) : (
+            <div className="shop-items-block">
+              <div className="options">
+                <div className="options-left">
+                  {" "}
+                  <label>
+                    <span className="">Sorting</span>
+                    <select name="sorting">
+                      <option value="1">by default</option>
+                      <option value="2">popular</option>
+                      <option value="3">low price</option>
+                    </select>
+                  </label>
+                </div>
+
+                <div className="options-right">
+                  {" "}
+                  <label>
+                    <span className="">Amount</span>
+                    {displayedAmountItems.map((count) => (
+                      <button
+                        disabled={
+                          filteredItems.length !== 0 &&
+                          filteredItems.length < activeAmount
+                        }
+                        className={
+                          activeAmount === count ? "button-active" : ""
+                        }
+                        onClick={() => onChangeAmountItems(count)}
+                      >
+                        {count}
+                      </button>
+                    ))}
+                  </label>
+                </div>
+              </div>
+              <div className="options-mobile">
+                <span>{categoryName}</span>
+                <button onClick={() => setMobileFilterMode(true)}>
+                  Filter
+                </button>
               </div>
 
-              <div className="options-right">
-                {" "}
-                <label>
-                  <span className="">Amount</span>
-                  {displayedAmountItems.map((count) => (
-                    <button
-                      disabled={
-                        filteredItems.length !== 0 &&
-                        filteredItems.length < activeAmount
-                      }
-                      className={activeAmount === count ? "button-active" : ""}
-                      onClick={() => onChangeAmountItems(count)}
-                    >
-                      {count}
-                    </button>
-                  ))}
-                </label>
-              </div>
-            </div>
-            <div className="options-mobile">
-              <span>{categoryName}</span>
-              <button onClick={() => setMobileFilterMode(true)}>Filter</button>
-            </div>
-            <div className="shop-items">
-              {isLoading ? <Loader /> : getProducts(filteredItems)}
-            </div>
+              <div className="shop-items">{getProducts(filteredItems)}</div>
 
-            <Pagination
-              totalItemsCount={countsForPagination}
-              portionSize={5}
-              onPageChanged={onPageChanged}
-            />
-          </div>
-        )}
+              <Pagination
+                totalItemsCount={countsForPagination}
+                portionSize={5}
+                onPageChanged={onPageChanged}
+              />
+            </div>
+          ))}
       </div>
     </div>
   );

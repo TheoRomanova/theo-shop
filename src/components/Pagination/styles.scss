@@ -20,6 +20,7 @@
   }
 
   .prev-btn {
+    left: -10px;
     border-right: 25px solid #b3c0d2;
     &:hover {
       border-right: 25px solid #9ba4b0;
@@ -27,6 +28,7 @@
   }
 
   .next-btn {
+    left: 10px;
     border-left: 25px solid #b3c0d2;
     &:hover {
       border-left: 25px solid #9ba4b0;

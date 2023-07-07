@@ -8,6 +8,12 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Loader } from "../Loader/Loader";
 import { DeleteLoginThunk } from "../../redux/auth/auth.thunk";
+const categories = [
+  { "4209": "Shoes, Boots & Sneakers" },
+  { "4208": "Jeans" },
+  { "4210": "Accessories" },
+  { "4213": "Features" },
+];
 
 const Header = () => {
   const isLoading = useSelector((state: RootState) => state.products.isLoading);
@@ -15,15 +21,11 @@ const Header = () => {
   const location = useLocation();
   const dispatch = useDispatch();
 
-  console.log("headerlogin", login);
-
   const onLogout = () => {
     dispatch(DeleteLoginThunk() as any);
   };
 
-  return isLoading ? (
-    <Loader />
-  ) : (
+  return (
     <header className="app-header">
       <div className="promotion-login">
         <div className="promotion">
@@ -58,12 +60,21 @@ const Header = () => {
         </div>
         <div className="navigation">
           <ul className="pages">
-            <li className={location.pathname === "/shop" ? "active" : ""}>
-              <NavLink to="/shop">Shoes, Boots & Sneakers</NavLink>
-            </li>
-            <li>Jeans</li>
-            <li>Accessories</li>
-            <li>Features</li>
+            {categories.map((category) => {
+              for (let [categoryId, categoryName] of Object.entries(category)) {
+                return (
+                  <li
+                    className={
+                      location.pathname === `/shop/${categoryId}`
+                        ? "active"
+                        : ""
+                    }
+                  >
+                    <NavLink to={`/shop/${categoryId}`}>{categoryName}</NavLink>
+                  </li>
+                );
+              }
+            })}
           </ul>
           <div className="filter-search">
             <input placeholder="Поиск"></input>
@@ -80,9 +91,3 @@ const Header = () => {
 };
 
 export default React.memo(Header);
-
-//"4209" - Shoes, Boots & Sneakers
-//"4208" -Jeans
-
-//  "4210" -Accessories
-//"4213" - Features

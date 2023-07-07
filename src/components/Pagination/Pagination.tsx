@@ -67,7 +67,7 @@ const Pagination: React.FC<Props> = ({
 
       {portionNumber < totalPortions && (
         <>
-          <span>...</span>
+          <span> ... </span>
           <button
             className="next-btn"
             onClick={() => onSignClick("+")}
