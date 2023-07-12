@@ -1,4 +1,5 @@
 import "./styles.scss";
+import "./media.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { RootState } from "../../redux/store";
@@ -6,11 +7,12 @@ import { RootState } from "../../redux/store";
 import { getSizes } from "../../data/data";
 import { Button } from "../../atoms/Button/Button";
 import { useState, useEffect } from "react";
-import { Loader } from "../../components/Loader/Loader";
+
 import { ProductType } from "../../redux/products/types";
 import { getProductInfoThunk } from "../../redux/productInfo/productInfo.thunk";
 import Tab from "@mui/material/Tab";
 import { Tabs } from "@mui/material";
+import { Loader } from "../../components/Loader";
 
 export const ShopItemPage = () => {
   const { id } = useParams();
