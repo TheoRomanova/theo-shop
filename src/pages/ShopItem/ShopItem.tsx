@@ -37,6 +37,7 @@ export const ShopItemPage = () => {
     `https://${currentItem?.additionalImageUrls[2]} `,
   ]);
   const sizes = getSizes(37, 42);
+  const [selectedSizes, setSelectedSizes] = useState<Array<number>>([]);
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
 
   const updateBigProductPhoto = (photo: string, index: number) => {
@@ -55,6 +56,17 @@ export const ShopItemPage = () => {
   useEffect(() => {
     currentItem && dispatch(getProductInfoThunk({ id: currentItem.id }) as any);
   }, []);
+
+  const onSelectSize = (size: number) => {
+    if (selectedSizes.includes(size)) {
+      const updatedSizes = selectedSizes.filter((val) => val !== size);
+      setSelectedSizes(updatedSizes);
+    } else {
+      setSelectedSizes([...selectedSizes, size]);
+    }
+  };
+
+  const onAddToCart = () => {};
 
   return !currentItem && !poductInfoIsLoaded ? (
     <Loader />
@@ -84,12 +96,19 @@ export const ShopItemPage = () => {
             <p>SELECT SIZE</p>
             <div className="sizes">
               {sizes.map((size) => (
-                <span>{size}</span>
+                <span
+                  className={
+                    selectedSizes.includes(size) ? "selected-size" : ""
+                  }
+                  onClick={() => onSelectSize(size)}
+                >
+                  {size}
+                </span>
               ))}
             </div>
           </div>
           <div className="buttons">
-            <Button palette={"red"} size={"big"}>
+            <Button onClick={onAddToCart} palette={"red"} size={"big"}>
               Add to cart
             </Button>
             <Button palette={"dark-blue"} size={"big"}>
