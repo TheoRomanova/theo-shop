@@ -13,6 +13,7 @@ import { getProductInfoThunk } from "../../redux/productInfo/productInfo.thunk";
 import Tab from "@mui/material/Tab";
 import { Tabs } from "@mui/material";
 import { Loader } from "../../components/Loader";
+import { putProductInBasket } from "../../redux/basket/basket.slice";
 
 export const ShopItemPage = () => {
   const { id } = useParams();
@@ -25,6 +26,10 @@ export const ShopItemPage = () => {
   );
   const { aboutMe, careInfo, sizeAndFit } = useSelector(
     (state: RootState) => state.productInfo.profuctInfo
+  );
+
+  const productsInBasket = useSelector(
+    (state: RootState) => state.basket.productsInBasket
   );
 
   const poductInfoIsLoaded = useSelector(
@@ -66,8 +71,16 @@ export const ShopItemPage = () => {
     }
   };
 
-  const onAddToCart = () => {};
+  const onAddToCart = () => {
+    const selectedProducts = [];
 
+    for (let i = 0; i < selectedSizes.length; i++) {
+      selectedProducts.push({ ...currentItem, size: selectedSizes[i] });
+    }
+    console.log(selectedProducts);
+    dispatch(putProductInBasket(selectedProducts));
+  };
+  // console.log(productsInBasket);
   return !currentItem && !poductInfoIsLoaded ? (
     <Loader />
   ) : (
@@ -108,7 +121,12 @@ export const ShopItemPage = () => {
             </div>
           </div>
           <div className="buttons">
-            <Button onClick={onAddToCart} palette={"red"} size={"big"}>
+            <Button
+              disabled={!selectedSizes.length}
+              onClick={onAddToCart}
+              palette={"red"}
+              size={"big"}
+            >
               Add to cart
             </Button>
             <Button palette={"dark-blue"} size={"big"}>
