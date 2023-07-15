@@ -15,12 +15,14 @@ import { Tabs } from "@mui/material";
 import { Loader } from "../../components/Loader";
 import { putProductInBasket } from "../../redux/basket/basket.slice";
 
+const sizes = getSizes(37, 42);
 export const ShopItemPage = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
   const { products, categoryName } = useSelector(
     (state: RootState) => state.products
   );
-  const dispatch = useDispatch();
+
   const currentItem = products?.find(
     (shopItem: ProductType) => id && shopItem.id === +id
   );
@@ -29,7 +31,8 @@ export const ShopItemPage = () => {
   );
 
   const productsInBasket = useSelector(
-    (state: RootState) => state.basket.productsInBasket
+    (state: RootState) =>
+      state.basket.productsInBasket[currentItem!.productCode]
   );
 
   const poductInfoIsLoaded = useSelector(
@@ -41,7 +44,7 @@ export const ShopItemPage = () => {
     `https://${currentItem?.additionalImageUrls[1]} `,
     `https://${currentItem?.additionalImageUrls[2]} `,
   ]);
-  const sizes = getSizes(37, 42);
+
   const [selectedSizes, setSelectedSizes] = useState<Array<number>>([]);
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
 
@@ -77,10 +80,15 @@ export const ShopItemPage = () => {
     for (let i = 0; i < selectedSizes.length; i++) {
       selectedProducts.push({ ...currentItem, size: selectedSizes[i] });
     }
-    console.log(selectedProducts);
-    dispatch(putProductInBasket(selectedProducts));
+
+    dispatch(
+      putProductInBasket({
+        productCode: currentItem?.productCode,
+        selectedProducts,
+      })
+    );
   };
-  // console.log(productsInBasket);
+  console.log("basket", productsInBasket);
   return !currentItem && !poductInfoIsLoaded ? (
     <Loader />
   ) : (
@@ -127,7 +135,7 @@ export const ShopItemPage = () => {
               palette={"red"}
               size={"big"}
             >
-              Add to cart
+              {selectedSizes.length ? "To ordering" : "Add to cart"}
             </Button>
             <Button palette={"dark-blue"} size={"big"}>
               Buy now

@@ -6,10 +6,10 @@ interface ProductBasketType extends ProductType {
 }
 
 interface State {
-  productsInBasket: Array<ProductBasketType>;
+  productsInBasket: any; //тип
 }
 const initialState: State = {
-  productsInBasket: [],
+  productsInBasket: {},
 };
 
 const basketSlice = createSlice({
@@ -17,33 +17,11 @@ const basketSlice = createSlice({
   initialState,
   reducers: {
     putProductInBasket: (state: State, action) => {
-      state.productsInBasket = [...state.productsInBasket, action.payload];
+      state.productsInBasket[action.payload.productCode] =
+        action.payload.selectedProducts;
     },
   },
-  // extraReducers: (builder) => {
-  //   builder
-  //     .addCase(getProductInfoThunk.fulfilled, (state, action) => {
-  //       console.log("getProductInfoThunk fulfilled!", action.payload);
-
-  //     })
-  //     .addCase(getProductInfoThunk.rejected, (state, action) => {
-  //       console.log("getProductInfoThunk rejected!", action.error);
-  //     });
-  // },
 });
 
 export const { putProductInBasket } = basketSlice.actions;
 export default basketSlice.reducer;
-
-// id: number;
-// name: string;
-// price: {
-//   current: {
-//     text: string;
-//   };
-// };
-// colour: string;
-// brandName: string;
-// productCode: number;
-// imageUrl: string;
-// additionalImageUrls: Array<string>;

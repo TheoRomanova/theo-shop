@@ -20,7 +20,7 @@ export const ProductsApi = {
         lang: "en-US",
       },
       headers: {
-        "X-RapidAPI-Key": "743d38dfabmsh9be1b3e8811e579p139489jsn2ed8194406b3",
+        "X-RapidAPI-Key": "4fee1c0c34msh373383f20606a9bp177c8fjsn9374dc6ec919",
         "X-RapidAPI-Host": "asos2.p.rapidapi.com",
       },
     };
@@ -45,7 +45,7 @@ export const ProductsApi = {
         currency: "USD",
       },
       headers: {
-        "X-RapidAPI-Key": "743d38dfabmsh9be1b3e8811e579p139489jsn2ed8194406b3",
+        "X-RapidAPI-Key": "4fee1c0c34msh373383f20606a9bp177c8fjsn9374dc6ec919",
         "X-RapidAPI-Host": "asos2.p.rapidapi.com",
       },
     };
