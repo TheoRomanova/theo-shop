@@ -6,7 +6,7 @@ interface ProductBasketType extends ProductType {
 }
 
 interface State {
-  productsInBasket: any; //тип
+  productsInBasket: Record<number, Array<ProductBasketType>>;
 }
 const initialState: State = {
   productsInBasket: {},
@@ -17,8 +17,9 @@ const basketSlice = createSlice({
   initialState,
   reducers: {
     putProductInBasket: (state: State, action) => {
-      state.productsInBasket[action.payload.productCode] =
-        action.payload.selectedProducts;
+      state.productsInBasket[action.payload.productCode] = [
+        ...action.payload.selectedProducts,
+      ];
     },
   },
 });

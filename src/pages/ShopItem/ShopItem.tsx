@@ -81,12 +81,15 @@ export const ShopItemPage = () => {
       selectedProducts.push({ ...currentItem, size: selectedSizes[i] });
     }
 
-    dispatch(
-      putProductInBasket({
-        productCode: currentItem?.productCode,
-        selectedProducts,
-      })
-    );
+    if (currentItem?.productCode) {
+      dispatch(
+        putProductInBasket({
+          productCode: currentItem.productCode,
+          selectedProducts,
+        })
+      );
+      setSelectedSizes([]);
+    }
   };
   console.log("basket", productsInBasket);
   return !currentItem && !poductInfoIsLoaded ? (
@@ -135,7 +138,7 @@ export const ShopItemPage = () => {
               palette={"red"}
               size={"big"}
             >
-              {selectedSizes.length ? "To ordering" : "Add to cart"}
+              {"Add to cart"}
             </Button>
             <Button palette={"dark-blue"} size={"big"}>
               Buy now
