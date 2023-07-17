@@ -1,7 +1,7 @@
 import "./styles.scss";
 import "./media.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { RootState } from "../../redux/store";
 
 import { getSizes } from "../../data/data";
@@ -19,6 +19,7 @@ const sizes = getSizes(37, 42);
 export const ShopItemPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { products, categoryName } = useSelector(
     (state: RootState) => state.products
   );
@@ -28,11 +29,6 @@ export const ShopItemPage = () => {
   );
   const { aboutMe, careInfo, sizeAndFit } = useSelector(
     (state: RootState) => state.productInfo.profuctInfo
-  );
-
-  const productsInBasket = useSelector(
-    (state: RootState) =>
-      state.basket.productsInBasket[currentItem!.productCode]
   );
 
   const poductInfoIsLoaded = useSelector(
@@ -91,7 +87,7 @@ export const ShopItemPage = () => {
       setSelectedSizes([]);
     }
   };
-  console.log("basket", productsInBasket);
+
   return !currentItem && !poductInfoIsLoaded ? (
     <Loader />
   ) : (
@@ -140,7 +136,12 @@ export const ShopItemPage = () => {
             >
               {"Add to cart"}
             </Button>
-            <Button palette={"dark-blue"} size={"big"}>
+            <Button
+              disabled={!selectedSizes.length}
+              onClick={() => navigate("/order")}
+              palette={"dark-blue"}
+              size={"big"}
+            >
               Buy now
             </Button>
           </div>

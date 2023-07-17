@@ -1,12 +1,11 @@
 import "./styles.scss";
 import "./media.scss";
-import React from "react";
+import React, { useMemo } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Button } from "../../atoms/Button/Button";
 import { RootState } from "../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Loader } from "../Loader/Loader";
 import { DeleteLoginThunk } from "../../redux/auth/auth.thunk";
 const categories = [
   { "4209": "Shoes, Boots & Sneakers" },
@@ -16,7 +15,6 @@ const categories = [
 ];
 
 const Header = () => {
-  const isLoading = useSelector((state: RootState) => state.products.isLoading);
   const login = useSelector((state: RootState) => state.auth.login);
   const location = useLocation();
   const dispatch = useDispatch();
@@ -24,7 +22,19 @@ const Header = () => {
   const onLogout = () => {
     dispatch(DeleteLoginThunk() as any);
   };
+  const productsInBasket = useSelector(
+    (state: RootState) => state.basket.productsInBasket
+  );
 
+  const productsInBusketCount = useMemo(() => {
+    let count = 0;
+    Object.values(productsInBasket).map((products) => {
+      count += products.length;
+    });
+    return count;
+  }, [productsInBasket]);
+
+  console.log("count", productsInBusketCount);
   return (
     <header className="app-header">
       <div className="promotion-login">
@@ -47,6 +57,12 @@ const Header = () => {
           <div>
             <ul className="profile-icons">
               <li>
+                {productsInBusketCount > 0 && (
+                  <span className="products-count">
+                    {productsInBusketCount}
+                  </span>
+                )}
+
                 <NavLink to="/basket" />
               </li>
               <li>

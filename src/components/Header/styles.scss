@@ -102,9 +102,23 @@
           right: 7px;
         }
 
+        li:nth-of-type(1) {
+          position: relative;
+        }
         li:nth-of-type(1) a {
           position: relative;
           background: no-repeat url(../../assets/bag.png);
+        }
+        li:nth-of-type(1) span {
+          position: absolute;
+          top: -5px;
+          right: -5px;
+          width: 20px;
+          height: 20px;
+          color: white;
+          text-align: center;
+          border-radius: 20px;
+          background-color: #ff0c0c;
         }
         li:nth-of-type(2) a {
           background: no-repeat url(../../assets/profile.png);

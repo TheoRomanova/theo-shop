@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { GetAuthThunk } from "./redux/auth/auth.thunk";
 import { getProductsThunk } from "./redux/products/products.thunk";
+import { OrderPage } from "./pages/Order/Order";
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ export const App = () => {
           <Route path="/basket" element={<BasketPage />} />
           <Route path="/tracking" element={<TrackingPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/order" element={<OrderPage />} />
         </Routes>
       </Router>
       <Footer />
