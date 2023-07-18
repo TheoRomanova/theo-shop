@@ -51,7 +51,7 @@ const Header = () => {
         <div className="main">
           <ul className="contacts">
             <li> +7 777 777 77 77</li>
-            <li> info@pika-shop.by</li>
+            <li> info@shop.by</li>
           </ul>
           <div className="logo"></div>
           <div>

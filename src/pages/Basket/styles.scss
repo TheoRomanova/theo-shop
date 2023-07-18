@@ -1,9 +1,55 @@
 .basket-page {
   padding-right: 100px;
-  //   width: 77%;
   width: 1580px;
   display: flex;
-  flex-direction: column;
   margin-top: 50px;
-  background-color: rgb(194, 250, 212);
+
+  .basket-product {
+    display: flex;
+    margin-top: 10px;
+    margin: auto;
+    margin-bottom: 40px;
+
+    // width: 1110px;
+    width: 800px;
+    border-radius: 40px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: white;
+    .basket-product-image {
+      width: 200px;
+      border-radius: 40px 0 0 20px;
+    }
+
+    .basket-product-info {
+      display: flex;
+      flex-direction: column;
+
+      padding-left: 30px;
+      padding-right: 80px;
+      padding-top: 50px;
+
+      .product_code {
+        color: grey;
+        margin-bottom: 20px;
+      }
+      .product_size-price {
+        display: flex;
+        justify-content: space-between;
+
+        .price {
+          font-size: 25px;
+          color: red;
+          font-weight: bold;
+        }
+        .size {
+          padding-left: 15px;
+          color: blue;
+          font-weight: bold;
+        }
+      }
+    }
+    .basket-product-info > div:nth-child(1) {
+      height: 120px;
+    }
+  }
 }

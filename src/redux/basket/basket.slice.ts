@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ProductType } from "../products/types";
 
-interface ProductBasketType extends ProductType {
+export interface ProductBasketType extends ProductType {
   size: number;
 }
 

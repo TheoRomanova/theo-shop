@@ -148,8 +148,7 @@ const ShopItemPage = () => {
               {"Add to cart"}
             </Button>
             <Button
-              disabled={!selectedSizes.length}
-              onClick={() => navigate("/order")}
+              onClick={() => navigate("/basket")}
               palette={"dark-blue"}
               size={"big"}
             >
