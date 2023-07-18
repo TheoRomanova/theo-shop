@@ -44,7 +44,7 @@ const Shop = () => {
     setStartPositionItem((page - 1) * activeAmount);
   };
 
-  const { categoryId } = useParams();
+  const { categoryParamsId } = useParams();
 
   const dispatch = useDispatch();
   const onApplyFilters = () => {
@@ -114,11 +114,11 @@ const Shop = () => {
   console.log(filteredItems);
 
   useEffect(() => {
-    if (categoryId && categoryId !== currentCategoryId) {
-      dispatch(setCurrentCategoryId(categoryId));
-      dispatch(getProductsThunk({ categoryId }) as any);
+    if (categoryParamsId && categoryParamsId !== currentCategoryId) {
+      dispatch(setCurrentCategoryId(categoryParamsId));
+      dispatch(getProductsThunk({ categoryId: categoryParamsId }) as any);
     }
-  }, [categoryId]);
+  }, [categoryParamsId]);
 
   return (
     <div className="shop-page">

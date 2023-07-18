@@ -29,8 +29,11 @@ export const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/shop/:categoryId" element={<ShopPage />} />
-          <Route path="/shop-item/:id" element={<ShopItemPage />} />
+          <Route path="/shop/:categoryParamsId" element={<ShopPage />} />
+          <Route
+            path="/shop-item/:productParamsId"
+            element={<ShopItemPage />}
+          />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/basket" element={<BasketPage />} />
           <Route path="/tracking" element={<TrackingPage />} />

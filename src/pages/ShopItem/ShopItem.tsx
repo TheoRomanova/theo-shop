@@ -14,11 +14,12 @@ import Tab from "@mui/material/Tab";
 import { Tabs } from "@mui/material";
 import { Loader } from "../../components/Loader";
 import { putProductInBasket } from "../../redux/basket/basket.slice";
+import { setCurrentProductId } from "../../redux/productInfo/productInfo.slice";
 
 const sizes = getSizes(37, 42);
 
 const ShopItemPage = () => {
-  const { id } = useParams();
+  const { productParamsId } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { products, categoryName } = useSelector(
@@ -26,14 +27,19 @@ const ShopItemPage = () => {
   );
 
   const currentItem = products?.find(
-    (shopItem: ProductType) => id && shopItem.id === +id
+    (shopItem: ProductType) =>
+      productParamsId && shopItem.id === +productParamsId
   );
-  const { aboutMe, careInfo, sizeAndFit } = useSelector(
-    (state: RootState) => state.productInfo.profuctInfo
+
+  const currentProductId = useSelector(
+    (state: RootState) => state.productInfo.currentProductId
   );
 
   const poductInfoIsLoaded = useSelector(
     (state: RootState) => state.productInfo.poductInfoIsLoaded
+  );
+  const { careInfo, sizeAndFit, aboutMe } = useSelector(
+    (state: RootState) => state.productInfo.profuctInfo
   );
   const [productPhotos, setProductsPhotos] = useState([
     `https://${currentItem?.imageUrl} `,
@@ -59,7 +65,12 @@ const ShopItemPage = () => {
   };
 
   useEffect(() => {
-    currentItem && dispatch(getProductInfoThunk({ id: currentItem.id }) as any);
+    if (productParamsId !== currentProductId) {
+      alert(productParamsId + "  " + currentProductId);
+      dispatch(setCurrentProductId(productParamsId));
+      currentItem &&
+        dispatch(getProductInfoThunk({ id: currentItem.id }) as any);
+    }
   }, []);
 
   const onSelectSize = (size: number) => {

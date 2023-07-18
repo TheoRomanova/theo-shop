@@ -7,6 +7,7 @@ interface State {
     sizeAndFit: string | null;
     careInfo: string;
   };
+  currentProductId: string | null;
   poductInfoIsLoaded: boolean;
 }
 const initialState: State = {
@@ -15,6 +16,7 @@ const initialState: State = {
     sizeAndFit: null,
     careInfo: "",
   },
+  currentProductId: null,
   poductInfoIsLoaded: false,
 };
 
@@ -22,9 +24,9 @@ const productInfoSlice = createSlice({
   name: "productInfo",
   initialState,
   reducers: {
-    //   setLoading: (state: State, action) => {
-    //     state.isLoading = action.payload;
-    //   },
+    setCurrentProductId: (state: State, action) => {
+      state.currentProductId = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -41,5 +43,5 @@ const productInfoSlice = createSlice({
   },
 });
 
-// export const { setLoading } = productsSlice.actions;
+export const { setCurrentProductId } = productInfoSlice.actions;
 export default productInfoSlice.reducer;
