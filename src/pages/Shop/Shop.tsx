@@ -14,6 +14,7 @@ import { Loader } from "../../components/Loader/Loader";
 import Pagination from "../../components/Pagination/Pagination";
 import { ProductType } from "../../redux/products/types";
 import { getProductsThunk } from "../../redux/products/products.thunk";
+import { setCurrentCategoryId } from "../../redux/products/products.slice";
 
 const sizes = getSizes(30, 46);
 
@@ -25,9 +26,8 @@ const Shop = () => {
   const [currentColor, setCurrentColor] = useState("");
   const [currentBrand, setCurrentBrand] = useState("");
 
-  const { products, isLoading, itemCount, categoryName } = useSelector(
-    (state: RootState) => state.products
-  );
+  const { products, isLoading, itemCount, categoryName, currentCategoryId } =
+    useSelector((state: RootState) => state.products);
 
   const [countsForPagination, setCountsForPagination] = useState(itemCount);
 
@@ -114,8 +114,10 @@ const Shop = () => {
   console.log(filteredItems);
 
   useEffect(() => {
-    console.log("SHOPPAGE USEEFFECT", categoryId);
-    categoryId && dispatch(getProductsThunk({ categoryId }) as any);
+    if (categoryId && categoryId !== currentCategoryId) {
+      dispatch(setCurrentCategoryId(categoryId));
+      dispatch(getProductsThunk({ categoryId }) as any);
+    }
   }, [categoryId]);
 
   return (

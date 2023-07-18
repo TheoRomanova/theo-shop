@@ -8,7 +8,7 @@ import { ProfilePage } from "./pages/Profile/Profile";
 import { BasketPage } from "./pages/Basket/Basket";
 import { FavoritesPage } from "./pages/Favorites/Favorites";
 
-import { ShopItemPage } from "./pages/ShopItem/ShopItem";
+import ShopItemPage from "./pages/ShopItem/ShopItem";
 import { TrackingPage } from "./pages/Tracking/Tracking";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";

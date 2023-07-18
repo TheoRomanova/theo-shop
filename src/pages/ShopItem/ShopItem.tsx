@@ -6,7 +6,7 @@ import { RootState } from "../../redux/store";
 
 import { getSizes } from "../../data/data";
 import { Button } from "../../atoms/Button/Button";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { ProductType } from "../../redux/products/types";
 import { getProductInfoThunk } from "../../redux/productInfo/productInfo.thunk";
@@ -16,7 +16,8 @@ import { Loader } from "../../components/Loader";
 import { putProductInBasket } from "../../redux/basket/basket.slice";
 
 const sizes = getSizes(37, 42);
-export const ShopItemPage = () => {
+
+const ShopItemPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -205,3 +206,5 @@ export const ShopItemPage = () => {
     </div>
   );
 };
+
+export default React.memo(ShopItemPage);

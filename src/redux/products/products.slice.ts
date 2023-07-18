@@ -7,6 +7,7 @@ interface State {
   itemCount: number;
   products: Array<ProductType> | null;
   isLoading: boolean;
+  currentCategoryId: string | null;
 }
 
 const initialState: State = {
@@ -14,6 +15,7 @@ const initialState: State = {
   itemCount: 0,
   products: null,
   isLoading: false,
+  currentCategoryId: null,
 };
 
 const productsSlice = createSlice({
@@ -22,6 +24,9 @@ const productsSlice = createSlice({
   reducers: {
     setLoading: (state: State, action) => {
       state.isLoading = action.payload;
+    },
+    setCurrentCategoryId: (state: State, action) => {
+      state.currentCategoryId = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -39,5 +44,5 @@ const productsSlice = createSlice({
   },
 });
 
-export const { setLoading } = productsSlice.actions;
+export const { setLoading, setCurrentCategoryId } = productsSlice.actions;
 export default productsSlice.reducer;
