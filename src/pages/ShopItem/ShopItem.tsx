@@ -66,7 +66,6 @@ const ShopItemPage = () => {
 
   useEffect(() => {
     if (productParamsId !== currentProductId) {
-      alert(productParamsId + "  " + currentProductId);
       dispatch(setCurrentProductId(productParamsId));
       currentItem &&
         dispatch(getProductInfoThunk({ id: currentItem.id }) as any);
