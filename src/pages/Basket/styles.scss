@@ -6,12 +6,10 @@
 
   .basket-product {
     display: flex;
+    width: 800px;
     margin-top: 10px;
     margin: auto;
     margin-bottom: 40px;
-
-    // width: 1110px;
-    width: 800px;
     border-radius: 40px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     background-color: white;
@@ -22,10 +20,11 @@
 
     .basket-product-info {
       display: flex;
+      width: 550px;
       flex-direction: column;
 
       padding-left: 30px;
-      padding-right: 80px;
+
       padding-top: 50px;
 
       .product_code {

@@ -14,7 +14,7 @@ export const BasketProduct = ({ product }: Props) => {
       ></img>
       <div className="basket-product-info">
         <div>
-          <h1>{product.name}</h1>
+          <h2>{product.name}</h2>
           <span className="product_code">
             Product code: {product.productCode}
           </span>
