@@ -2,6 +2,7 @@
   padding-right: 100px;
   width: 1580px;
   display: flex;
+  flex-direction: column;
   margin-top: 50px;
 
   .basket-product {
@@ -13,19 +14,45 @@
     border-radius: 40px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     background-color: white;
+    cursor: pointer;
+
     .basket-product-image {
       width: 200px;
       border-radius: 40px 0 0 20px;
     }
 
     .basket-product-info {
+      position: relative;
       display: flex;
+      justify-content: space-between;
       width: 550px;
       flex-direction: column;
 
       padding-left: 30px;
 
       padding-top: 50px;
+
+      .remove-product {
+        position: absolute;
+        right: -50px;
+        top: -10px;
+        width: 44px;
+        height: 44px !important;
+        text-align: center;
+        font-size: 25px;
+
+        color: white;
+        background-color: #29292d;
+
+        border-radius: 50px;
+        background-image: url("../../assets/remove.png");
+        background-repeat: no-repeat;
+        background-position: 50%;
+
+        &:hover {
+          background-color: #212123;
+        }
+      }
 
       .product_code {
         color: grey;
@@ -34,6 +61,7 @@
       .product_size-price {
         display: flex;
         justify-content: space-between;
+        padding-bottom: 40px;
 
         .price {
           font-size: 25px;
@@ -50,5 +78,19 @@
     .basket-product-info > div:nth-child(1) {
       height: 120px;
     }
+  }
+  .sum-of-products {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .sum-of-products span:nth-child(1) {
+    font-size: 20px;
+  }
+
+  .sum-of-products span:nth-child(2) {
+    font-size: 30px;
+    font-weight: bold;
+    color: red;
   }
 }
