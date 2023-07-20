@@ -1,13 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { ProductBasketType } from "../../redux/basket/basket.slice";
+import { MouseEventHandler } from "react";
 
 interface Props {
   product: ProductBasketType;
+  onRemoveProduct: any;
 }
 
-export const BasketProduct = ({ product }: Props) => {
-  console.log("Basket", product);
+export const BasketProduct = ({ product, onRemoveProduct }: Props) => {
   const navigate = useNavigate();
+
   return (
     <div className="basket-product">
       <img
@@ -16,7 +18,7 @@ export const BasketProduct = ({ product }: Props) => {
         className="basket-product-image"
       ></img>
       <div className="basket-product-info">
-        <div className="remove-product"></div>
+        <div className="remove-product" onClick={onRemoveProduct}></div>
         <div>
           <h2>{product.name}</h2>
           <span className="product_code">

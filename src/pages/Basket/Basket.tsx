@@ -1,9 +1,10 @@
 import "./styles.scss";
 import { ProfileNavigate } from "../../components/ProfileNavigate/ProfileNavigate";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { RootState } from "../../redux/store";
 import { BasketProduct } from "./BasketProduct";
+import { updateProductInBasket } from "../../redux/basket/basket.slice";
 
 export const BasketPage = () => {
   const productsInBasket = useSelector(
@@ -20,7 +21,7 @@ export const BasketPage = () => {
 
   const [totalSum, setTotalSum] = useState(0);
   const [products, setProducts] = useState(getProducts());
-
+  const dispatch = useDispatch();
   const getTotalSum = () => {
     let sum = 0;
     [...products].forEach((product) => {
@@ -38,6 +39,19 @@ export const BasketPage = () => {
     getTotalSum();
   }, [productsInBasket]);
 
+  const onRemoveProduct = (productCode: number, size: number) => {
+    const obj = Object.assign({}, productsInBasket);
+
+    if (obj[productCode]) {
+      console.log(obj[productCode]);
+
+      obj[productCode].filter((item) => item.size !== size);
+    }
+
+    console.log("basket", obj);
+    // dispatch(updateProductInBasket(obj));
+  };
+
   return (
     <div className="basket-page">
       <ProfileNavigate />
@@ -45,7 +59,14 @@ export const BasketPage = () => {
         {!Object.entries(productsInBasket).length ? (
           <div>your basket is empty</div>
         ) : (
-          products?.map((product: any) => <BasketProduct product={product} />)
+          products?.map((product: any) => (
+            <BasketProduct
+              product={product}
+              onRemoveProduct={() =>
+                onRemoveProduct(product.productCode, product.size)
+              }
+            />
+          ))
         )}
       </div>
       <div className="sum-of-products">
@@ -55,3 +76,16 @@ export const BasketPage = () => {
     </div>
   );
 };
+
+// id: number;
+// name: string;
+// price: {
+//   current: {
+//     text: string;
+//   };
+// };
+// colour: string;
+// brandName: string;
+// productCode: number;
+// imageUrl: string;
+// additionalImageUrls: Array<string>;

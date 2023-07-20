@@ -21,8 +21,13 @@ const basketSlice = createSlice({
         ...action.payload.selectedProducts,
       ];
     },
+    updateProductInBasket: (state: State, action) => {
+      console.log("DFFF", action.payload);
+      state.productsInBasket = action.payload;
+    },
   },
 });
 
-export const { putProductInBasket } = basketSlice.actions;
+export const { putProductInBasket, updateProductInBasket } =
+  basketSlice.actions;
 export default basketSlice.reducer;
