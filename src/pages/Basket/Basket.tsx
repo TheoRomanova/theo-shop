@@ -1,7 +1,7 @@
 import "./styles.scss";
 import { ProfileNavigate } from "../../components/ProfileNavigate/ProfileNavigate";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { RootState } from "../../redux/store";
 import { BasketProduct } from "./BasketProduct";
 import { updateProductInBasket } from "../../redux/basket/basket.slice";
@@ -10,48 +10,43 @@ export const BasketPage = () => {
   const productsInBasket = useSelector(
     (state: RootState) => state.basket.productsInBasket
   );
-
-  const getProducts = () => {
-    let productS = [] as any;
-    Object.entries(productsInBasket).map((item) => {
-      item[1].forEach((obj) => productS.push(obj));
-    });
-    return productS;
-  };
-
   const [totalSum, setTotalSum] = useState(0);
-  const [products, setProducts] = useState(getProducts());
+  const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
-  const getTotalSum = () => {
-    let sum = 0;
-    [...products].forEach((product) => {
-      let productSum = parseInt(
-        product.price.current.text.split("").slice(1).join("")
-      );
-      sum += productSum;
-    });
 
+  const getProducts = useCallback(() => {
+    let arr = [] as any;
+    Object.entries(productsInBasket).map((item) => {
+      item[1].forEach((obj) => arr.push(obj));
+    });
+    console.log("PRODUCTS1", arr);
+
+    let sum = 0;
+    arr.length &&
+      [...arr].forEach((product) => {
+        let productSum = parseInt(
+          product.price.current.text.split("").slice(1).join("")
+        );
+        sum += productSum;
+      });
     setTotalSum(sum);
-  };
+    setProducts(arr);
+  }, [productsInBasket]);
 
   useEffect(() => {
     getProducts();
-    getTotalSum();
   }, [productsInBasket]);
 
   const onRemoveProduct = (productCode: number, size: number) => {
     const obj = Object.assign({}, productsInBasket);
 
     if (obj[productCode]) {
-      console.log(obj[productCode]);
-
-      obj[productCode].filter((item) => item.size !== size);
+      let newArr = obj[productCode].filter((el) => Number(el.size) !== size);
+      newArr.length ? (obj[productCode] = newArr) : delete obj[productCode];
+      dispatch(updateProductInBasket(obj));
     }
-
-    console.log("basket", obj);
-    // dispatch(updateProductInBasket(obj));
   };
-
+  console.log("productsInBasket", productsInBasket);
   return (
     <div className="basket-page">
       <ProfileNavigate />
@@ -70,22 +65,9 @@ export const BasketPage = () => {
         )}
       </div>
       <div className="sum-of-products">
-        <span>Сумма к оплате:</span>
+        <span>Amount payable:</span>
         <span> ${totalSum} </span>
       </div>
     </div>
   );
 };
-
-// id: number;
-// name: string;
-// price: {
-//   current: {
-//     text: string;
-//   };
-// };
-// colour: string;
-// brandName: string;
-// productCode: number;
-// imageUrl: string;
-// additionalImageUrls: Array<string>;
