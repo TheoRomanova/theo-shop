@@ -1,41 +1,17 @@
 import { instance2 } from "./api";
-
-export interface ApiLoginDataType {
-  email: string;
-  password: string;
-  rememberMe: boolean;
-}
-
-interface LogiInResponse {
-  resultCode: number;
-  messages: [];
-  data: {
-    userId: number;
-  };
-}
-
-export interface GetAuthResponse {
-  resultCode: number;
-  messages: Array<string>;
-  data: {
-    id: number;
-    email: string;
-    login: string;
-  };
-}
-
-export interface DeleteLoginResponse {
-  resultCode: number;
-  messages: Array<string>;
-  data: {};
-}
+import {
+  ApiLoginData,
+  DeleteLoginResponse,
+  GetAuthResponse,
+  LogiInResponse,
+} from "./types";
 
 export const AuthApi = {
   async getAuth() {
     return instance2.get<GetAuthResponse>("auth/me").then((res) => res.data);
   },
 
-  async logIn({ email, password, rememberMe }: ApiLoginDataType) {
+  async logIn({ email, password, rememberMe }: ApiLoginData) {
     return instance2
       .post<LogiInResponse>("/auth/login", { email, password, rememberMe })
       .then((res) => res.data);

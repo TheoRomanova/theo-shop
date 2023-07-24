@@ -1,28 +1,15 @@
 import "./styles.scss";
-
-type Palette =
-  | "pink"
-  | "rose-purple"
-  | "purple"
-  | "blue"
-  | "pastelle_blue"
-  | "pastelle_purple"
-  | "pastelle_lightblue"
-  | "pastelle_yellow"
-  | "dark-blue"
-  | "red";
-
-type Size = "medium" | "big" | "semicircle";
+import React from "react";
+import { PaletteButton, SizeButton } from "./types";
 
 interface Props {
-  palette: Palette;
-  size: Size;
-  rest?: any;
-  children: any;
+  palette: PaletteButton;
+  size: SizeButton;
+  rest?: string;
+  children: React.ReactNode;
 }
 
-export const Button = (props: any) => {
-  // console.log("BUTTON", props);
+export const Button = (props: Props) => {
   return (
     <button
       className={`atom-button ${props.palette} ${props.size} ${props.rest}`}

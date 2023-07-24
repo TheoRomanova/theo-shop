@@ -8,11 +8,12 @@ import {
 } from "react";
 import classnames from "classnames";
 import "./styles.scss";
+import React from "react";
 
 interface MultiRangeSliderProps {
   min: number;
   max: number;
-  onChange: Function;
+  onChange: ({ min, max }: { min: number; max: number }) => void;
 }
 
 const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
@@ -32,7 +33,6 @@ const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
     [min, max]
   );
 
-  // Set width of the range to decrease from the left side
   useEffect(() => {
     if (maxValRef.current) {
       const minPercent = getPercent(minVal);

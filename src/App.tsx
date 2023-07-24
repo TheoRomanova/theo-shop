@@ -1,4 +1,7 @@
 import "./App.scss";
+import React from "react";
+
+import { AppDispatch } from "./redux/store";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Footer } from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -7,7 +10,6 @@ import ShopPage from "./pages/Shop/Shop";
 import { ProfilePage } from "./pages/Profile/Profile";
 import { BasketPage } from "./pages/Basket/Basket";
 import { FavoritesPage } from "./pages/Favorites/Favorites";
-
 import ShopItemPage from "./pages/ShopItem/ShopItem";
 import { TrackingPage } from "./pages/Tracking/Tracking";
 import { useEffect } from "react";
@@ -16,11 +18,11 @@ import { GetAuthThunk } from "./redux/auth/auth.thunk";
 import { getProductsThunk } from "./redux/products/products.thunk";
 
 export const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-    dispatch(GetAuthThunk() as any);
-    dispatch(getProductsThunk({ categoryId: "4209" }) as any); //other
-  }, []);
+    dispatch(GetAuthThunk());
+    dispatch(getProductsThunk({ categoryId: "4209" }));
+  }, [dispatch]);
 
   return (
     <div className="app">

@@ -1,16 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getProductsThunk } from "./products.thunk";
-import { ProductType } from "./types";
+import { ProductsState } from "./types";
 
-interface State {
-  categoryName: string;
-  itemCount: number;
-  products: Array<ProductType> | null;
-  isLoading: boolean;
-  currentCategoryId: string | null;
-}
-
-const initialState: State = {
+const initialState: ProductsState = {
   categoryName: "",
   itemCount: 0,
   products: null,
@@ -22,10 +14,10 @@ const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    setLoading: (state: State, action) => {
+    setLoading: (state: ProductsState, action) => {
       state.isLoading = action.payload;
     },
-    setCurrentCategoryId: (state: State, action) => {
+    setCurrentCategoryId: (state: ProductsState, action) => {
       state.currentCategoryId = action.payload;
     },
   },

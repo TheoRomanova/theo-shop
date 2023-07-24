@@ -1,8 +1,6 @@
 import axios from "axios";
 
-import { GetProductInfoResponse, GetProductsResponse } from "./types";
-
-//4209
+import { GetProductInfoResponse } from "./types";
 
 export const ProductsApi = {
   async getProducts(categoryId: string, sortBy: string = "freshness") {

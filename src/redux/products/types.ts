@@ -1,3 +1,11 @@
+export interface ProductsState {
+  categoryName: string;
+  itemCount: number;
+  products: Array<ProductType> | null;
+  isLoading: boolean;
+  currentCategoryId: string | null;
+}
+
 export interface ProductType {
   id: number;
   name: string;
