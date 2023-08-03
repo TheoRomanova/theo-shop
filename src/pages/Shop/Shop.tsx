@@ -90,14 +90,14 @@ const Shop = () => {
       return filtered
         ?.slice(startPositionItem, startPositionItem + activeAmount)
         .map((item: any) => {
-          return <ShopItem product={item} />;
+          return <ShopItem key={item.id} product={item} />;
         });
     } else {
       if (products && !filterMode) {
         return products
           ?.slice(startPositionItem, startPositionItem + activeAmount)
           .map((item) => {
-            return <ShopItem product={item} />;
+            return <ShopItem key={item.id} product={item} />;
           });
       } else {
         return <p>there are no filtered items</p>;
@@ -134,7 +134,7 @@ const Shop = () => {
           <p>Size</p>
           <form id="form1" className="sizes">
             {sizes.map((size) => (
-              <div className="size">
+              <div key={size} className="size">
                 <input
                   type="checkbox"
                   id={size.toString()}
@@ -208,7 +208,7 @@ const Shop = () => {
           <p>Brand</p>
           <form id="form4" className="brand">
             {shoesBrandNames.map((brand) => (
-              <div>
+              <div key={brand}>
                 <input
                   checked={currentBrand === brand}
                   type="checkbox"
@@ -255,6 +255,7 @@ const Shop = () => {
                     <span className="">Amount</span>
                     {displayedAmountItems.map((count) => (
                       <button
+                        key={count}
                         disabled={
                           filteredItems.length !== 0 &&
                           filteredItems.length < activeAmount

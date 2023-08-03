@@ -77,7 +77,9 @@ const Header = () => {
         <div className="navigation">
           <ul className="pages">
             {categories.map((category) => {
-              for (let [categoryId, categoryName] of Object.entries(category)) {
+              for (const [categoryId, categoryName] of Object.entries(
+                category
+              )) {
                 return (
                   <li
                     className={
@@ -94,9 +96,17 @@ const Header = () => {
           </ul>
           <div className="filter-search">
             <input placeholder="Поиск"></input>
-            <Button palette={"blue"} size={"semicircle"} rest={"search-btn"} />
+            <Button
+              palette={"blue"}
+              size={"semicircle"}
+              otherClassName={"search-btn"}
+            />
 
-            <Button palette={"blue"} size={"semicircle"} rest={"menu-btn"}>
+            <Button
+              palette={"blue"}
+              size={"semicircle"}
+              otherClassName={"menu-btn"}
+            >
               Menu
             </Button>
           </div>

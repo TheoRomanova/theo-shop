@@ -5,10 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useCallback, useEffect, useState } from "react";
 import { RootState } from "../../redux/store";
 import { BasketProduct } from "./BasketProduct";
-import {
-  ProductBasketType,
-  updateProductInBasket,
-} from "../../redux/basket/basket.slice";
+import { ProductBasketType } from "../../redux/basket/types";
+import { updateProductInBasket } from "../../redux/basket/basket.slice";
 
 export const BasketPage = () => {
   const productsInBasket = useSelector(

@@ -1,15 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { GetAuthThunk, LogInThunk } from "./auth.thunk";
+import { AuthState } from "./types";
 
-interface State {
-  email: string;
-  password: string;
-  rememberMe: boolean;
-  userId?: number | null;
-  login: string;
-  errorMessages: Array<string>;
-}
-const initialState: State = {
+const initialState: AuthState = {
   email: "",
   password: "",
   rememberMe: false,
@@ -21,19 +14,13 @@ const initialState: State = {
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {
-    //   setLoading: (state: State, action) => {
-    //     state.isLoading = action.payload;
-    //   },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(LogInThunk.fulfilled, (state, action) => {
         state.email = action.payload.email;
         state.password = action.payload.password;
         state.rememberMe = action.payload.rememberMe;
-
-        // state.errorMessages = action.payload.messages;
         console.log("LogInThunk fulfilled!", action.payload);
       })
       .addCase(LogInThunk.rejected, (state, action) => {

@@ -1,16 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getProductInfoThunk } from "./productInfo.thunk";
+import { ProductState } from "./types";
 
-interface State {
-  profuctInfo: {
-    aboutMe: string;
-    sizeAndFit: string | null;
-    careInfo: string;
-  };
-  currentProductId: string | null;
-  poductInfoIsLoaded: boolean;
-}
-const initialState: State = {
+const initialState: ProductState = {
   profuctInfo: {
     aboutMe: "",
     sizeAndFit: null,
@@ -24,7 +16,7 @@ const productInfoSlice = createSlice({
   name: "productInfo",
   initialState,
   reducers: {
-    setCurrentProductId: (state: State, action) => {
+    setCurrentProductId: (state: ProductState, action) => {
       state.currentProductId = action.payload;
     },
   },

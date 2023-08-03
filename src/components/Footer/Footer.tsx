@@ -1,4 +1,5 @@
 import "./styles.scss";
+import React from "react";
 import "./media.scss";
 import { Button } from "../../atoms/Button/Button";
 

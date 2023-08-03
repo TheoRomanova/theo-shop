@@ -1,14 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ProductType } from "../products/types";
+import { BasketState } from "./types";
 
-export interface ProductBasketType extends ProductType {
-  size: number;
-}
-
-interface State {
-  productsInBasket: Record<number, Array<ProductBasketType>>;
-}
-const initialState: State = {
+const initialState: BasketState = {
   productsInBasket: {},
 };
 
@@ -16,12 +9,12 @@ const basketSlice = createSlice({
   name: "basket",
   initialState,
   reducers: {
-    putProductInBasket: (state: State, action) => {
+    putProductInBasket: (state: BasketState, action) => {
       state.productsInBasket[action.payload.productCode] = [
         ...action.payload.selectedProducts,
       ];
     },
-    updateProductInBasket: (state: State, action) => {
+    updateProductInBasket: (state: BasketState, action) => {
       console.log("DFFF", action.payload);
       state.productsInBasket = action.payload;
     },

@@ -1,6 +1,6 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { ProductBasketType } from "../../redux/basket/basket.slice";
-import { MouseEventHandler } from "react";
+import { ProductBasketType } from "../../redux/basket/types";
 
 interface Props {
   product: ProductBasketType;

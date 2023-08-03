@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "../../../atoms/Button/Button";
 import "./styles.scss";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -20,7 +21,7 @@ export const LoginForm = ({ onSumbitLoginForm, formName }: any) => {
         }}
         onSubmit={onSumbitLoginForm}
       >
-        {({ isSubmitting }) => (
+        {() => (
           <Form>
             <div className="left-form">
               <p>{formName}</p>

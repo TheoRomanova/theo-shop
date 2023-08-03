@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
-import { ApiLoginDataType, AuthApi } from "../../api/auth.api";
+import { ApiLoginDataType } from "./types";
+import { AuthApi } from "../../api/auth.api";
 
 export const LogInThunk = createAsyncThunk(
   "auth/logIn",
@@ -11,24 +11,20 @@ export const LogInThunk = createAsyncThunk(
     try {
       const response = await AuthApi.logIn({ email, password, rememberMe });
       console.log(response.resultCode);
+
       if (response.resultCode === 0) {
-        if (response.resultCode === 0) {
-          dispatch(GetAuthThunk());
-          return { email, password, rememberMe };
-        }
-      } else {
-        //вызвать капчу
-        console.log("LogInThunk Error");
+        dispatch(GetAuthThunk());
+        return { email, password, rememberMe };
       }
     } catch (err) {
-      throw err;
+      return err;
     }
   }
 );
 
 export const GetAuthThunk = createAsyncThunk(
   "auth/getAuth",
-  async (data, { dispatch }): Promise<any> => {
+  async (): Promise<any> => {
     try {
       const response = await AuthApi.getAuth();
       console.log(response);
@@ -46,7 +42,7 @@ export const GetAuthThunk = createAsyncThunk(
 
 export const DeleteLoginThunk = createAsyncThunk(
   "auth/getAuth",
-  async (data, { dispatch }): Promise<any> => {
+  async (): Promise<any> => {
     try {
       const response = await AuthApi.logout();
       console.log(response);

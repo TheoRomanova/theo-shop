@@ -1,8 +1,8 @@
 import { ProductType } from "../redux/products/types";
 export interface ProductInfo {
-  aboutMe: string;
-  sizeAndFit: string;
-  careInfo: string;
+  aboutMe?: string;
+  sizeAndFit?: string;
+  careInfo?: string;
 }
 
 export interface ApiLoginData {
@@ -50,4 +50,6 @@ export interface GetAuthResponse {
 export interface DeleteLoginResponse {
   resultCode: number;
   messages: Array<string>;
+  data: object;
+  fieldsErrors: [];
 }

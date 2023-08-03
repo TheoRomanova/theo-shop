@@ -1,21 +1,20 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ProductsApi } from "../../api/product-api";
+import { ProductInfo } from "../../api/types";
 
 interface GetProductInfoData {
   id: number;
 }
+
 export const getProductInfoThunk = createAsyncThunk(
   "products/getProductInfo",
-  async ({ id }: GetProductInfoData, { dispatch }): Promise<any> => {
+  async ({ id }: GetProductInfoData): Promise<ProductInfo> => {
     try {
-      console.log(
-        "getProductInfoThunkgetProductInfoThunkgetProductInfoThunkgetProductInfoThunk"
-      );
       const data = await ProductsApi.getMoreProductInfo(id);
       console.log(data, "data");
-      return data?.info;
+      return data!.info;
     } catch (err) {
-      throw err;
+      return err as any;
     }
   }
 );
