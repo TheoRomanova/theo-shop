@@ -53,7 +53,7 @@ const ShopItemPage = () => {
 
   const updateBigProductPhoto = (photo: string, index: number) => {
     const newPhotosOrder = productPhotos.slice();
-    let temp = productPhotos[0];
+    const temp = productPhotos[0];
     newPhotosOrder[index] = temp;
     newPhotosOrder[0] = photo;
 
@@ -115,6 +115,7 @@ const ShopItemPage = () => {
           <div className="small-photos">
             {productPhotos.slice(1).map((photo, index) => (
               <img
+                key={index}
                 src={photo}
                 onClick={() => updateBigProductPhoto(photo, index + 1)}
               ></img>
@@ -128,6 +129,7 @@ const ShopItemPage = () => {
             <div className="sizes">
               {sizes.map((size) => (
                 <span
+                  key={size}
                   className={
                     selectedSizes.includes(size) ? "selected-size" : ""
                   }

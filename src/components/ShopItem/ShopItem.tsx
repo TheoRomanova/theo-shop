@@ -16,7 +16,7 @@ const onAddItemToFavorites = (product: ProductType) => {
 
 export const ShopItem = ({ product }: Props) => {
   return (
-    <div className="shop-item">
+    <div key={product.id} className="shop-item">
       <NavLink to={`/shop-item/${product.id}`}>
         <img src={`https://${product.imageUrl} `}></img>
         <div className="description">

@@ -1,7 +1,6 @@
 import "./styles.scss";
 import { Button } from "antd";
 import React, { useMemo, useState } from "react";
-import { CustomLoader } from "../Loader/loader.stories";
 
 interface Props {
   portionSize: number;

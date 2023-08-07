@@ -1,14 +1,8 @@
-import {
-  NavLink,
-  useLocation,
-  useNavigate,
-  useNavigation,
-} from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import React from "react";
 import "./styles.scss";
-import { useState } from "react";
-export const ProfileNavigate = () => {
-  // const [currentPath, setCurrentPath] = useState("/profile");
 
+export const ProfileNavigate = () => {
   const location = useLocation();
 
   return (

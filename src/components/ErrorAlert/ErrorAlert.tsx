@@ -1,4 +1,5 @@
 import "./styles.scss";
+import React from "react";
 import { useState, useEffect } from "react";
 
 export const ErrorAlert = ({ message }: any) => {

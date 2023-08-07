@@ -1,4 +1,5 @@
 import "./styles.scss";
+import React from "react";
 import "./media.scss";
 import { RootState } from "../../redux/store";
 import { ErrorAlert } from "../../components/ErrorAlert/ErrorAlert";

@@ -1,14 +1,13 @@
 import "./styles.scss";
 import "./media.scss";
+import React from "react";
 import { useEffect, useState } from "react";
 import { ShopItem } from "../ShopItem/ShopItem";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
 
 export const BestSellers = () => {
-  const { itemCount, products, isLoading } = useSelector(
-    (state: RootState) => state.products
-  );
+  const { products } = useSelector((state: RootState) => state.products);
   const indexForChangeCrumb = [3, 7, 11, 15, 19];
   const crumbs = [0, 1, 2, 3, 4];
   const [currentCrumb, setCurrentCrumb] = useState(0);
@@ -49,7 +48,7 @@ export const BestSellers = () => {
 
       <ul>
         {bestellers?.slice(portionStart, portionEnd).map((item) => (
-          <ShopItem product={item} />
+          <ShopItem key={item.id} product={item} />
         ))}
       </ul>
 
@@ -59,6 +58,7 @@ export const BestSellers = () => {
       <div className="crumbs">
         {crumbs.map((crumb) => (
           <button
+            key={crumb}
             className={currentCrumb === crumb ? "active-crumb crumb" : "crumb"}
             onClick={() => onChangeCrumb(crumb)}
           ></button>
