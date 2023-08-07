@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { GetAuthThunk } from "./redux/auth/auth.thunk";
 import { getProductsThunk } from "./redux/products/products.thunk";
+import { favoritesStore } from "./mobx/store";
 
 export const App = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -38,7 +39,10 @@ export const App = () => {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/basket" element={<BasketPage />} />
           <Route path="/tracking" element={<TrackingPage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
+          <Route
+            path="/favorites"
+            element={<FavoritesPage store={favoritesStore} />}
+          />
         </Routes>
       </Router>
       <Footer />
