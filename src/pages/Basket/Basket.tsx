@@ -4,9 +4,10 @@ import { ProfileNavigate } from "../../components/ProfileNavigate/ProfileNavigat
 import { useDispatch, useSelector } from "react-redux";
 import { useCallback, useEffect, useState } from "react";
 import { RootState } from "../../redux/store";
-import { BasketProduct } from "./BasketProduct";
+
 import { ProductBasketType } from "../../redux/basket/types";
 import { updateProductInBasket } from "../../redux/basket/basket.slice";
+import { Product } from "../../components/Product/Product";
 
 export const BasketPage = () => {
   const productsInBasket = useSelector(
@@ -57,7 +58,7 @@ export const BasketPage = () => {
           <div>your basket is empty</div>
         ) : (
           products?.map((product: ProductBasketType) => (
-            <BasketProduct
+            <Product
               key={product.id}
               product={product}
               onRemoveProduct={() =>

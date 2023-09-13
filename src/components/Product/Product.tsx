@@ -1,23 +1,24 @@
 import React from "react";
+import "./styles.scss";
 import { useNavigate } from "react-router-dom";
 import { ProductBasketType } from "../../redux/basket/types";
 
 interface Props {
   product: ProductBasketType;
-  onRemoveProduct: any;
+  onRemoveProduct(): void;
 }
 
-export const BasketProduct = ({ product, onRemoveProduct }: Props) => {
+export const Product = ({ product, onRemoveProduct }: Props) => {
   const navigate = useNavigate();
 
   return (
-    <div className="basket-product">
+    <div className="product">
       <img
         onClick={() => navigate(`/shop-item/${product.id}`)}
         src={`https://${product.imageUrl}`}
-        className="basket-product-image"
+        className="product-image"
       ></img>
-      <div className="basket-product-info">
+      <div className="product-info">
         <div className="remove-product" onClick={onRemoveProduct}></div>
         <div>
           <h2>{product.name}</h2>
